@@ -193,7 +193,7 @@ GlotEval includes two important utility tools that enhance its multilingual capa
 
 The language alignment tool standardizes language codes from various benchmarks to the ISO 639-3 format with script information (e.g., `eng_Latn`, `zho_Hans`). This enables seamless cross-benchmark language-specific evaluation.
 
-[📘 Read more about Language ID Alignment](https://chatgpt.com/benchmark_data_loader/data_langid_alignment/README.md)
+[📘 Read more about Language ID Alignment](https://github.com/MaLA-LM/GlotEval/blob/main/benchmark_data_loader/data_langid_alignment/README.md)
 
 Features:
 
@@ -206,7 +206,7 @@ Features:
 
 This tool helps create and manage prompts in multiple languages for all evaluation tasks.
 
-[📘 Read more about the Multilingual Prompt Builder](https://chatgpt.com/benchmark_data_loader/multilingual_prompt_builder/README.md)
+[📘 Read more about the Multilingual Prompt Builder](https://github.com/MaLA-LM/GlotEval/blob/main/benchmark_data_loader/multilingual_prompt_builder/README.md)
 
 Features:
 
