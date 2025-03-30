@@ -1,0 +1,914 @@
+{
+    "model_signature": "meta-llama/Llama-2-7b-hf",
+    "test_time": "20250324_184926",
+    "benchmarks": {
+        "ntrex128": {
+            "metric": "BLEU, ChrF++, COMET",
+            "benchmark_params": {
+                "n_shots": 0,
+                "prompt_strategy": "single",
+                "prompt_language": "zho_Hans",
+                "central_lang": "eng-US",
+                "direction": "center-x"
+            },
+            "results": {
+                "eng-US->sqi": {
+                    "bleu_score": 1.008360307344031,
+                    "chrf_score": 7.849145594126661,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->mri": {
+                    "bleu_score": 0.8945247166894722,
+                    "chrf_score": 7.616031596027052,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->guj": {
+                    "bleu_score": 0.1771289044680531,
+                    "chrf_score": 1.6421926117524066,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->tah": {
+                    "bleu_score": 0.6646318796964286,
+                    "chrf_score": 7.415151973263977,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->isl": {
+                    "bleu_score": 1.6224552314694525,
+                    "chrf_score": 11.849957759049971,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->kan": {
+                    "bleu_score": 0.33344284508508176,
+                    "chrf_score": 0.44425436587559886,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->dzo": {
+                    "bleu_score": 0.07495521223034254,
+                    "chrf_score": 0.23778540366305212,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->xho": {
+                    "bleu_score": 0.7116548984586532,
+                    "chrf_score": 6.229389754189333,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->lav": {
+                    "bleu_score": 0.6214588090200714,
+                    "chrf_score": 6.813052432324461,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->fra-CA": {
+                    "bleu_score": 10.861354188313523,
+                    "chrf_score": 38.222469230526016,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->eng-GB": {
+                    "bleu_score": 35.634735342255894,
+                    "chrf_score": 52.21358967025067,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->uzb": {
+                    "bleu_score": 0.32319385103981924,
+                    "chrf_score": 5.101850180987977,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->ita": {
+                    "bleu_score": 12.057403423055062,
+                    "chrf_score": 39.560695164219936,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->som": {
+                    "bleu_score": 1.8670534503244136,
+                    "chrf_score": 7.983618234201047,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->glg": {
+                    "bleu_score": 1.6264027153801455,
+                    "chrf_score": 10.866858947750034,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->ibo": {
+                    "bleu_score": 0.83338105469034,
+                    "chrf_score": 6.453368591320709,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->hun": {
+                    "bleu_score": 3.2743730696135116,
+                    "chrf_score": 25.532640202908212,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->lit": {
+                    "bleu_score": 0.35444717690146305,
+                    "chrf_score": 7.263840660340692,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->slv": {
+                    "bleu_score": 3.4556155221280176,
+                    "chrf_score": 14.598162125314856,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->ron": {
+                    "bleu_score": 2.5340105023002732,
+                    "chrf_score": 11.646947228098826,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->tel": {
+                    "bleu_score": 0.5221533381257533,
+                    "chrf_score": 0.5597681612095837,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->uig": {
+                    "bleu_score": 0.0898773968228898,
+                    "chrf_score": 0.42852962213830553,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->pan": {
+                    "bleu_score": 0.13812949482781084,
+                    "chrf_score": 0.8156784868783157,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->mkd": {
+                    "bleu_score": 0.7337953606983485,
+                    "chrf_score": 3.215816608150847,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->msa": {
+                    "bleu_score": 2.094740883487724,
+                    "chrf_score": 10.637726745336273,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->ewe": {
+                    "bleu_score": 1.4287759682186987,
+                    "chrf_score": 10.419098477183745,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->yue": {
+                    "bleu_score": 0.024286646649574042,
+                    "chrf_score": 5.5698329030966915,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->swa": {
+                    "bleu_score": 1.216939993576656,
+                    "chrf_score": 7.1876510897908625,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->nld": {
+                    "bleu_score": 10.64414923824459,
+                    "chrf_score": 39.04675830843098,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->hrv": {
+                    "bleu_score": 3.8518161856978486,
+                    "chrf_score": 18.30965875431257,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->gsw-ZH": {
+                    "bleu_score": 1.4870793657257557,
+                    "chrf_score": 10.14877683195571,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->por-BR": {
+                    "bleu_score": 14.367259800151619,
+                    "chrf_score": 44.393690176128395,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->mey": {
+                    "bleu_score": 0.29852096088308905,
+                    "chrf_score": 13.448459839605324,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->vie": {
+                    "bleu_score": 8.737417470008726,
+                    "chrf_score": 23.145720891365162,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->hin": {
+                    "bleu_score": 0.1474175666167869,
+                    "chrf_score": 0.6783572106396735,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->kaz": {
+                    "bleu_score": 0.3807887229472143,
+                    "chrf_score": 1.4448485350660398,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->hmn": {
+                    "bleu_score": 0.7655027521824616,
+                    "chrf_score": 6.198349721898848,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->dan": {
+                    "bleu_score": 2.987817267720915,
+                    "chrf_score": 20.14867427355347,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->fra": {
+                    "bleu_score": 11.006029776525624,
+                    "chrf_score": 37.73493545750842,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->bem": {
+                    "bleu_score": 2.035142105535893,
+                    "chrf_score": 9.337185880273346,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->eus": {
+                    "bleu_score": 1.2425086948152184,
+                    "chrf_score": 13.955480895437988,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->por": {
+                    "bleu_score": 11.95765194381762,
+                    "chrf_score": 41.54606718162867,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->mlt": {
+                    "bleu_score": 1.5683222083038602,
+                    "chrf_score": 8.829635966873077,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->ces": {
+                    "bleu_score": 5.5504274235167745,
+                    "chrf_score": 30.49297110721159,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->mal": {
+                    "bleu_score": 0.27738488472410927,
+                    "chrf_score": 0.4553403215651488,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->rus": {
+                    "bleu_score": 2.455720347140976,
+                    "chrf_score": 8.358376112172719,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->bul": {
+                    "bleu_score": 0.8850651660050283,
+                    "chrf_score": 2.2955260986012074,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->tat": {
+                    "bleu_score": 0.17412287675538893,
+                    "chrf_score": 0.6830863045646687,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->tuk": {
+                    "bleu_score": 0.6359104575254814,
+                    "chrf_score": 5.09616807661546,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->eng-IN": {
+                    "bleu_score": 32.88574869867027,
+                    "chrf_score": 52.21313681209592,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->wol": {
+                    "bleu_score": 1.2011653023535886,
+                    "chrf_score": 9.035091967540051,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->jpn": {
+                    "bleu_score": 0.2450640772459416,
+                    "chrf_score": 19.07421998418846,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->ltz": {
+                    "bleu_score": 1.1069296238263164,
+                    "chrf_score": 11.502488470513741,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->tam": {
+                    "bleu_score": 0.35212371501806244,
+                    "chrf_score": 2.611739099971437,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->aze-Latn": {
+                    "bleu_score": 0.5363382752019964,
+                    "chrf_score": 5.141219363676104,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->gsw-BE": {
+                    "bleu_score": 1.1315860733210508,
+                    "chrf_score": 9.6181872488735,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->cat": {
+                    "bleu_score": 4.094335637080945,
+                    "chrf_score": 24.085251043614104,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->shi": {
+                    "bleu_score": 0.13901562281740834,
+                    "chrf_score": 7.285882698625431,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->zho-TW": {
+                    "bleu_score": 1.552143508505484,
+                    "chrf_score": 11.895596661088927,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->ven": {
+                    "bleu_score": 1.0228145897800422,
+                    "chrf_score": 7.556977798203482,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->mlg": {
+                    "bleu_score": 0.9026222240704893,
+                    "chrf_score": 6.128024162041271,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->tur": {
+                    "bleu_score": 1.792941468601427,
+                    "chrf_score": 9.466488744792091,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->kin": {
+                    "bleu_score": 1.0527509760829665,
+                    "chrf_score": 5.608413427981955,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->prs": {
+                    "bleu_score": 0.11958614222250956,
+                    "chrf_score": 0.5539353956953895,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->snd-Arab": {
+                    "bleu_score": 0.10880647701192138,
+                    "chrf_score": 0.8203124709838137,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->orm": {
+                    "bleu_score": 0.5964493356144442,
+                    "chrf_score": 7.904927949409426,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->spa-MX": {
+                    "bleu_score": 19.345981834886974,
+                    "chrf_score": 47.96671981142994,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->lao": {
+                    "bleu_score": 1.112077254221894,
+                    "chrf_score": 2.9603911941801937,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->ton": {
+                    "bleu_score": 0.746206741678872,
+                    "chrf_score": 6.717619814690623,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->urd": {
+                    "bleu_score": 0.1852780680265217,
+                    "chrf_score": 2.704169147425168,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->nep": {
+                    "bleu_score": 0.4725896920689367,
+                    "chrf_score": 1.0118046916325494,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->deu": {
+                    "bleu_score": 4.866989569465261,
+                    "chrf_score": 16.734509362141573,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->pol": {
+                    "bleu_score": 3.5652554441385855,
+                    "chrf_score": 20.913407248524262,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->kat": {
+                    "bleu_score": 0.4026267607705827,
+                    "chrf_score": 1.0674055117144672,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->bel": {
+                    "bleu_score": 0.3111904176016877,
+                    "chrf_score": 1.3314601295409279,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->fuc": {
+                    "bleu_score": 1.5554438000906774,
+                    "chrf_score": 8.0040772491453,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->fao": {
+                    "bleu_score": 1.1675319311503316,
+                    "chrf_score": 7.1532259006365475,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->kir": {
+                    "bleu_score": 0.25031271141885186,
+                    "chrf_score": 1.047849954547525,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->sin": {
+                    "bleu_score": 0.1771186275324538,
+                    "chrf_score": 1.3991450746251035,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->ell": {
+                    "bleu_score": 0.41962161752498295,
+                    "chrf_score": 1.587939578057503,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->tir": {
+                    "bleu_score": 0.3216575680710134,
+                    "chrf_score": 0.917612469870083,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->amh": {
+                    "bleu_score": 0.1964340340826721,
+                    "chrf_score": 1.1969441976632063,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->ckb-Arab": {
+                    "bleu_score": 0.0413987222026234,
+                    "chrf_score": 4.767170024127411,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->nso": {
+                    "bleu_score": 0.8857785762677169,
+                    "chrf_score": 7.101381144001806,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->srp-Cyrl": {
+                    "bleu_score": 1.3865565989755009,
+                    "chrf_score": 5.297619304201161,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->cym": {
+                    "bleu_score": 1.2227842515704854,
+                    "chrf_score": 8.124107597150568,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->mar": {
+                    "bleu_score": 0.15454837028836196,
+                    "chrf_score": 0.44674002434291193,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->mon": {
+                    "bleu_score": 0.3072257539967774,
+                    "chrf_score": 0.8386339115680023,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->fin": {
+                    "bleu_score": 2.0032303809205594,
+                    "chrf_score": 11.07330560705708,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->fas": {
+                    "bleu_score": 0.39990951114761997,
+                    "chrf_score": 5.121862084039272,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->swe": {
+                    "bleu_score": 11.146428664534016,
+                    "chrf_score": 37.26736773112116,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->ukr": {
+                    "bleu_score": 0.8430241416800696,
+                    "chrf_score": 4.341384614972431,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->tha": {
+                    "bleu_score": 0.7994231347631522,
+                    "chrf_score": 5.8789862683416985,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->arb": {
+                    "bleu_score": 0.2888228972360295,
+                    "chrf_score": 2.233075637987236,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->est": {
+                    "bleu_score": 0.8922892568790414,
+                    "chrf_score": 7.648624103163927,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->srp-Latn": {
+                    "bleu_score": 2.099393402153429,
+                    "chrf_score": 12.779739084327769,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->bod": {
+                    "bleu_score": 0.22515023982318158,
+                    "chrf_score": 1.2145187090072516,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->fij": {
+                    "bleu_score": 0.8042254401170141,
+                    "chrf_score": 6.496372379985668,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->gle": {
+                    "bleu_score": 0.9860599323824313,
+                    "chrf_score": 6.909850903297012,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->tsn": {
+                    "bleu_score": 0.9115459346755264,
+                    "chrf_score": 7.700544211648139,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->tgk-Cyrl": {
+                    "bleu_score": 0.19859522607889948,
+                    "chrf_score": 1.1131733914634503,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->nya": {
+                    "bleu_score": 1.4044727109661508,
+                    "chrf_score": 6.737017923310932,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->hau": {
+                    "bleu_score": 1.1023500819946175,
+                    "chrf_score": 8.030008068403369,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->nde": {
+                    "bleu_score": 0.7830080212374408,
+                    "chrf_score": 9.611128664978606,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->slk": {
+                    "bleu_score": 2.372172592643759,
+                    "chrf_score": 19.656465968464214,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->kmr": {
+                    "bleu_score": 0.5415353224663727,
+                    "chrf_score": 5.290705225356245,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->mya": {
+                    "bleu_score": 0.21259731783374028,
+                    "chrf_score": 1.2938130083652934,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->bos": {
+                    "bleu_score": 0.620151872986615,
+                    "chrf_score": 6.105742779715153,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->yor": {
+                    "bleu_score": 0.578951031789442,
+                    "chrf_score": 4.984739258134939,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->heb": {
+                    "bleu_score": 0.3263689647868256,
+                    "chrf_score": 1.2868716282473571,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->ben": {
+                    "bleu_score": 0.16532036863256183,
+                    "chrf_score": 0.6719073475826096,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->afr": {
+                    "bleu_score": 6.7385938355898425,
+                    "chrf_score": 27.802363471552955,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->zul": {
+                    "bleu_score": 1.2426430712860332,
+                    "chrf_score": 6.973544973762516,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->khm": {
+                    "bleu_score": 0.5649844663966203,
+                    "chrf_score": 2.6781119973567207,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->bak": {
+                    "bleu_score": 0.19475286082467755,
+                    "chrf_score": 0.7809189765759785,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->nob": {
+                    "bleu_score": 7.128500153028445,
+                    "chrf_score": 26.42088931008615,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->pus": {
+                    "bleu_score": 0.02464324417049177,
+                    "chrf_score": 0.47223276012941423,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->nno": {
+                    "bleu_score": 1.9147559732625181,
+                    "chrf_score": 19.799077804118596,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->ssw": {
+                    "bleu_score": 0.9367770415577027,
+                    "chrf_score": 7.123621069338734,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->spa": {
+                    "bleu_score": 17.63433869248987,
+                    "chrf_score": 46.51698703386119,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->div": {
+                    "bleu_score": 0.08579642668195264,
+                    "chrf_score": 1.2455376003252825,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->ind": {
+                    "bleu_score": 5.635869292275532,
+                    "chrf_score": 16.66668877216506,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->zho-CN": {
+                    "bleu_score": 0.36027906122991993,
+                    "chrf_score": 16.634271995509025,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->kor": {
+                    "bleu_score": 1.0665193513615903,
+                    "chrf_score": 10.826359299520634,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->sna-Latn": {
+                    "bleu_score": 1.4782583268335043,
+                    "chrf_score": 7.029671693438419,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->fil": {
+                    "bleu_score": 3.2351628958602543,
+                    "chrf_score": 14.704717124493907,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->hye": {
+                    "bleu_score": 0.18545414051655482,
+                    "chrf_score": 0.8252106631765556,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                },
+                "eng-US->smo": {
+                    "bleu_score": 1.1246062752413348,
+                    "chrf_score": 9.03952953079734,
+                    "comet_score": "--",
+                    "num_samples": 1997,
+                    "multi_aligned": true
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+arb_Arab | arb_Arab
+ben_Beng | ben_Beng
+deu_Latn | deu_Latn
+spa_Latn | spa_Latn
+fra_Latn | fra_Latn
+hin_Deva | hin_Deva
+ind_Latn | ind_Latn
+ita_Latn | ita_Latn
+jpn_Jpan | jpn_Jpan
+kor_Hang | kor_Hang
+por_Latn | por_Latn
+swh_Latn | swh_Latn
+yor_Latn | yor_Latn
+zho_Hans | zho_Hans

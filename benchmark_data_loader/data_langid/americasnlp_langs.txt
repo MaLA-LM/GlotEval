@@ -1,0 +1,14 @@
+agr_Latn
+aym_Latn
+bzd_Latn
+cni_Latn
+ctp_Latn
+spa_Latn
+grn_Latn
+guc_Latn
+hch_Latn
+nah_Latn
+oto_Latn
+quy_Latn
+shp_Latn
+tar_Latn

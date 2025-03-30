@@ -1,0 +1,164 @@
+{
+  "model_args": {
+    "device": "cuda",
+    "tensor_parallel_size": 1,
+    "batch_size": 1,
+    "dtype": "auto",
+    "max_num_seqs": 256,
+    "sampling_params": {
+      "temperature": 0.6,
+      "top_p": 0.9,
+      "max_tokens": 128,
+      "stop": "\n"
+    }
+  },
+
+  "dev_max_samples": 3,
+
+  "prompt_language_strategy": "single",
+  "prompt_language": "eng_Latn",
+
+  "benchmark_params": {
+    "flores200_mt": {
+      "n_shots": 3,
+      "seed": 42,
+      "multi_aligned": true,
+      "center_lang": "eng_Latn",
+      "direction": "center-x"
+    },
+    "flores_plus_mt": {
+      "n_shots": 3,
+      "seed": 42,
+      "multi_aligned": true,
+      "center_lang": "eng_Latn",
+      "direction": "center-x"
+    },
+    "sib200": {
+      "n_shots": 3,
+      "seed": 42
+    },
+    "taxi1500": {
+      "n_shots": 3,
+      "seed": 42
+    },    
+    "xlsum": {
+      "n_shots": 0,
+      "seed": 42
+    },
+    "aya": {
+      "seed": 42
+    },
+    "polywrite": {
+      "seed": 42
+    },
+    "mmmlu": {
+      "n_shots": 0,
+      "seed": 42
+    },
+    "global_mmlu": {
+      "n_shots": 0,
+      "seed": 42
+    },
+    "wikiann": {
+      "n_shots": 3,
+      "seed": 42
+    },
+    "ud_upos": {
+      "n_shots": 3,
+      "seed": 42
+    }, 
+    "mala": {
+      "seed": 42
+    }, 
+    "pbc": {
+      "seed": 42
+    },
+    "americasnlp": {
+      "center_lang": "spa_Latn",
+      "direction": "x-center",
+      "n_shots": 0,
+      "seed": 42
+    },
+     "mmhb": {
+      "center_lang": "eng",
+      "direction": "center-x",
+      "seed": 42,
+      "multi_aligned": false
+    }, 
+    "in22": {
+      "center_lang": "eng_Latn",
+      "direction": "x-center",
+      "multi_aligned": true,
+      "seed": 42
+    },
+    "ntrex128": {
+      "center_lang": "eng-US",
+      "direction": "center-x",
+      "multi_aligned": true,
+      "seed": 42
+    },
+    "tatoeba": {
+      "center_lang": "eng",
+      "direction": "x-center",
+      "n_shots": 3,
+      "seed": 42
+    },
+    "nteu": {
+      "center_lang": "en",
+      "direction": "x-center",
+      "multi_aligned": true,
+      "seed": 42
+    },
+    "tico19": {
+      "center_lang": "en",
+      "direction": "x-center",
+      "multi_aligned": true,
+      "n_shots": 3,
+      "seed": 42
+    },
+    "mafand": {
+      "center_lang": "en",
+      "direction": "x-center",
+      "seed": 42,
+      "n_shots": 3
+    }
+  },
+
+  "prompt_guidelines": {
+    "translation": {
+      "required_placeholders": ["{src_text}", "{tgt_lang}"],
+      "optional_placeholders": ["{src_lang}"],
+      "description": "For translation tasks, the instruction template must include {src_text} and {tgt_lang}. {src_lang} is optional."
+    },
+    "classification": {
+      "required_placeholders": ["{text}"],
+      "optional_placeholders": [],
+      "description": "For classification tasks, the instruction template must include {text}."
+    },
+    "summarization": {
+      "required_placeholders": ["{text}"],
+      "optional_placeholders": [],
+      "description": "For summarization tasks, the instruction template must include {text}."
+    },
+    "open_generation": {
+      "required_placeholders": ["{text}"],
+      "optional_placeholders": [],
+      "description": "For open generation tasks, must include {text} in your instruction."
+    },
+    "comprehension": {
+      "required_placeholders": ["{question}", "{options}"],
+      "optional_placeholders": ["{answer}"],
+      "description": "For multiple-choice QA tasks, must include {question} and {options} placeholders. Optional to have {answer} in few-shot portion."
+    },
+    "token_classification": {
+      "required_placeholders": ["{sentence}", "{token}", "{candidate_labels}"],
+      "optional_placeholders": [],
+      "description": "For token classification tasks, must have {sentence}, {token}, {candidate_labels} placeholders."
+    },
+    "nll": {
+      "required_placeholders": ["{text}"],
+      "optional_placeholders": [],
+      "description": "For negative log-likelihood tasks, must have {text} placeholder."
+    }
+  }
+}

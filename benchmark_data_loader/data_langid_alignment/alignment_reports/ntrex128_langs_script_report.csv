@@ -1,0 +1,130 @@
+original_label,parsed_lang_part,parsed_script_part,iso639_match_status,iso639_pt1,iso639_pt2b,iso639_pt2t,iso639_pt3,iso639_name,macro_status,macro_language,detected_script,script_confidence,sample_text,data_load_error,aligned_key
+afr,afr,,exact_match,af,afr,afr,afr,Afrikaans,,,Latn,1.00,Lede van Walliese Vergadering bekommerd hulle gaan 'soos sotte lyk',,afr | afr_Latn
+amh,amh,,exact_match,am,amh,amh,amh,Amharic,,,Ethi,1.00,ዌልሽ ኤኤምዎች 'መፔቶችን ስለመምሰል' ስጋት አድሮበታል,,amh | amh_Ethi
+arb,arb,,exact_match,,,,arb,Standard Arabic,has_macro,Arabic,Arab,1.00,"أعرب أعضاء جمعية ويلز الوطنية عن قلقهم من ""أنهم يبدون كالدمى""",,arb | arb_Arab
+aze-Latn,aze,Latn,exact_match,az,aze,aze,aze,Azerbaijani,is_macro,,Latn,1.00,"Uels Məclis üzvləri ""oyuncaq yerinə qoyulmaq""dan narahatdır",,aze-Latn | aze_Latn
+bak,bak,,exact_match,ba,bak,bak,bak,Bashkir,,,Cyrl,1.00,Уэльс ассамблеяһы ағзалары “маппет ҡурсаҡтарына” оҡшаш булыуҙан ҡурҡалар,,bak | bak_Cyrl
+bel,bel,,exact_match,be,bel,bel,bel,Belarusian,,,Cyrl,1.00,"Валійскія дадатковыя дэпутаты занепакоеныя тым, што выглядаюць, як марыянеткі.",,bel | bel_Cyrl
+bem,bem,,exact_match,,bem,bem,bem,Bemba (Zambia),,,Latn,1.00,Ukusakamana kwa Bashicilye ba Buteko bwa calo ca Wales (AMs) pa ‘kumoneka nga abashikwete mano’,,bem | bem_Latn
+ben,ben,,exact_match,bn,ben,ben,ben,Bengali,,,Beng,1.00,ওয়েলশ অ্যাসেম্বলি সদস্যর নিজেদেরা ‘মাপেটের মত’ লাগা নিয়ে চিন্তিত',,ben | ben_Beng
+bod,bod,,exact_match,bo,tib,bod,bod,Tibetan,,,Tibt,1.00,Welsh AMsརང་ཉིད་ནུས་མེད་ 'སྐྱོ་མདོག་ཅན་ཞིག་'མཐོང་གི་རེད་བསམ་པའི་སེམས་ཁྲལ་བྱེད་བཞིན་འདུག,,bod | bod_Tibt
+bos,bos,,exact_match,bs,bos,bos,bos,Bosnian,has_macro,Serbo-Croatian,Latn,1.00,Velški članovi skupštine su zabrinuti zbog sličnosti s “Mapetovcima”,,bos | bos_Latn
+bul,bul,,exact_match,bg,bul,bul,bul,Bulgarian,,,Cyrl,1.00,"Членовете на Асамблеята на Уелс се тревожат, че „изглеждат като мъпети“",,bul | bul_Cyrl
+cat,cat,,exact_match,ca,cat,cat,cat,Catalan,,,Latn,1.00,Membres de l'assemblea de Gal·les preocupats perquè “els identifiquin com a Muppets”,,cat | cat_Latn
+ces,ces,,exact_match,cs,cze,ces,ces,Czech,,,Latn,1.00,"Členové velšského shromáždění mají obavu, že budou „vypadat jako Mupeti“",,ces | ces_Latn
+ckb-Arab,ckb,Arab,exact_match,,,,ckb,Central Kurdish,has_macro,Kurdish,Arab,1.00,"AMەکانی وێلز خەمی ئەمەیانە ""وەک ماپتەکن""یان لێبێت""",,ckb-Arab | ckb_Arab
+cym,cym,,exact_match,cy,wel,cym,cym,Welsh,,,Latn,1.00,ACau Cymru yn poeni y byddant yn ‘edrych yn wirion’,,cym | cym_Latn
+dan,dan,,exact_match,da,dan,dan,dan,Danish,,,Latn,1.00,"Politikere i Wales bange for at ""ligne fjolser""",,dan | dan_Latn
+deu,deu,,exact_match,de,ger,deu,deu,German,,,Latn,1.00,Mitglieder der Nationalversammlung für Wales befürchten Verwechslungen mit den Muppets,,deu | deu_Latn
+div,div,,exact_match,dv,div,div,div,Dhivehi,,,Thaa,1.00,‘މަޕެޓްސް ހެން ފެންނާނެތީ ވެލްޝް އޭއެމްސް ކަންބޮޑުވެފައި’,,div | div_Thaa
+dzo,dzo,,exact_match,dz,dzo,dzo,dzo,Dzongkha,,,Tibt,1.00,འེཤི་ཨེམསི་འདི་དགོད་བྲོ་བསྒྱུར་མི་བཟུམ་མཐོང་འོང་མནོ་འདྲོག་ནུག,,dzo | dzo_Tibt
+ell,ell,,exact_match,el,gre,ell,ell,Modern Greek (1453-),,,Grek,1.00,"Ουαλοί βουλευτές ανησυχούν ότι θα τους μπερδεύουν με τα ""μάπετ""",,ell | ell_Grek
+eng-GB,eng,GB,exact_match,en,eng,eng,eng,English,,,Latn,1.00,Welsh AMs worried about 'looking like muppets',,eng-GB | eng_Latn
+eng-IN,eng,IN,exact_match,en,eng,eng,eng,English,,,Latn,1.00,Welsh AMs are worried about 'looking like muppets',,eng-IN | eng_Latn
+eng-US,eng,US,exact_match,en,eng,eng,eng,English,,,Latn,1.00,Welsh AMs worried about 'looking like muppets',,eng-US | eng_Latn
+est,est,,exact_match,et,est,est,est,Estonian,is_macro,,Latn,1.00,"Walesi rahvusassamblee liikmed kardavad, et näevad välja nagu Muppetid",,est | est_Latn
+eus,eus,,exact_match,eu,baq,eus,eus,Basque,,,Latn,1.00,Galeseko batzarreko kideek bere kezkak adierazi dituzte “txotxongilotzat hartuko dituztelako”,,eus | eus_Latn
+ewe,ewe,,exact_match,ee,ewe,ewe,ewe,Ewe,,,Latn,1.00,Welsh AMwo le nu xam ɖe “ale si woadze abe abunekeviwo ene la ŋu”,,ewe | ewe_Latn
+fao,fao,,exact_match,fo,fao,fao,fao,Faroese,,,Latn,1.00,Walisisk tingfólk stúra fyri at ‘síggja býtt út’,,fao | fao_Latn
+fas,fas,,exact_match,fa,per,fas,fas,Persian,is_macro,,Arab,1.00,اعضای مجلس ولز نگران هستند که «همانند عروسک خیمه‌ شب بازی» دیده شوند,,fas | fas_Arab
+fij,fij,,exact_match,fj,fij,fij,fij,Fijian,,,Latn,1.00,Era lomaleqataka na AMS ni Welesi na 'irairai vaka na matakau',,fij | fij_Latn
+fil,fil,,exact_match,,fil,fil,fil,Filipino,,,Latn,1.00,Mga Welsh na AM nangangambang 'magmukhang mga muppet',,fil | fil_Latn
+fin,fin,,exact_match,fi,fin,fin,fin,Finnish,,,Latn,1.00,Walesin edustajiston jäsenet pelkäävät näyttävänsä typeryksiltä,,fin | fin_Latn
+fra,fra,,exact_match,fr,fre,fra,fra,French,,,Latn,1.00,Des membres de l’Assemblée du pays de Galles inquiets de « passer pour des marionnettes »,,fra | fra_Latn
+fra-CA,fra,CA,exact_match,fr,fre,fra,fra,French,,,Latn,1.00,Les membres de l’Assemblée galloise inquiets; ils ne veulent pas « avoir l’air de marionnettes »,,fra-CA | fra_Latn
+fuc,fuc,,exact_match,,,,fuc,Pulaar,has_macro,Fulah,Latn,1.00,Welsh AMs ɗon ɓilli njam 'taa ɓe lara mu bana muppets',,fuc | fuc_Latn
+gle,gle,,exact_match,ga,gle,gle,gle,Irish,,,Latn,1.00,Is ábhar imní d’AManna Breatnach ‘go mbeadh cuma leibidí orthu',,gle | gle_Latn
+glg,glg,,exact_match,gl,glg,glg,glg,Galician,,,Latn,1.00,Aos membros da Asemblea de Gales preocúpalles ”que os tomen por monicreques”,,glg | glg_Latn
+guj,guj,,exact_match,gu,guj,guj,guj,Gujarati,,,Gujr,1.00,‘મપેટ્ટ જેવા દેખાવ’ વિશે વ્હેલ્સના એએમ ચિંતિત હતા,,guj | guj_Gujr
+gsw-BE,gsw,BE,exact_match,,gsw,gsw,gsw,Swiss German,,,Latn,1.00,"D Mitglider vor Walisische Versammlig hei sech Sorge gmacht, wi Muppets (Tuble) dazschta.",,gsw-BE | gsw_Latn
+gsw-ZH,gsw,ZH,exact_match,,gsw,gsw,gsw,Swiss German,,,Latn,1.00,"Walisischi AM's händ Angst ""wie d Muppets uszgseh""",,gsw-ZH | gsw_Latn
+hau,hau,,exact_match,ha,hau,hau,hau,Hausa,,,Latn,1.00,Welsh AMs ta damu game da 'yadda ake zama kamar wawaye',,hau | hau_Latn
+heb,heb,,exact_match,he,heb,heb,heb,Hebrew,,,Hebr,1.00,חברי פרלמנט בוויילס חוששים ‚להיראות כמו חבובות‘,,heb | heb_Hebr
+hin,hin,,exact_match,hi,hin,hin,hin,Hindi,,,Deva,1.00,वेल्श के AM (विधानसभा सदस्य) 'मपेट जैसी छवियों’ से चिंतित हैं,,hin | hin_Deva
+hmn,hmn,,exact_match,,hmn,hmn,hmn,Hmong,is_macro,,Latn,1.00,Welsh Cov Sawv Cev Pej Xeem Hauv Xab Phas (AM) txhawj txog ntawm 'qhov pheej zoo li tus neeg ruam',,hmn | hmn_Latn
+hrv,hrv,,exact_match,hr,hrv,hrv,hrv,Croatian,has_macro,Serbo-Croatian,Latn,1.00,Velški saborski zastupnici zabrinuti su da će „izgledati kao Muppeti“,,hrv | hrv_Latn
+hun,hun,,exact_match,hu,hun,hun,hun,Hungarian,,,Latn,1.00,"A Walesi Nemzetgyűlés tagjai attól tartanak, hogy a Muppet Show-ban találják magukat",,hun | hun_Latn
+hye,hye,,exact_match,hy,arm,hye,hye,Armenian,,,Armn,1.00,"Ուելսյան Ասամբլեայի անդամները անհանգստացած էին, որ կդիտվեն որպես «խամաճիկներ»",,hye | hye_Armn
+ibo,ibo,,exact_match,ig,ibo,ibo,ibo,Igbo,,,Latn,1.00,Welsh AM na enwe mgbakasị ahụ maka ‘ị dị ka ihe egwuregwu’,,ibo | ibo_Latn
+ind,ind,,exact_match,id,ind,ind,ind,Indonesian,has_macro,Malay (macrolanguage),Latn,1.00,Anggota Majelis (AM) Welsh khawatir bila mereka ‘tampak seperti boneka muppets'.,,ind | ind_Latn
+isl,isl,,exact_match,is,ice,isl,isl,Icelandic,,,Latn,1.00,Velskir ráðsmenn hafa áhyggjur af því að „líta út eins og flón“,,isl | isl_Latn
+ita,ita,,exact_match,it,ita,ita,ita,Italian,,,Latn,1.00,I membri dell’Assemblea del Galles sono preoccupati di “fare la figura dei pagliacci”,,ita | ita_Latn
+jpn,jpn,,exact_match,ja,jpn,jpn,jpn,Japanese,,,Jpan,0.33,恥さらしを危惧するウェールズ議会議員 (AM),,jpn | jpn_Jpan?
+kan,kan,,exact_match,kn,kan,kan,kan,Kannada,,,Knda,1.00,ವೆಲ್ಶ್ AMಗಳು 'ಮೂರ್ಖರಂತೆ ಕಾಣುವ' ಬಗ್ಗೆ ಚಿಂತಿತರಾಗಿದ್ದಾರೆ',,kan | kan_Knda
+kat,kat,,exact_match,ka,geo,kat,kat,Georgian,,,Geor,1.00,უელსის ასამბლეის წევრებს აშფოთებთ „ბრიყვ თოჯინებთან (muppet) მსგავსება“,,kat | kat_Geor
+kaz,kaz,,exact_match,kk,kaz,kaz,kaz,Kazakh,,,Cyrl,1.00,Уэльстің ассамблея мүшелері “қуыршақтар сияқты көрінуге“ алаңдайды,,kaz | kaz_Cyrl
+khm,khm,,exact_match,km,khm,khm,khm,Khmer,,,Khmr,1.00,Welsh AMs ព្រួយបារម្ភអំពី 'រូបរាងដូចតុត្តាម៉ូផេត',,khm | khm_Khmr
+kin,kin,,exact_match,rw,kin,kin,kin,Kinyarwanda,,,Latn,1.00,Abagize Inteko muri Peyi de Gale (AMs) bahangayikishijwe no 'kuba basa nk’ibipupe (muppets)',,kin | kin_Latn
+kir,kir,,exact_match,ky,kir,kir,kir,Kirghiz,,,Cyrl,1.00,Уэльс Ассамблеясынын мүчөлөрү маскарапаз сезилип калабыз деп тынчсызданып жатышат,,kir | kir_Cyrl
+kmr,kmr,,exact_match,,,,kmr,Northern Kurdish,has_macro,Kurdish,Latn,1.00,Endamên Meclîsa Welsh’ê bifikarin ku ‘weke evdalan xuya bikin’,,kmr | kmr_Latn
+kor,kor,,exact_match,ko,kor,kor,kor,Korean,,,Hang,1.00,웨일스 상원 의원들은 ‘멍청이처럼 보이는 것’을 걱정했다,,kor | kor_Hang
+lao,lao,,exact_match,lo,lao,lao,lao,Lao,,,Laoo,1.00,ສະມາຊິກສະພາເວລ ກັງວົນກ່ຽວກັບ 'ເບິ່ງຄືຕົນເປັນຫຸ່ນເຊີດ',,lao | lao_Laoo
+lav,lav,,exact_match,lv,lav,lav,lav,Latvian,is_macro,,Latn,1.00,Velsas Asamblejas locekļus (Assembly Members — AM) uztrauc iespēja “tikt uztvertiem kā ērmiem”,,lav | lav_Latn
+lit,lit,,exact_match,lt,lit,lit,lit,Lithuanian,,,Latn,1.00,"Velso Asamblėjos nariai susirūpinę, kad „atrodo kaip lėlės“",,lit | lit_Latn
+ltz,ltz,,exact_match,lb,ltz,ltz,ltz,Luxembourgish,,,Latn,1.00,"Walisesch Deputéierter si besuergt, ewéi Idioten auszegesinn.",,ltz | ltz_Latn
+mal,mal,,exact_match,ml,mal,mal,mal,Malayalam,,,Mlym,1.00,'വിഡ്ഡികളെപ്പോലെ ഇരിക്കുന്നതിനെ' കുറിച്ച് വെൽഷ് അസംബ്ലി അംഗങ്ങൾക്ക് ആകുലത,,mal | mal_Mlym
+mar,mar,,exact_match,mr,mar,mar,mar,Marathi,,,Deva,1.00,वेल्श AM ना 'मपेट्ससारखे दिसण्याबाबत' चिंता वाटते,,mar | mar_Deva
+mey,mey,,exact_match,,,,mey,Hassaniyya,,,Arab,1.00,أعضاء البرلماني الويلي خايفين الناس إكولو عنهم كراكيز,,mey | mey_Arab
+mkd,mkd,,exact_match,mk,mac,mkd,mkd,Macedonian,,,Cyrl,1.00,Членовите на Народното собрание на Велс се загрижени дека „изгледаат како мапети“,,mkd | mkd_Cyrl
+mlg,mlg,,exact_match,mg,mlg,mlg,mlg,Malagasy,is_macro,,Latn,1.00,Nanahy ireo mpikambana amin’ny antenimiera Welsh sao 'hitovy amin’ny saribakoly ampitenenina fotsiny...,,mlg | mlg_Latn
+mlt,mlt,,exact_match,mt,mlt,mlt,mlt,Maltese,,,Latn,1.00,AMs minn Wales jibżgħu li “jiġu jidhru bħala boloh”,,mlt | mlt_Latn
+mon,mon,,exact_match,mn,mon,mon,mon,Mongolian,is_macro,,Cyrl,1.00,Уэлсийн Үндэсний Ассамблейн хошин шогийн Маппетууд шиг харагдаж байгаа эсэхэд санаа зовж байна,,mon | mon_Cyrl
+mri,mri,,exact_match,mi,mao,mri,mri,Maori,,,Latn,1.00,I te māharahara ngā AM o Wēra kei ‘rite rātou ki ngā karetao te āhua',,mri | mri_Latn
+msa,msa,,exact_match,ms,may,msa,msa,Malay (macrolanguage),is_macro,,Latn,1.00,Ahli Majlis (AM) Wales risau 'kelihatan seperti boneka',,msa | msa_Latn
+mya,mya,,exact_match,my,bur,mya,mya,Burmese,,,Mymr,1.00,ေ၀လအမ်ိဳးသားညီလာခံ ကိုယ္စားလွယ္မ်ားသည္  ၾကိဳးဆြဲရာကသည့္ ရုပ္ေသးရုပ္ပံုစံမ်ိဳးျဖစ္ေနမည္ကို စိုးရိမ္ခဲ...,,mya | mya_Mymr
+nde,nde,,exact_match,nd,nde,nde,nde,North Ndebele,,,Latn,1.00,AmaLunga Edale (AM-Assembly Members ngesiNgisi) aseWelsh akhathathazekile 'ngokubonakala njengabopop...,,nde | nde_Latn
+nep,nep,,exact_match,ne,nep,nep,nep,Nepali (macrolanguage),is_macro,,Deva,1.00,वेल्सका AM हरू 'मूर्ख व्यक्ति जस्तो देखिने' बारे चिन्तित हुनुहुन्छ,,nep | nep_Deva
+nld,nld,,exact_match,nl,dut,nld,nld,Dutch,,,Latn,1.00,Leden van de Nationale Vergadering van Wales bezorgd dat ze ‘zullen worden vergeleken met Muppets‘,,nld | nld_Latn
+nno,nno,,exact_match,nn,nno,nno,nno,Norwegian Nynorsk,has_macro,Norwegian,Latn,1.00,Walisiske medlemmar av nasjonalforsamlinga er redde for ikkje å bli tatt på alvor,,nno | nno_Latn
+nob,nob,,exact_match,nb,nob,nob,nob,Norwegian Bokmål,has_macro,Norwegian,Latn,1.00,Walisiske parlamentsmedlemmer ønsker ikke å fremstå som «muppeter»,,nob | nob_Latn
+nso,nso,,exact_match,,nso,nso,nso,Pedi,,,Latn,1.00,Ditho tsa Seboka (AMs) sa Wales di tshwenyehile hore di tlo ‘bonahala eka ke dimaumau’,,nso | nso_Latn
+nya,nya,,exact_match,ny,nya,nya,nya,Nyanja,,,Latn,1.00,Aphungu a Nyumba Yamalamulo ali ndi nkhawa ndi nkhani ya 'kuwoneka ngati opusa',,nya | nya_Latn
+orm,orm,,exact_match,om,orm,orm,orm,Oromo,is_macro,,Latn,1.00,gamtaa garee weelshii ‘fakkiif kan taa’an’ akka hin fakkanne yada’aniiru,,orm | orm_Latn
+pan,pan,,exact_match,pa,pan,pan,pan,Panjabi,,,Guru,1.00,ਵੈਲਸ਼ AMs ਨੂੰ 'ਬੇਹੁਨਰਾਂ ਵਾਂਗ ਦਿਖਣ' ਬਾਰੇ ਚਿੰਤਤ ਹੈ,,pan | pan_Guru
+pol,pol,,exact_match,pl,pol,pol,pol,Polish,,,Latn,1.00,"Członkowie Walijskiego Zgromadzenia Narodowego obawiają się, że będą nazywani muppetami",,pol | pol_Latn
+por,por,,exact_match,pt,por,por,por,Portuguese,,,Latn,1.00,Deputados da Assembleia do País de Gales receiam “passar por Marretas”,,por | por_Latn
+por-BR,por,BR,exact_match,pt,por,por,por,Portuguese,,,Latn,1.00,Parlamentares do País de Gales contestam sonoridade do novo título,,por-BR | por_Latn
+prs,prs,,exact_match,,,,prs,Dari,has_macro,Persian,Arab,1.00,اعضای مجلس ولز از اینکه “مانند موپیت ها به نظر برسند” نگران اند,,prs | prs_Arab
+pus,pus,,exact_match,ps,pus,pus,pus,Pushto,is_macro,,Arab,1.00,د والس‎ ‎د شورا غړي اندېښمن دی چې ‎‘‎لکه نانځکې داسې‎’‎ ښکاري‎'‎,,pus | pus_Arab
+ron,ron,,exact_match,ro,rum,ron,ron,Romanian,,,Latn,1.00,Membrii Adunării Naționale a Țării Galilor sunt îngrijorați din cauza faptului că ar putea da impres...,,ron | ron_Latn
+rus,rus,,exact_match,ru,rus,rus,rus,Russian,,,Cyrl,1.00,Члены Ассамблеи Уэльса не хотят «походить на маппетов»,,rus | rus_Cyrl
+shi,shi,,exact_match,,,,shi,Tachelhit,,,Arab,1.00,قلقن الاعضاء ن الجمعية نوايلز AMs فادكين زوند المونيكات لي اتحراكن,,shi | shi_Arab
+sin,sin,,exact_match,si,sin,sin,sin,Sinhala,,,Sinh,1.00,වේල්සයේ AM වරුන් 'මෝඩ පුද්ගලයන් මෙන් පෙනීම' පිළිබඳ කනගාටු විය,,sin | sin_Sinh
+slk,slk,,exact_match,sk,slo,slk,slk,Slovak,,,Latn,1.00,"Poslanci Waleského národného zhromaždenia sa obávajú, že budú „vyzerať ako hlupáci“",,slk | slk_Latn
+slv,slv,,exact_match,sl,slv,slv,slv,Slovenian,,,Latn,1.00,"Člane valižanske skupščine skrbi, da so »podobni Mupetkom«",,slv | slv_Latn
+smo,smo,,exact_match,sm,smo,smo,smo,Samoan,,,Latn,1.00,"Ua popole Uelese AMs e uiga i le ""foliga pei o muppets""",,smo | smo_Latn
+sna-Latn,sna,Latn,exact_match,sn,sna,sna,sna,Shona,,,Latn,1.00,Nhengo dzeParamende dzekuWales dzainetseka kuti 'dzaizoratidzika semapenzi',,sna-Latn | sna_Latn
+snd-Arab,snd,Arab,exact_match,sd,snd,snd,snd,Sindhi,,,Arab,1.00,ويلز اي ايم بابت پريشان ٿي 'ڏسندڙ گوپانگ وانگر’.,,snd-Arab | snd_Arab
+som,som,,exact_match,so,som,som,som,Somali,,,Latn,1.00,Welsh AMs waxay ka walaacsanyihiin 'u ekaanta sida naxasnimada',,som | som_Latn
+spa,spa,,exact_match,es,spa,spa,spa,Spanish,,,Latn,1.00,"A los Miembros de la Asamblea (AM, por sus siglas en inglés) de Gales les preocupa “parecer muppets”",,spa | spa_Latn
+spa-MX,spa,MX,exact_match,es,spa,spa,spa,Spanish,,,Latn,1.00,A los miembros de la asamblea (AM) de Gales les preocupa 'verse como títeres',,spa-MX | spa_Latn
+sqi,sqi,,exact_match,sq,alb,sqi,sqi,Albanian,is_macro,,Latn,1.00,Anëtarët e Asamblesë së Uellsit të shqetësuar se “duken si budallenj“,,sqi | sqi_Latn
+srp-Cyrl,srp,Cyrl,exact_match,sr,srp,srp,srp,Serbian,has_macro,Serbo-Croatian,Cyrl,1.00,Велшки чланови скупштине су забринути због „сличности са Мапетовцима“,,srp-Cyrl | srp_Cyrl
+srp-Latn,srp,Latn,exact_match,sr,srp,srp,srp,Serbian,has_macro,Serbo-Croatian,Latn,1.00,Velški članovi skupštine su zabrinuti zbog „sličnosti sa Mapetovcima“,,srp-Latn | srp_Latn
+ssw,ssw,,exact_match,ss,ssw,ssw,ssw,Swati,,,Latn,1.00,IWelsh AMs ikhatsateke ngekutsi 'itobukeka njengalelibele',,ssw | ssw_Latn
+swa,swa,,exact_match,sw,swa,swa,swa,Swahili (macrolanguage),is_macro,,Latn,1.00,Wajumbe wa Baraza la Wales wana wasiwasi kuhusu 'kuonekana kama vikaragosi',,swa | swa_Latn
+swe,swe,,exact_match,sv,swe,swe,swe,Swedish,,,Latn,1.00,AM i Wales är oroliga att ”framstå som puckon”,,swe | swe_Latn
+tah,tah,,exact_match,ty,tah,tah,tah,Tahitian,,,Latn,1.00,Te pe'ape'a nei o Welsh AM no ni'a i te 'faaûraa mai te mau muppets',,tah | tah_Latn
+tam,tam,,exact_match,ta,tam,tam,tam,Tamil,,,Taml,1.00,வெல்ஷ் AMகள் 'முட்டாள்கள் போல் இருப்பதைக்' குறித்து கவலையடைந்தனர்,,tam | tam_Taml
+tat,tat,,exact_match,tt,tat,tat,tat,Tatar,,,Cyrl,1.00,Уэльсның АӘ'лары 'курчаклар кебек күренә' алуына борчыла,,tat | tat_Cyrl
+tel,tel,,exact_match,te,tel,tel,tel,Telugu,,,Telu,1.00,'ముప్పెట్‌ల లాగా అనిపిస్తుందేమో' అని వెల్ష్ ఎ.ఎమ్‌లు చింతిస్తున్నారు,,tel | tel_Telu
+tgk-Cyrl,tgk,Cyrl,exact_match,tg,tgk,tgk,tgk,Tajik,,,Cyrl,1.00,"Аъзоёни ассамблеяи (АА) Уэлс хавотир аз онанд, ки “ба лӯхтак монанданд”",,tgk-Cyrl | tgk_Cyrl
+tha,tha,,exact_match,th,tha,tha,tha,Thai,,,Thai,1.00,สมาชิกสมัชชาของเวลล์มีความกังวลมากเกี่ยวกับ 'การถูกมองว่าเป็นตัวตลก',,tha | tha_Thai
+tir,tir,,exact_match,ti,tir,tir,tir,Tigrinya,,,Ethi,1.00,ናይ ዌልስ ኣባላት ባይቶ ዓያሹ ከይመስሉ ተጨኒቖም።,,tir | tir_Ethi
+ton,ton,,exact_match,to,ton,ton,ton,Tonga (Tonga Islands),,,Latn,1.00,Ne hohaʻa ʻa e Houʻeiki Mēmipa Fakatahaʻanga Uēlesí ki heʻenau 'ʻasi ʻo hangē ha fanga valé',,ton | ton_Latn
+tsn,tsn,,exact_match,tn,tsn,tsn,tsn,Tswana,,,Latn,1.00,BoAM ba Wales ba tshwenyegile thata ka 'go lebega e le ditlaela',,tsn | tsn_Latn
+tuk,tuk,,exact_match,tk,tuk,tuk,tuk,Turkmen,,,Latn,1.00,"Welsiň mejlis agzalary ""gurjak bolup görneris"" diýip alada edýärler.",,tuk | tuk_Latn
+tur,tur,,exact_match,tr,tur,tur,tur,Turkish,,,Latn,1.00,"Galler Meclis Üyeleri ""kukla gibi görünmek""ten korkuyor",,tur | tur_Latn
+uig,uig,,exact_match,ug,uig,uig,uig,Uighur,,,Arab,1.00,ۋېلشتىكى پارلامېنت ئەزالىرى «يىپتا ئوينىتىدىغان ياغاچ قورچاققا ئوخشاپ قېلىش» تىن ئەنسىرىشىدۇ,,uig | uig_Arab
+ukr,ukr,,exact_match,uk,ukr,ukr,ukr,Ukrainian,,,Cyrl,1.00,"Члени асамблеї Уельсу занепокоєні тим, що будуть «асоціюватися з маппетами»",,ukr | ukr_Cyrl
+urd,urd,,exact_match,ur,urd,urd,urd,Urdu,,,Arab,1.00,ویلش AMs ‘احمقوں کی طرح نظر آنے’ پر پریشان,,urd | urd_Arab
+uzb,uzb,,exact_match,uz,uzb,uzb,uzb,Uzbek,is_macro,,Latn,1.00,Uels Assambleyasi aʼzolari “qoʻgʻirchoqlarga oʻxshab qolishdan” xavotirda,,uzb | uzb_Latn
+ven,ven,,exact_match,ve,ven,ven,ven,Venda,,,Latn,1.00,AM dza Welsh dzi khou vhilaedzwa nga uri ‘dzi khou vhonala sa matsilu.,,ven | ven_Latn
+vie,vie,,exact_match,vi,vie,vie,vie,Vietnamese,,,Latn,1.00,Các Đại biểu Quốc hội Wales (AM) lo lắng về việc ‘trông như những con rối’,,vie | vie_Latn
+wol,wol,,exact_match,wo,wol,wol,wol,Wolof,,,Latn,1.00,Ndawu réew boobu di Gaal de defa mel ni deñoo naxarlu ‘niróó ak ay walakaana’,,wol | wol_Latn
+xho,xho,,exact_match,xh,xho,xho,xho,Xhosa,,,Latn,1.00,Amalungu endibano (AMs) yaseWales anexhala lokukhangeleka ngathi azizidenge,,xho | xho_Latn
+yor,yor,,exact_match,yo,yor,yor,yor,Yoruba,,,Latn,1.00,Àwọn ϙmϙ ẹgbé ile ìgbìmò Welsh n ṣaniyan nipa ‘wÍwò bii òmὺgò’,,yor | yor_Latn
+yue,yue,,exact_match,,,,yue,Yue Chinese,has_macro,Chinese,Hani,0.33,威爾士國民議會議員擔心‘睇起身似提線木偶’,,yue | yue_Hani?
+zho-CN,zho,CN,exact_match,zh,chi,zho,zho,Chinese,is_macro,,Hans,1.00,威尔士国民议会议员(AM)担心“看起来像笨蛋”,,zho-CN | zho_Hans
+zho-TW,zho,TW,exact_match,zh,chi,zho,zho,Chinese,is_macro,,Hant,1.00,威爾斯國會議員 (AM) 擔心「看起來像布偶」,,zho-TW | zho_Hant
+zul,zul,,exact_match,zu,zul,zul,zul,Zulu,,,Latn,1.00,Ama-Welsh AMs akhathazwe ukuthi ‘azobukeka njengeziphungumangathe’,,zul | zul_Latn

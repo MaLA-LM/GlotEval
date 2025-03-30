@@ -1,0 +1,177 @@
+original_label,parsed_lang_part,parsed_script_part,iso639_match_status,iso639_pt1,iso639_pt2b,iso639_pt2t,iso639_pt3,iso639_name,macro_status,macro_language,detected_script,script_confidence,sample_text,data_load_error,aligned_key
+ace,ace,,exact_match,,ace,ace,ace,Achinese,,,Latn,1.00,Bahsa Arab,,ace | ace_Latn
+af,af,,exact_match,af,afr,afr,afr,Afrikaans,,,Latn,1.00,Later sluit sy aan by die redaksie van Rooi Rose '' .,,af | afr_Latn
+als,als,,exact_match,,,,als,Tosk Albanian,has_macro,Albanian,Latn,1.00,' '' Theodosius II . '' ',,als | als_Latn
+am,am,,exact_match,am,amh,amh,amh,Amharic,,,Ethi,1.00,' '' '' የ አየርላንድ ንጉሥ ነበር።,,am | amh_Ethi
+an,an,,exact_match,an,arg,arg,arg,Aragonese,,,Latn,1.00,REDIRECCIÓN Torreciella en Cameros,,an | arg_Latn
+ang,ang,,exact_match,,ang,ang,ang,Old English (ca. 450-1100),,,Latn,1.00,' '' Andorra '' ' is land in Europan .,,ang | ang_Latn
+ar,ar,,exact_match,ar,ara,ara,ara,Arabic,is_macro,,Arab,1.00,تعلم في جامعة نورث وسترن في .,,ar | ara_Arab
+arc,arc,,exact_match,,arc,arc,arc,Official Aramaic (700-300 BCE),,,Syrc,1.00,ܨܘܝܒܐ ܒܝܐܛܪܝܟܣ ܕܒܝܬ ܗܘܠܢܕܝܐ,,arc | arc_Syrc
+arz,arz,,exact_match,,,,arz,Egyptian Arabic,has_macro,Arabic,Arab,1.00,تحويل احمد بن طولون,,arz | arz_Arab
+as,as,,exact_match,as,asm,asm,asm,Assamese,,,Beng,1.00,হাউ আই মে'ট ইয়'ৰ মাদাৰ,,as | asm_Beng
+ast,ast,,exact_match,,ast,ast,ast,Asturian,,,Latn,1.00,Congresu Internacional Xuvenil,,ast | ast_Latn
+ay,ay,,exact_match,ay,aym,aym,aym,Aymara,is_macro,,Latn,1.00,Jach'a suyu,,ay | aym_Latn
+az,az,,exact_match,az,aze,aze,aze,Azerbaijani,is_macro,,Latn,1.00,' '' III. Əhməd '' ',,az | aze_Latn
+ba,ba,,exact_match,ba,bak,bak,bak,Bashkir,,,Cyrl,1.00,Рәсәй халыҡтар дуҫлығы университеты,,ba | bak_Cyrl
+bar,bar,,exact_match,,,,bar,Bavarian,,,Latn,1.00,*** ' '' Ortenberg '' ',,bar | bar_Latn
+bat-smg,bat,smg,exact_match,,bat,bat,,Baltic languages,,,Latn,1.00,Sīkēs pačiomp ė mažus elniokus aba lapes .,,bat-smg | ?
+be,be,,exact_match,be,bel,bel,bel,Belarusian,,,Cyrl,1.00,"Па просьбе Дыяніса Медэя амаладзіла іх , затым яны сталі зоркамі .",,be | bel_Cyrl
+be-x-old,be,x-old,exact_match,be,bel,bel,bel,Belarusian,,,Cyrl,1.00,Горад адносіцца да этнаграфічнага рэгіёну Аўкштота .,,be-x-old | bel_Cyrl
+bg,bg,,exact_match,bg,bul,bul,bul,Bulgarian,,,Cyrl,1.00,"Видът е разпространен във Венецуела , Еквадор и Колумбия .",,bg | bul_Cyrl
+bh,bh,,error_deprecated,,,,,,,,Deva,0.67,अलेक्जेंडर फॉन हम्बोल्ट ( 1769–1859 ) – considered the father of modern geography .,,bh | ?
+bn,bn,,exact_match,bn,ben,ben,ben,Bengali,,,Beng,1.00,উরুগুয়ে জাতীয় ফুটবল দল,,bn | ben_Beng
+bo,bo,,exact_match,bo,tib,bod,bod,Tibetan,,,Tibt,0.67,File : Leaning tower of pisa པེའུ་ས།,,bo | bod_Tibt?
+br,br,,exact_match,br,bre,bre,bre,Breton,,,Latn,1.00,Pa oa bugel ez eas d'ar skol-dañs stag ouzh c'hoariva Mariinsky hag ouzh skol-arzoù Mirdi ar Peniti ...,,br | bre_Latn
+bs,bs,,exact_match,bs,bos,bos,bos,Bosnian,has_macro,Serbo-Croatian,Latn,1.00,PREUSMJERI Nordijska kombinacija na Zimskim olimpijskim igrama 2014 .,,bs | bos_Latn
+ca,ca,,exact_match,ca,cat,cat,cat,Catalan,,,Latn,1.00,Patrick Janssens ( ''2003-2012 '' ) ( 2006- ?,,ca | cat_Latn
+cbk-zam,cbk,zam,exact_match,,,,cbk,Chavacano,,,Latn,1.00,"Although CBS uses this arrangement for the tournament , they still use the arrangement that has been...",,cbk-zam | cbk_Latn
+cdo,cdo,,exact_match,,,,cdo,Min Dong Chinese,has_macro,Chinese,Latn,1.00,重定向 Ŭ-cṳ̄ng-nè̤ng,,cdo | cdo_Latn
+ce,ce,,exact_match,ce,che,che,che,Chechen,,,Cyrl,1.00,дӀасахьажор ' Бразилин проспект ( телесериал ),,ce | che_Cyrl
+ceb,ceb,,exact_match,,ceb,ceb,ceb,Cebuano,,,Latn,1.00,"Siya nahimutang sa amihanan-kasadpang bahin sa nasod , km sa amihanan sa ulohang dakbayan Porto-Novo...",,ceb | ceb_Latn
+ckb,ckb,,exact_match,,,,ckb,Central Kurdish,has_macro,Kurdish,Arab,1.00,پارێزگای سێستان و بەلۆچستان,,ckb | ckb_Arab
+co,co,,exact_match,co,cos,cos,cos,Corsican,,,Latn,1.00,Rita Guedes,,co | cos_Latn
+crh,crh,,exact_match,,crh,crh,crh,Crimean Tatar,,,Latn,1.00,Omar Rodriguez-Lopez Quintet,,crh | crh_Latn
+cs,cs,,exact_match,cs,cze,ces,ces,Czech,,,Latn,1.00,"Stade de France , Saint-Denis , Francie",,cs | ces_Latn
+csb,csb,,exact_match,,csb,csb,csb,Kashubian,,,Latn,1.00,Ò tich łużëcczich Serbach nie zabôczëł téż papież Benedikt XVI .,,csb | csb_Latn
+cv,cv,,exact_match,cv,chv,chv,chv,Chuvash,,,Cyrl,1.00,Çеçпĕл ( ял ),,cv | chv_Cyrl
+cy,cy,,exact_match,cy,wel,cym,cym,Welsh,,,Latn,1.00,Pentref a chymuned yn Lloegr ydy ' '' Shottle '' ' ; saif yn Nwyrain Canolbarth Lloegr .,,cy | cym_Latn
+da,da,,exact_match,da,dan,dan,dan,Danish,,,Latn,1.00,Hvis Lyset Tar Oss,,da | dan_Latn
+de,de,,exact_match,de,ger,deu,deu,German,,,Latn,1.00,WEITERLEITUNG Hu ( Xi’an ),,de | deu_Latn
+diq,diq,,exact_match,,,,diq,Dimli (individual language),has_macro,Zaza,Latn,1.00,"Ay , pê enê singleê xo , leqemê rapera soloyo 4ıne gıroto .",,diq | diq_Latn
+dv,dv,,exact_match,dv,div,div,div,Dhivehi,,,Thaa,1.00,ޔަމަން,,dv | div_Thaa
+el,el,,exact_match,el,gre,ell,ell,Modern Greek (1453-),,,Grek,1.00,"Ο γιος του , Καρλομάγνος , την επέλεξε ως τόπο μόνιμης εγκατάστασής του και έχτισε το ανάκτορό του κ...",,el | ell_Grek
+eml,eml,,error_deprecated,,,,,,,,Latn,1.00,' '' Magòtt '' ' a l’é un suarnum tradisiunäl ca i piaṡintëin i g ' dan a ché lur ch ' i stan apena ...,,eml | ?
+en,en,,exact_match,en,eng,eng,eng,English,,,Latn,1.00,"Shortly afterward , an encouraging response influenced him to go to India ; he arrived at Adyar in 1...",,en | eng_Latn
+eo,eo,,exact_match,eo,epo,epo,epo,Esperanto,,,Latn,1.00,Lázaro Cárdenas del Río,,eo | epo_Latn
+es,es,,exact_match,es,spa,spa,spa,Spanish,,,Latn,1.00,Jilguero del Huascarán,,es | spa_Latn
+et,et,,exact_match,et,est,est,est,Estonian,is_macro,,Latn,1.00,"Oma töödes on eurasianismi ideid kajastanud ka Lev Gumiljov , keda on sageli nimetatud uuseurasianis...",,et | est_Latn
+eu,eu,,exact_match,eu,baq,eus,eus,Basque,,,Latn,1.00,`` God Gave Rock 'N ' Roll To You II '' ( edizioa eta albumeko bertsioa ),,eu | eus_Latn
+ext,ext,,exact_match,,,,ext,Extremaduran,,,Latn,1.00,Inu,,ext | ext_Latn
+fa,fa,,exact_match,fa,per,fas,fas,Persian,is_macro,,Arab,1.00,تغییرمسیر آرمان وارد می‌شود,,fa | fas_Arab
+fi,fi,,exact_match,fi,fin,fin,fin,Finnish,,,Latn,1.00,Yhtye myös julkaisi uuden kokoelma-albumin ja tietokonepelin Ed Hunter '' .,,fi | fin_Latn
+fiu-vro,fiu,vro,exact_match,,fiu,fiu,,Finno-Ugrian languages,,,Latn,1.00,Eestin oll ' 2011. aastaga rahvalugõmisõ perrä 12 419 valgõvindläst .,,fiu-vro | ?
+fo,fo,,exact_match,fo,fao,fao,fao,Faroese,,,Latn,1.00,Byrta - Aftur og aftur,,fo | fao_Latn
+fr,fr,,exact_match,fr,fre,fra,fra,French,,,Latn,1.00,' '' Upton Park '' ' ( exempt ),,fr | fra_Latn
+frr,frr,,exact_match,,frr,frr,frr,Northern Frisian,,,Latn,1.00,Julius Cäsar,,frr | frr_Latn
+fur,fur,,exact_match,,fur,fur,fur,Friulian,,,Latn,1.00,"Il veicul al jere costruît dal pionîr de automobil Carl Benz , e al veve un motôr cun 5 cjavai di po...",,fur | fur_Latn
+fy,fy,,exact_match,fy,fry,fry,fry,Western Frisian,,,Latn,1.00,"Yn ferliking mei de foarige edysje diene Fidzjy , Jamaika , Kameroen , Meksiko , Puerto Riko en Trin...",,fy | fry_Latn
+ga,ga,,exact_match,ga,gle,gle,gle,Irish,,,Latn,1.00,Charles Dickens - scríbhneoir,,ga | gle_Latn
+gan,gan,,exact_match,,,,gan,Gan Chinese,has_macro,Chinese,Hani,0.67,' '' 園城寺 '' 日本,,gan | gan_Hani?
+gd,gd,,exact_match,gd,gla,gla,gla,Scottish Gaelic,,,Latn,1.00,Seòras / Deòrsa II ( 1727–1760 ),,gd | gla_Latn
+gl,gl,,exact_match,gl,glg,glg,glg,Galician,,,Latn,1.00,' '' San Francisco 49ers '' ',,gl | glg_Latn
+gn,gn,,exact_match,gn,grn,grn,grn,Guarani,is_macro,,Latn,1.00,Guembe,,gn | grn_Latn
+gu,gu,,exact_match,gu,guj,guj,guj,Gujarati,,,Gujr,1.00,' '' ''કબીર બીજક '' ' '' એ સંત કબીર રચિત એક ગ્રંથ છે .,,gu | guj_Gujr
+hak,hak,,exact_match,,,,hak,Hakka Chinese,has_macro,Chinese,Latn,1.00,"Liá-ke kau-fi ke chú-yeu muk-tit he `` chṳ́n-kiu van-mìn '' ke chṳ̂n fuk-yîm chhòn-phien sṳ-kie , té...",,hak | hak_Latn
+he,he,,exact_match,he,heb,heb,heb,Hebrew,,,Hebr,1.00,' '' נורווגיה '' ',,he | heb_Hebr
+hi,hi,,exact_match,hi,hin,hin,hin,Hindi,,,Deva,1.00,नन्दा देवी पर्वत,,hi | hin_Deva
+hr,hr,,exact_match,hr,hrv,hrv,hrv,Croatian,has_macro,Serbo-Croatian,Latn,1.00,"Ekspedicija je nastavila put do Manile s Quirosom kao vođom , ali je imao mnogo neprilika s Mendañin...",,hr | hrv_Latn
+hsb,hsb,,exact_match,,hsb,hsb,hsb,Upper Sorbian,,,Latn,1.00,Klosterwasser – Klóšterska woda,,hsb | hsb_Latn
+hu,hu,,exact_match,hu,hun,hun,hun,Hungarian,,,Latn,1.00,Al-Kuwait]] '' ' ( Kuvait ),,hu | hun_Latn
+hy,hy,,exact_match,hy,arm,hye,hye,Armenian,,,Armn,1.00,' '' Ջասթին Բիբեր '' ',,hy | hye_Armn
+ia,ia,,exact_match,ia,ina,ina,ina,Interlingua (International Auxiliary Language Association),,,Latn,1.00,Emacs,,ia | ina_Latn
+id,id,,exact_match,id,ind,ind,ind,Indonesian,has_macro,Malay (macrolanguage),Latn,1.00,ALIH Taman Nasional Tunku Abdul Rahman,,id | ind_Latn
+ig,ig,,exact_match,ig,ibo,ibo,ibo,Igbo,,,Latn,1.00,Ndi ojié,,ig | ibo_Latn
+ilo,ilo,,exact_match,,ilo,ilo,ilo,Iloko,,,Latn,1.00,Stammham ( 18 ),,ilo | ilo_Latn
+io,io,,exact_match,io,ido,ido,ido,Ido,,,Latn,1.00,James Batcheller Sumner,,io | ido_Latn
+is,is,,exact_match,is,ice,isl,isl,Icelandic,,,Latn,1.00,Beltaþyrill ''Ceryle alcyon '' Sjaldséð,,is | isl_Latn
+it,it,,exact_match,it,ita,ita,ita,Italian,,,Latn,1.00,' '' Washington Mystics '' ',,it | ita_Latn
+ja,ja,,exact_match,ja,jpn,jpn,jpn,Japanese,,,Kana,0.67,# ヌ ン チ ャ ク バ ン キ ： 吉 水 孝 宏,,ja | jpn_Kana?
+jbo,jbo,,exact_match,,jbo,jbo,jbo,Lojban,,,Latn,1.00,mijytu'a xamsi,,jbo | jbo_Latn
+jv,jv,,exact_match,jv,jav,jav,jav,Javanese,,,Latn,1.00,' '' Kutha krajan '' ',,jv | jav_Latn
+ka,ka,,exact_match,ka,geo,kat,kat,Georgian,,,Geor,1.00,წარმოშობით ბითინიის ქალაქ ნიკეიდან .,,ka | kat_Geor
+kk,kk,,exact_match,kk,kaz,kaz,kaz,Kazakh,,,Cyrl,1.00,АЙДАУ Николай Михайлович Карамзин,,kk | kaz_Cyrl
+km,km,,exact_match,km,khm,khm,khm,Khmer,,,Khmr,0.67,អនុគមន៍ដឺក្រេទី២,,km | khm_Khmr?
+kn,kn,,exact_match,kn,kan,kan,kan,Kannada,,,Knda,1.00,ಎಂ. ಪಿ. ಶಂಕರ್,,kn | kan_Knda
+ko,ko,,exact_match,ko,kor,kor,kor,Korean,,,Hang,1.00,' '' 데이지 덕 '' ',,ko | kor_Hang
+ksh,ksh,,exact_match,,,,ksh,Kölsch,,,Latn,1.00,1992 hiirode Simone dr Schauspeller Johannes Heesters .,,ksh | ksh_Latn
+ku,ku,,exact_match,ku,kur,kur,kur,Kurdish,is_macro,,Latn,1.00,Armando Diego Maradona,,ku | kur_Latn
+ky,ky,,exact_match,ky,kir,kir,kir,Kirghiz,,,Cyrl,1.00,Фараби Фараб жергесинде ( ''азыр .,,ky | kir_Cyrl
+la,la,,exact_match,la,lat,lat,lat,Latin,,,Latn,1.00,"Lewis Thorpe , interpr .",,la | lat_Latn
+lb,lb,,exact_match,lb,ltz,ltz,ltz,Luxembourgish,,,Latn,1.00,E groussen Afloss op d'Weiderkommen vun der Wehrmacht hat se net .,,lb | ltz_Latn
+li,li,,exact_match,li,lim,lim,lim,Limburgan,,,Latn,1.00,Rippubliek vaan de Zeve Vereinegde Nederlen,,li | lim_Latn
+lij,lij,,exact_match,,,,lij,Ligurian,,,Latn,1.00,RINVIA Maia Texo d'Asburgo,,lij | lij_Latn
+lmo,lmo,,exact_match,,,,lmo,Lombard,,,Latn,1.00,← Indree a Capitel Düü,,lmo | lmo_Latn
+ln,ln,,exact_match,ln,lin,lin,lin,Lingala,,,Latn,1.00,REDIRECTION Lisangá lya Bikólo bya Molɔ́ngɔ́,,ln | lin_Latn
+lt,lt,,exact_match,lt,lit,lit,lit,Lithuanian,,,Latn,1.00,MTK Budapest FC,,lt | lit_Latn
+lv,lv,,exact_match,lv,lav,lav,lav,Latvian,is_macro,,Latn,1.00,Tottenham Hotspur F.C .,,lv | lav_Latn
+map-bms,map,bms,exact_match,,map,map,,Austronesian languages,,,Latn,1.00,Kamboja,,map-bms | ?
+mg,mg,,exact_match,mg,mlg,mlg,mlg,Malagasy,is_macro,,Latn,1.00,"I ' '' Bhadrak '' ' dia tanàna ao amin'ny faritanin'i Odisha , ao India .",,mg | mlg_Latn
+mhr,mhr,,exact_match,,,,mhr,Eastern Mari,has_macro,Mari (Russia),Cyrl,1.00,"' '' Пижымбал '' ' ( ''Туҥышо '' ; ) - ола сынан посёлко Угарман велыште , Российыште .",,mhr | mhr_Cyrl
+mi,mi,,exact_match,mi,mao,mri,mri,Maori,,,Latn,1.00,Ko Te Tai-tokerau tētahi o ngā takiwā o Aotearoa ; koia tonu te rohe o Ngā Puhi me ērā atu iwi rongo...,,mi | mri_Latn
+min,min,,exact_match,,min,min,min,Minangkabau,has_macro,Malay (macrolanguage),Latn,1.00,Landerd,,min | min_Latn
+mk,mk,,exact_match,mk,mac,mkd,mkd,Macedonian,,,Cyrl,1.00,Михаил Јурјевич Лермонтов,,mk | mkd_Cyrl
+ml,ml,,exact_match,ml,mal,mal,mal,Malayalam,,,Mlym,1.00,തിരിച്ചുവിടുക കോട്ടയം ലോക്‌സഭാ നിയോജകമണ്ഡലം,,ml | mal_Mlym
+mn,mn,,exact_match,mn,mon,mon,mon,Mongolian,is_macro,,Cyrl,1.00,Мөн энэ тоо нь Лайпциг хотын хүн амын тоотой ойролцоо тул том хотуудын дэс дараалалд энэ хоёр хотын ...,,mn | mon_Cyrl
+mr,mr,,exact_match,mr,mar,mar,mar,Marathi,,,Deva,1.00,पुनर्निर्देशन मिदनापूर ( लोकसभा मतदारसंघ ),,mr | mar_Deva
+ms,ms,,exact_match,ms,may,msa,msa,Malay (macrolanguage),is_macro,,Latn,1.00,Johor Darul Ta'zim II FC,,ms | msa_Latn
+mt,mt,,exact_match,mt,mlt,mlt,mlt,Maltese,,,Latn,1.00,Emerson Ferreira da Rosa,,mt | mlt_Latn
+mwl,mwl,,exact_match,,mwl,mwl,mwl,Mirandese,,,Latn,1.00,La ascenson de l amperador romano Custantino repersentou un punto de birada pa l crestianismo .,,mwl | mwl_Latn
+my,my,,exact_match,my,bur,mya,mya,Burmese,,,Mymr,1.00,အလုံမြို့နယ်၊ ရန်ကုန်တိုင်းဒေသကြီး တွင် တည်ရှိပြီး ၁၉၆၃ ခုနှစ် တွင် မြန်မာ့သစ်လုပ်ငန်းမှ ဖွင့်လှစ်ထာ...,,my | mya_Mymr
+mzn,mzn,,exact_match,,,,mzn,Mazanderani,,,Arab,1.00,' '' ایچینومیا '' ' اتا شهر نوم هسته که جاپون آیچی استان دله دره .,,mzn | mzn_Arab
+nap,nap,,exact_match,,nap,nap,nap,Neapolitan,,,Latn,1.00,Chiesa di Santa Maria degli Angeli a Pizzofalcone,,nap | nap_Latn
+nds,nds,,exact_match,,nds,nds,nds,Low German,,,Latn,1.00,He bruukt as Eerste dat Woort Chemie .,,nds | nds_Latn
+ne,ne,,exact_match,ne,nep,nep,nep,Nepali (macrolanguage),is_macro,,Deva,1.00,नेपाल मजदुर किसान पार्टी २ सिट,,ne | nep_Deva
+nl,nl,,exact_match,nl,dut,nld,nld,Dutch,,,Latn,1.00,Kort na dit toernooi scherpte zij haar eigen gloednieuwe record tijdens een interland tegen Engeland...,,nl | nld_Latn
+nn,nn,,exact_match,nn,nno,nno,nno,Norwegian Nynorsk,has_macro,Norwegian,Latn,1.00,"Av framtredande personar i Orienteringskrinsen er verdt å nemne Karl Evang , Sigurd Evensmo og Finn ...",,nn | nno_Latn
+no,no,,exact_match,no,nor,nor,nor,Norwegian,is_macro,,Latn,1.00,Ishockey-VM 2011 ( divisjon II ),,no | nor_Latn
+nov,nov,,exact_match,,,,nov,Novial,,,Latn,1.00,Gana,,nov | nov_Latn
+oc,oc,,exact_match,oc,oci,oci,oci,Occitan (post 1500),,,Latn,1.00,Enric de Tolosa-Lautrèc ( 1864-1901 ),,oc | oci_Latn
+or,or,,exact_match,or,ori,ori,ori,Oriya (macrolanguage),is_macro,,Orya,1.00,"ଅପରାଜିତା ମହାନ୍ତି , ବିଜୟ ମହାନ୍ତି , ତନ୍ଦ୍ରା ରାୟ",,or | ori_Orya
+os,os,,exact_match,os,oss,oss,oss,Ossetian,,,Cyrl,1.00,"Дзурынц йыл Андоррæ , Испани , Итали æмæ Францы .",,os | oss_Cyrl
+pa,pa,,exact_match,pa,pan,pan,pan,Panjabi,,,Guru,1.00,ਰੀਡਿਰੈਕਟ ਏ. ਟੀ. ਐੱਮ .,,pa | pan_Guru
+pdc,pdc,,exact_match,,,,pdc,Pennsylvania German,,,Latn,1.00,Sei Voreldere waare Amisch .,,pdc | pdc_Latn
+pl,pl,,exact_match,pl,pol,pol,pol,Polish,,,Latn,1.00,Stadion SKA we Lwowie ;,,pl | pol_Latn
+pms,pms,,exact_match,,,,pms,Piemontese,,,Latn,1.00,RINVIA Nikolaj Ivanovič Lobačevskij,,pms | pms_Latn
+pnb,pnb,,exact_match,,,,pnb,Western Panjabi,has_macro,Lahnda,Arab,1.00,' '' ہندکو نال نکھیڑہ '' ',,pnb | pnb_Arab
+ps,ps,,exact_match,ps,pus,pus,pus,Pushto,is_macro,,Arab,1.00,آيزو يا آيسو-3166 ( انگريزي ISO-3166 ) د معيار نړيوال تنظيملخوا ايښودی شوی يو رمز يا کوډ دی کوم چې د...,,ps | pus_Arab
+pt,pt,,exact_match,pt,por,por,por,Portuguese,,,Latn,1.00,' '' Alex Baldolini '' ',,pt | por_Latn
+qu,qu,,exact_match,qu,que,que,que,Quechua,is_macro,,Latn,1.00,Amirika Mamallaqtap Pachakutinapaq Huñunakuynin,,qu | que_Latn
+rm,rm,,exact_match,rm,roh,roh,roh,Romansh,,,Latn,1.00,El es gnieu fundo dal filolog e perscruteder linguistic Peider Lansel e'l ravarenda Otto Gaudenz .,,rm | roh_Latn
+ro,ro,,exact_match,ro,rum,ron,ron,Romanian,,,Latn,1.00,"William Butler Yeats , ( 1865-1939 )",,ro | ron_Latn
+ru,ru,,exact_match,ru,rus,rus,rus,Russian,,,Cyrl,1.00,' '' Крус Асуль '' ',,ru | rus_Cyrl
+rw,rw,,exact_match,rw,kin,kin,kin,Kinyarwanda,,,Latn,1.00,Antipas Mbusa Nyamwisi,,rw | kin_Latn
+sa,sa,,exact_match,sa,san,san,san,Sanskrit,is_macro,,Deva,1.00,पुनर्निदेशन जे आर् डि टाटा,,sa | san_Deva
+sah,sah,,exact_match,,sah,sah,sah,Yakut,,,Cyrl,1.00,SkyTeam альянс төрүттээччи хампаанньалартан биирдэстэрэ .,,sah | sah_Cyrl
+scn,scn,,exact_match,,scn,scn,scn,Sicilian,,,Latn,1.00,RINVIA Nazziunali di pallavvolu masculina di Pulonia,,scn | scn_Latn
+sco,sco,,exact_match,,sco,sco,sco,Scots,,,Latn,1.00,"** Best Performance : ''Quairter-feenals '' , 2014",,sco | sco_Latn
+sd,sd,,exact_match,sd,snd,snd,snd,Sindhi,,,Arab,1.00,' '' گڙھي خدابخش '' ' نئون ديرو، سنڌ، پاڪستان کي ويجھو رتوديرو ۾ موجود اهڪ ڳوٺ آهي۔ هي ڳوٺ ڀٽو خاندا...,,sd | snd_Arab
+sh,sh,,error_deprecated,,,,,,,,Latn,1.00,"PREUSMJERI Alachua County , Florida",,sh | ?
+si,si,,exact_match,si,sin,sin,sin,Sinhala,,,Sinh,1.00,රණසිංහ ප්‍රේමදාස ( 1924–1993 ),,si | sin_Sinh
+simple,simple,,fuzzy_match_0.73,,,,stv,Silt'e,,,Latn,1.00,"Too Weird to Live , Too Rare to Die ! ''",,simple | stv_Latn?
+sk,sk,,exact_match,sk,slo,slk,slk,Slovak,,,Latn,1.00,** Edward James Stone – britský astronóm,,sk | slk_Latn
+sl,sl,,exact_match,sl,slv,slv,slv,Slovenian,,,Latn,1.00,Trenutno je šesto najbolj naseljeno mesto v Angliji in deveto v celotnem Združenem kraljestvu s prib...,,sl | slv_Latn
+so,so,,exact_match,so,som,som,som,Somali,,,Latn,1.00,Hayada Cuntada Aduunka,,so | som_Latn
+sq,sq,,exact_match,sq,alb,sqi,sqi,Albanian,is_macro,,Latn,1.00,** Gordon Brown ( 2007–2010 ),,sq | sqi_Latn
+sr,sr,,exact_match,sr,srp,srp,srp,Serbian,has_macro,Serbo-Croatian,Cyrl,1.00,' '' Жистин Енен '' ',,sr | srp_Cyrl
+su,su,,exact_match,su,sun,sun,sun,Sundanese,,,Latn,1.00,Yuyutsu ( Yuyulssu ),,su | sun_Latn
+sv,sv,,exact_match,sv,swe,swe,swe,Swedish,,,Latn,1.00,' '' Rudolf Svedberg '' ',,sv | swe_Latn
+sw,sw,,exact_match,sw,swa,swa,swa,Swahili (macrolanguage),is_macro,,Latn,1.00,Msimbo wa posta ni 33413 .,,sw | swa_Latn
+szl,szl,,exact_match,,,,szl,Silesian,,,Latn,1.00,PATRZ Grasshopper Club Zurych,,szl | szl_Latn
+ta,ta,,exact_match,ta,tam,tam,tam,Tamil,,,Taml,1.00,' '' இந்திய தேசிய காங்கிரசு '' ',,ta | tam_Taml
+te,te,,exact_match,te,tel,tel,tel,Telugu,,,Telu,0.67,ప్రపంచ మస్జిద్ ల జాబితా,,te | tel_Telu?
+tg,tg,,exact_match,tg,tgk,tgk,tgk,Tajik,,,Cyrl,1.00,*2012-2015 — мудири кафедраи таърих ва назарияи журналистикаи ВАО элетронии Донишгоҳи славянии Русия...,,tg | tgk_Cyrl
+th,th,,exact_match,th,tha,tha,tha,Thai,,,Thai,1.00,# ภ ค ม น # บ ุ ณ ย ะ ภ ู ต ิ # ( ล ู ก โ ป ่ ง # A F 4 ),,th | tha_Thai
+tk,tk,,exact_match,tk,tuk,tuk,tuk,Turkmen,,,Latn,1.00,Günorta Afrika Respublikasy,,tk | tuk_Latn
+tl,tl,,exact_match,tl,tgl,tgl,tgl,Tagalog,,,Latn,1.00,Bosnia at Herzegovina,,tl | tgl_Latn
+tr,tr,,exact_match,tr,tur,tur,tur,Turkish,,,Latn,1.00,Pro League ekiplerinden Club Brugge'de oynuyor .,,tr | tur_Latn
+tt,tt,,exact_match,tt,tat,tat,tat,Tatar,,,Cyrl,0.67,Көнбатыш фронт ( Георгий Жуков ) .,,tt | tat_Cyrl?
+ug,ug,,exact_match,ug,uig,uig,uig,Uighur,,,Arab,1.00,ئافيون قاراھىسار,,ug | uig_Arab
+uk,uk,,exact_match,uk,ukr,ukr,ukr,Ukrainian,,,Cyrl,1.00,Входить до складу комуни Севиршин .,,uk | ukr_Cyrl
+ur,ur,,exact_match,ur,urd,urd,urd,Urdu,,,Arab,1.00,' '' حیدرآباد ہاکس '' ',,ur | urd_Arab
+uz,uz,,exact_match,uz,uzb,uzb,uzb,Uzbek,is_macro,,Latn,1.00,Frauenstein ( Karintiya ),,uz | uzb_Latn
+vec,vec,,exact_match,,,,vec,Venetian,,,Latn,1.00,Associazione Calcio Milan,,vec | vec_Latn
+vep,vep,,exact_match,,,,vep,Veps,,,Latn,1.00,Karr Sara Rouz,,vep | vep_Latn
+vi,vi,,exact_match,vi,vie,vie,vie,Vietnamese,,,Latn,1.00,Hà Nội & Thành phố Hồ Chí Minh,,vi | vie_Latn
+vls,vls,,exact_match,,,,vls,Vlaams,,,Latn,1.00,** Oud Sint-Jan ( Hans Memling ),,vls | vls_Latn
+vo,vo,,exact_match,vo,vol,vol,vol,Volapük,,,Latn,1.00,Hilltop ( Ohio ),,vo | vol_Latn
+wa,wa,,exact_match,wa,wln,wln,wln,Walloon,,,Latn,1.00,Morris èt Franquin ont-st adon arivé po bouter avou Jijé ki dècide di baguer a Waterlô et d’ emoenne...,,wa | wln_Latn
+war,war,,exact_match,,war,war,war,Waray (Philippines),,,Latn,1.00,Singbahan Katolika Siro-Malankara,,war | war_Latn
+wuu,wuu,,exact_match,,,,wuu,Wu Chinese,has_macro,Chinese,Hans,0.33,俄罗斯联邦由89个弗同个行政分区组成。联邦有21个享有交关自由个共和国。该星共和国往往是俄罗斯联邦个少数民族聚居区。剩下来个行政区包括49个州（Области 莫斯科搭,,wuu | wuu_Hans?
+xmf,xmf,,exact_match,,,,xmf,Mingrelian,,,Geor,1.00,"გევარა , მუჭოთ აკა კაკალია კომანდანტე ფიდელ კასტროშ უკული , კონწარი პედანტი რდჷ , მით კანკალეშა განშ...",,xmf | xmf_Geor
+yi,yi,,exact_match,yi,yid,yid,yid,Yiddish,is_macro,,Hebr,1.00,ווייטערפירן וואס איז נייעס ?,,yi | yid_Hebr
+yo,yo,,exact_match,yo,yor,yor,yor,Yoruba,,,Latn,1.00,Agbègbè Ìjọba Ìbílẹ̀ Gúúsù-Ìwọòrùn Akoko,,yo | yor_Latn
+zea,zea,,exact_match,,,,zea,Zeeuws,,,Latn,1.00,Tigranes de Groôte,,zea | zea_Latn
+zh,zh,,exact_match,zh,chi,zho,zho,Chinese,is_macro,,Hant,0.33,香 港 著 名 電 影 從 業 員 、 監 製 黃 百 鳴,,zh | zho_Hant?
+zh-classical,zh,classical,exact_match,zh,chi,zho,zho,Chinese,is_macro,,Hani,0.67,R E D I R E C T 階,,zh-classical | zho_Hans?
+zh-min-nan,zh,min-nan,exact_match,zh,chi,zho,zho,Chinese,is_macro,,Latn,1.00,Sońsk ( gmina ),,zh-min-nan | zho_Latn
+zh-yue,zh,yue,exact_match,zh,chi,zho,zho,Chinese,is_macro,,Jpan,0.33,蔣 家 旻,,zh-yue | zho_Jpan?

@@ -1,0 +1,176 @@
+ace | ace_Latn
+af | afr_Latn
+als | als_Latn
+am | amh_Ethi
+an | arg_Latn
+ang | ang_Latn
+ar | ara_Arab
+arc | arc_Syrc
+arz | arz_Arab
+as | asm_Beng
+ast | ast_Latn
+ay | aym_Latn
+az | aze_Latn
+ba | bak_Cyrl
+bar | bar_Latn
+# UNCERTAIN: bat-smg | ?
+be | bel_Cyrl
+be-x-old | bel_Cyrl
+bg | bul_Cyrl
+# UNCERTAIN: bh | ?
+bn | ben_Beng
+# UNCERTAIN: bo | bod_Tibt?
+br | bre_Latn
+bs | bos_Latn
+ca | cat_Latn
+cbk-zam | cbk_Latn
+cdo | cdo_Latn
+ce | che_Cyrl
+ceb | ceb_Latn
+ckb | ckb_Arab
+co | cos_Latn
+crh | crh_Latn
+cs | ces_Latn
+csb | csb_Latn
+cv | chv_Cyrl
+cy | cym_Latn
+da | dan_Latn
+de | deu_Latn
+diq | diq_Latn
+dv | div_Thaa
+el | ell_Grek
+# UNCERTAIN: eml | ?
+en | eng_Latn
+eo | epo_Latn
+es | spa_Latn
+et | est_Latn
+eu | eus_Latn
+ext | ext_Latn
+fa | fas_Arab
+fi | fin_Latn
+# UNCERTAIN: fiu-vro | ?
+fo | fao_Latn
+fr | fra_Latn
+frr | frr_Latn
+fur | fur_Latn
+fy | fry_Latn
+ga | gle_Latn
+# UNCERTAIN: gan | gan_Hani?
+gd | gla_Latn
+gl | glg_Latn
+gn | grn_Latn
+gu | guj_Gujr
+hak | hak_Latn
+he | heb_Hebr
+hi | hin_Deva
+hr | hrv_Latn
+hsb | hsb_Latn
+hu | hun_Latn
+hy | hye_Armn
+ia | ina_Latn
+id | ind_Latn
+ig | ibo_Latn
+ilo | ilo_Latn
+io | ido_Latn
+is | isl_Latn
+it | ita_Latn
+# UNCERTAIN: ja | jpn_Kana?
+jbo | jbo_Latn
+jv | jav_Latn
+ka | kat_Geor
+kk | kaz_Cyrl
+# UNCERTAIN: km | khm_Khmr?
+kn | kan_Knda
+ko | kor_Hang
+ksh | ksh_Latn
+ku | kur_Latn
+ky | kir_Cyrl
+la | lat_Latn
+lb | ltz_Latn
+li | lim_Latn
+lij | lij_Latn
+lmo | lmo_Latn
+ln | lin_Latn
+lt | lit_Latn
+lv | lav_Latn
+# UNCERTAIN: map-bms | ?
+mg | mlg_Latn
+mhr | mhr_Cyrl
+mi | mri_Latn
+min | min_Latn
+mk | mkd_Cyrl
+ml | mal_Mlym
+mn | mon_Cyrl
+mr | mar_Deva
+ms | msa_Latn
+mt | mlt_Latn
+mwl | mwl_Latn
+my | mya_Mymr
+mzn | mzn_Arab
+nap | nap_Latn
+nds | nds_Latn
+ne | nep_Deva
+nl | nld_Latn
+nn | nno_Latn
+no | nor_Latn
+nov | nov_Latn
+oc | oci_Latn
+or | ori_Orya
+os | oss_Cyrl
+pa | pan_Guru
+pdc | pdc_Latn
+pl | pol_Latn
+pms | pms_Latn
+pnb | pnb_Arab
+ps | pus_Arab
+pt | por_Latn
+qu | que_Latn
+rm | roh_Latn
+ro | ron_Latn
+ru | rus_Cyrl
+rw | kin_Latn
+sa | san_Deva
+sah | sah_Cyrl
+scn | scn_Latn
+sco | sco_Latn
+sd | snd_Arab
+# UNCERTAIN: sh | ?
+si | sin_Sinh
+# UNCERTAIN: simple | stv_Latn?
+sk | slk_Latn
+sl | slv_Latn
+so | som_Latn
+sq | sqi_Latn
+sr | srp_Cyrl
+su | sun_Latn
+sv | swe_Latn
+sw | swa_Latn
+szl | szl_Latn
+ta | tam_Taml
+# UNCERTAIN: te | tel_Telu?
+tg | tgk_Cyrl
+th | tha_Thai
+tk | tuk_Latn
+tl | tgl_Latn
+tr | tur_Latn
+# UNCERTAIN: tt | tat_Cyrl?
+ug | uig_Arab
+uk | ukr_Cyrl
+ur | urd_Arab
+uz | uzb_Latn
+vec | vec_Latn
+vep | vep_Latn
+vi | vie_Latn
+vls | vls_Latn
+vo | vol_Latn
+wa | wln_Latn
+war | war_Latn
+# UNCERTAIN: wuu | wuu_Hans?
+xmf | xmf_Geor
+yi | yid_Hebr
+yo | yor_Latn
+zea | zea_Latn
+# UNCERTAIN: zh | zho_Hant?
+# UNCERTAIN: zh-classical | zho_Hans?
+zh-min-nan | zho_Latn
+# UNCERTAIN: zh-yue | zho_Jpan?

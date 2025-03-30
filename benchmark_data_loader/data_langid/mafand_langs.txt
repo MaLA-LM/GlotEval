@@ -1,0 +1,22 @@
+# UNCERTAIN: fr | ?
+en | eng_Latn
+amh | amh_Ethi
+# UNCERTAIN: bam | ?
+# UNCERTAIN: bbj | ?
+# UNCERTAIN: ewe | ?
+# UNCERTAIN: fon | ?
+hau | hau_Latn
+kin | kin_Latn
+lug | lug_Latn
+luo | luo_Latn
+# UNCERTAIN: mos | ?
+pcm | pcm_Latn
+nya | nya_Latn
+sna | sna_Latn
+swa | swa_Latn
+tsn | tsn_Latn
+twi | twi_Latn
+# UNCERTAIN: wol | ?
+xho | xho_Latn
+yor | yor_Latn
+zul | zul_Latn
