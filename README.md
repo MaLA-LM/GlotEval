@@ -16,7 +16,7 @@ GlotEval is a unified evaluation toolkit designed to benchmark Large Language Mo
 
 ------
 
-## ✨ Key Features
+## ✨Key Features
 
 ### 🌐 Consistent Multilingual Benchmarking
 
@@ -59,7 +59,7 @@ GlotEval is a unified evaluation toolkit designed to benchmark Large Language Mo
 
 ------
 
-## ⚙️ Requirements
+## ⚙️Requirements
 
 - Python 3.8+
 - PyTorch
@@ -68,7 +68,7 @@ GlotEval is a unified evaluation toolkit designed to benchmark Large Language Mo
 
 ------
 
-## 🚀 Quickstart
+## 🚀Quickstart
 
 ### 1️⃣ Clone the Repository
 
@@ -122,7 +122,7 @@ python main.py \
 
 ------
 
-## 🛠️ Configuration & Customization
+## 🛠️Configuration & Customization
 
 The central configuration is in `config.json`, which specifies:
 
@@ -185,7 +185,7 @@ The central configuration is in `config.json`, which specifies:
 
 ------
 
-## 🧰 Utility Tools
+## 🧰Utility Tools
 
 GlotEval includes two important utility tools that enhance its multilingual capabilities:
 
@@ -217,7 +217,7 @@ Features:
 
 ------
 
-## 📤 Expected Output
+## 📤Expected Output
 
 After running an evaluation, GlotEval produces:
 
@@ -264,19 +264,19 @@ results/
 
 ------
 
-## 🤝 Contributing
+## 🤝Contributing
 
 We welcome contributions! Please see the GitHub repository for guidelines and how to get involved.
 
 ------
 
-## 📄 License
+## 📄License
 
 GlotEval is released under the [Apache-2.0 license](https://github.com/MaLA-LM/GlotEval?tab=Apache-2.0-1-ov-file#readme).
 
 ------
 
-## 📚 Citation
+## 📚Citation
 
 ```
 
