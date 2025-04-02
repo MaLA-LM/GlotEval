@@ -87,7 +87,7 @@ pip install -r requirements.txt
 
 ### 3️⃣ Prepare Data
 
-- Place data under `benchmark_dataset/`, e.g.:
+- Download benchmark data from Github Release under `benchmark_dataset/`, e.g.:
   - `benchmark_dataset/flores200`
   - `benchmark_dataset/wikiann`
 - Update paths in `config.json` if needed

@@ -74,9 +74,9 @@ def process_summarization_benchmark(
     if efficiency_analysis:
         all_efficiency_statistics = {}
         
-    tokenizer = model.get_tokenizer()
-    max_context_len = get_max_context_len(model_name)
-    reserved_output_tokens = kwargs.get("reserved_output_tokens", 128)
+    # tokenizer = model.get_tokenizer()
+    # max_context_len = get_max_context_len(model_name)
+    # reserved_output_tokens = kwargs.get("reserved_output_tokens", 128)
 
     for lang_code in lang_codes:
         print(f"[{benchmark_name}] Processing language: {lang_code}")
@@ -114,7 +114,6 @@ def process_summarization_benchmark(
         prompts = []
         for text in src_texts:
             prompt_str = build_summarization_prompt(
-                lang_code=lang_code,
                 text=text,
                 few_shot_examples=few_shot_examples,
                 prompt_library=prompt_library,
@@ -122,12 +121,12 @@ def process_summarization_benchmark(
                 benchmark_name=benchmark_name if prompt_source == "benchmark" else None,
                 task_key="summarization"
             )
-            # tokenize and truncate
-            max_prompt_tokens = max_context_len - reserved_output_tokens
-            input_ids = tokenizer.encode(prompt_str)
-            if len(input_ids) > max_prompt_tokens:
-                input_ids = input_ids[:max_prompt_tokens]
-                prompt_str = tokenizer.decode(input_ids)
+            # # tokenize and truncate
+            # max_prompt_tokens = max_context_len - reserved_output_tokens
+            # input_ids = tokenizer.encode(prompt_str)
+            # if len(input_ids) > max_prompt_tokens:
+            #     input_ids = input_ids[:max_prompt_tokens]
+            #     prompt_str = tokenizer.decode(input_ids)
             prompts.append(prompt_str)
 
         # Generate with efficiency metrics

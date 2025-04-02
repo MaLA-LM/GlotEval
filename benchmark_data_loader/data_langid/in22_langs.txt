@@ -2,7 +2,7 @@ asm_Beng | asm_Beng
 ben_Beng | ben_Beng
 brx_Deva | brx_Deva
 doi_Deva | doi_Deva
-eng_Latn | eng_Beng
+eng_Latn | eng_Latn
 guj_Gujr | guj_Gujr
 hin_Deva | hin_Deva
 kan_Knda | kan_Knda

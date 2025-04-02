@@ -89,7 +89,6 @@ def process_benchmark(benchmark_name, model, load_data_func, lang_config=None, *
                 prompts = []
                 for text in src_texts:
                     p = build_open_generation_prompt(
-                        lang_code=lang_code,
                         text=text,
                         prompt_library=prompt_library,
                         prompt_language=actual_prompt_lang,

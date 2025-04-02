@@ -4,9 +4,11 @@ import json
 import pandas as pd
 from sacrebleu.metrics import CHRF
 
+from sacrebleu.metrics import BLEU, CHRF
+
 def compute_bleu_score(predictions, references):
     """
-    Computes the BLEU score for the predictions against the references.
+    Computes the BLEU score for the predictions against the references using the Flores-200 tokenizer.
 
     Args:
         predictions (list): List of predicted translations.
@@ -15,22 +17,24 @@ def compute_bleu_score(predictions, references):
     Returns:
         bleu_score (float): The BLEU score.
     """
-    bleu = sacrebleu.corpus_bleu(predictions, [references])
-    return bleu.score
+    bleu = BLEU(tokenize="flores200")
+    bleu_score = bleu.corpus_score(predictions, [references])
+    return bleu_score.score
 
 def compute_chrf_score(predictions, references):
     """
-    Computes the CHRF++ score for the predictions against the references.
+    Computes the CHRF++ score for the predictions against the references using word_order=2.
 
     Args:
         predictions (list): List of predicted translations.
         references (list): List of reference translations.
 
     Returns:
-        chrf_score (float): The ChrF++ score.
+        chrf_score (float): The CHRF++ score.
     """
-    chrf = sacrebleu.corpus_chrf(predictions, [references])
-    return chrf.score
+    chrf = CHRF(word_order=2)
+    chrf_score = chrf.corpus_score(predictions, [references])
+    return chrf_score.score
 
 def compute_chrf_segments_score(predictions, references):
     """

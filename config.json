@@ -22,14 +22,12 @@
     "flores200_mt": {
       "n_shots": 3,
       "seed": 42,
-      "multi_aligned": true,
       "center_lang": "eng_Latn",
       "direction": "center-x"
     },
     "flores_plus_mt": {
       "n_shots": 3,
       "seed": 42,
-      "multi_aligned": true,
       "center_lang": "eng_Latn",
       "direction": "center-x"
     },
@@ -80,21 +78,18 @@
       "seed": 42
     },
      "mmhb": {
-      "center_lang": "eng",
+      "center_lang": "en",
       "direction": "center-x",
-      "seed": 42,
-      "multi_aligned": false
+      "seed": 42
     }, 
     "in22": {
       "center_lang": "eng_Latn",
       "direction": "x-center",
-      "multi_aligned": true,
       "seed": 42
     },
     "ntrex128": {
       "center_lang": "eng-US",
       "direction": "center-x",
-      "multi_aligned": true,
       "seed": 42
     },
     "tatoeba": {
@@ -106,13 +101,11 @@
     "nteu": {
       "center_lang": "en",
       "direction": "x-center",
-      "multi_aligned": true,
       "seed": 42
     },
     "tico19": {
-      "center_lang": "en",
+      "center_lang": "sv",
       "direction": "x-center",
-      "multi_aligned": true,
       "n_shots": 3,
       "seed": 42
     },

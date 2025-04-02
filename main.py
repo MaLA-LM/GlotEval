@@ -74,7 +74,7 @@ def expand_language_codes(lang_codes):
             expanded_codes.add(code)
     
     return expanded_codes
-
+    
 def main():
     args = parse_args()
     if not os.path.exists(args.params):
@@ -96,6 +96,9 @@ def main():
     base_output_dir = os.path.join(args.output_dir, args.model_name, current_time)
     os.makedirs(base_output_dir, exist_ok=True)
 
+    # Create a log file for errors
+    error_log_path = os.path.join(base_output_dir, "benchmark_errors.log")
+
     # Expand language codes if provided
     expanded_lang_codes = None
     if args.langs:
@@ -114,7 +117,16 @@ def main():
     hf_model = None
     if non_gen_benchmarks:
         print(f"[INFO] Loading HF model for: {non_gen_benchmarks}")
-        hf_model = load_model(args.model_name, backend="hf", **model_args)
+        try:
+            hf_model = load_model(args.model_name, backend="hf", **model_args)
+        except Exception as e:
+            error_msg = f"[ERROR] Failed to load HF model: {str(e)}"
+            print(error_msg)
+            with open(error_log_path, "a", encoding="utf-8") as f:
+                f.write(f"{error_msg}\n")
+            # Skip all non-gen benchmarks if model loading fails
+            non_gen_benchmarks = []
+        
         for b in non_gen_benchmarks:
             handler = BENCHMARK_HANDLERS.get(b)
             if not handler:
@@ -135,15 +147,34 @@ def main():
             params["filtered_lang_codes"] = expanded_lang_codes
 
             print(f"[INFO] Running benchmark '{b}' with HF.")
-            handler(hf_model, **params)
+            try:
+                handler(hf_model, **params)
+                print(f"[INFO] Benchmark '{b}' completed successfully.")
+            except Exception as e:
+                error_msg = f"[ERROR] Benchmark '{b}' failed: {str(e)}"
+                print(error_msg)
+                with open(error_log_path, "a", encoding="utf-8") as f:
+                    f.write(f"{error_msg}\n")
+                print(f"[INFO] Continuing with next benchmark...")
 
-        del hf_model
-        torch.cuda.empty_cache()
+        if hf_model:
+            del hf_model
+            torch.cuda.empty_cache()
 
     if gen_benchmarks:
         print(f"[INFO] Loading vLLM model for: {gen_benchmarks}")
-        vllm_model = load_model(args.model_name, backend="vllm", **model_args)
-        os.environ["TOKENIZERS_PARALLELISM"] = "false"
+        vllm_model = None
+        try:
+            vllm_model = load_model(args.model_name, backend="vllm", **model_args)
+            os.environ["TOKENIZERS_PARALLELISM"] = "false"
+        except Exception as e:
+            error_msg = f"[ERROR] Failed to load vLLM model: {str(e)}"
+            print(error_msg)
+            with open(error_log_path, "a", encoding="utf-8") as f:
+                f.write(f"{error_msg}\n")
+            # Skip all gen benchmarks if model loading fails
+            gen_benchmarks = []
+            
         for b in gen_benchmarks:
             handler = BENCHMARK_HANDLERS.get(b)
             if not handler:
@@ -165,10 +196,29 @@ def main():
             params["filtered_lang_codes"] = expanded_lang_codes
 
             print(f"[INFO] Running benchmark '{b}' with vLLM.")
-            handler(vllm_model, **params)
+            try:
+                handler(vllm_model, **params)
+                print(f"[INFO] Benchmark '{b}' completed successfully.")
+            except Exception as e:
+                error_msg = f"[ERROR] Benchmark '{b}' failed: {str(e)}"
+                print(error_msg)
+                with open(error_log_path, "a", encoding="utf-8") as f:
+                    f.write(f"{error_msg}\n")
+                print(f"[INFO] Continuing with next benchmark...")
 
-        del vllm_model
-        torch.cuda.empty_cache()
+        if vllm_model:
+            del vllm_model
+            torch.cuda.empty_cache()
+
+    # Print summary of errors if any
+    try:
+        with open(error_log_path, "r", encoding="utf-8") as f:
+            errors = f.readlines()
+        if errors:
+            print(f"[INFO] {len(errors)} benchmarks encountered errors. See {error_log_path} for details.")
+    except FileNotFoundError:
+        # No errors were logged
+        pass
 
     print("[INFO] All requested benchmarks completed.")
 

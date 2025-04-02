@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import json
 import random
-from datasets import load_from_disk
+from datasets import load_from_disk, load_dataset
 
 from iso639 import Lang, is_language
 
@@ -187,30 +187,56 @@ def build_translation_prompt(
     few_shot_examples=None,
     prompt_library=None,
     prompt_language="eng_Latn",
-    fallback_lang="eng_Latn",
-    benchmark_name=None
+    benchmark_name=None,
+    task_key="translation"
 ):
+    """
+    Build a prompt for translation tasks.
+    
+    Args:
+        src_lang (str): The source language code.
+        tgt_lang (str): The target language code.
+        src_text (str): The source text to translate.
+        few_shot_examples (list, optional): Examples for few-shot learning.
+        prompt_library (dict, optional): Library of prompt templates.
+        prompt_language (str, optional): The language to use for the prompt.
+        benchmark_name (str, optional): The name of the benchmark.
+        task_key (str, optional): The key for the task in the prompt library.
+        
+    Returns:
+        str: The formatted prompt.
+    """
     if prompt_library is None:
         prompt_library = {}
 
-    # retrieve the relevant prompt config
-    config = choose_prompt_text(
-        task_key="translation",
-        library=prompt_library,
-        lang_code=prompt_language,
-        benchmark_name=benchmark_name,
-        fallback_lang=fallback_lang
-    )
-    instruction_template = config.get("instruction", "")
-    few_shot_template = config.get("few_shot", "")
+    # Get the prompt template
+    prompt_template = None
+    
+    # Try to get a benchmark-specific prompt if specified
+    if benchmark_name and benchmark_name in prompt_library and prompt_language in prompt_library[benchmark_name]:
+        prompt_template = prompt_library[benchmark_name][prompt_language]
+    
+    # Otherwise try to get a task-specific prompt
+    elif task_key in prompt_library and prompt_language in prompt_library[task_key]:
+        prompt_template = prompt_library[task_key][prompt_language]
+    
+    # If still no template, use a default
+    if not prompt_template:
+        prompt_template = {
+            "instruction": "Translate the following sentence from {src_lang} to {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+            "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
+        }
+    
+    instruction_template = prompt_template.get("instruction", "")
+    few_shot_template = prompt_template.get("few_shot", "")
 
     few_shot_str = ""
     if few_shot_examples:
         for ex in few_shot_examples:
             ex_src_text = ex.get("src_text", "")
             ex_tgt_text = ex.get("tgt_text", "")
-            ex_src_lang = ex.get("src_lang", "eng_Latn")
-            ex_tgt_lang = ex.get("tgt_lang", "eng_Latn")
+            ex_src_lang = ex.get("src_lang", src_lang)
+            ex_tgt_lang = ex.get("tgt_lang", tgt_lang)
             # fill the placeholders
             snippet = few_shot_template.format(
                 src_lang=ex_src_lang,
@@ -220,19 +246,21 @@ def build_translation_prompt(
             )
             few_shot_str += snippet
 
-    prompt = instruction_template.format(
+    final_str = instruction_template.format(
         src_lang=src_lang,
         tgt_lang=tgt_lang,
         src_text=src_text
     )
-
+    
     final_prompt = ""
     if few_shot_str:
-        final_prompt = few_shot_str + "\n" + prompt
+        final_prompt = few_shot_str + "\n" + final_str
     else:
-        final_prompt = prompt
+        final_prompt = final_str
 
     return final_prompt
+
+
 
 def build_classification_prompt(
     text,
@@ -299,77 +327,134 @@ def build_classification_prompt(
 
     return final_prompt
 
-
 def build_summarization_prompt(
-    lang_code,
     text,
     few_shot_examples=None,
     prompt_library=None,
     prompt_language="eng_Latn",
-    fallback_lang="eng_Latn",
-    benchmark_name=None
+    benchmark_name=None,
+    task_key="summarization"
 ):
+    """
+    Build a prompt for summarization tasks.
+    
+    Args:
+        text (str): The text to summarize.
+        few_shot_examples (list, optional): Examples for few-shot learning.
+        prompt_library (dict, optional): Library of prompt templates.
+        prompt_language (str, optional): The language to use for the prompt.
+        benchmark_name (str, optional): The name of the benchmark.
+        task_key (str, optional): The key for the task in the prompt library.
+        
+    Returns:
+        str: The formatted prompt.
+    """
     if prompt_library is None:
         prompt_library = {}
 
-    config = choose_prompt_text(
-        task_key="summarization",
-        library=prompt_library,
-        lang_code=prompt_language,
-        benchmark_name=benchmark_name,
-        fallback_lang=fallback_lang
-    )
-    instruction_template = config.get("instruction", "")
-    # some summarization prompts might also have a 'title', though not strictly needed
-    title = config.get("title", None)
+    # Get the prompt template
+    prompt_template = None
+    
+    # Try to get a benchmark-specific prompt if specified
+    if benchmark_name and benchmark_name in prompt_library and prompt_language in prompt_library[benchmark_name]:
+        prompt_template = prompt_library[benchmark_name][prompt_language]
+    
+    # Otherwise try to get a task-specific prompt
+    elif task_key in prompt_library and prompt_language in prompt_library[task_key]:
+        prompt_template = prompt_library[task_key][prompt_language]
+    
+    # If still no template, use a default
+    if not prompt_template:
+        prompt_template = {
+            "title": "Document",
+            "instruction": "Based on the previous text, provide a brief single summary"
+        }
+    
+    instruction_template = prompt_template.get("instruction", "")
+    # Some summarization prompts might have a 'title', though not strictly needed
+    title = prompt_template.get("title", None)
+    # For few-shot support
+    few_shot_template = prompt_template.get("few_shot", "Original: {src_text}\nSummary: {tgt_text}\n\n")
 
     few_shot_str = ""
     if few_shot_examples:
-        # Summaries might not have a few_shot pattern, but user could define it
-        # for demonstration. This is just an example usage:
         for ex in few_shot_examples:
-            snippet = f"Original: {ex['src_text']}\nSummary: {ex['tgt_text']}\n\n"
+            snippet = few_shot_template.format(
+                src_text=ex.get("src_text", ""),
+                tgt_text=ex.get("tgt_text", "")
+            )
             few_shot_str += snippet
 
     final_str = instruction_template.format(text=text)
+    
     final_prompt = ""
-    if few_shot_str:
-        final_prompt = few_shot_str + "\n" + final_str
+    if title:
+        final_prompt = f"{title}\n\n{text}\n\n"
     else:
-        final_prompt = final_str
+        final_prompt = f"{text}\n\n"
+        
+    if few_shot_str:
+        final_prompt = few_shot_str + final_prompt + final_str
+    else:
+        final_prompt = final_prompt + final_str
 
     return final_prompt
 
 
 def build_open_generation_prompt(
-    lang_code,
     text,
     few_shot_examples=None,
     prompt_library=None,
     prompt_language="eng_Latn",
-    fallback_lang="eng_Latn",
-    benchmark_name=None
+    benchmark_name=None,
+    task_key="open_generation"
 ):
+    """
+    Build a prompt for open-ended generation tasks.
+    
+    Args:
+        text (str): The text prompt for generation.
+        few_shot_examples (list, optional): Examples for few-shot learning.
+        prompt_library (dict, optional): Library of prompt templates.
+        prompt_language (str, optional): The language to use for the prompt.
+        benchmark_name (str, optional): The name of the benchmark.
+        task_key (str, optional): The key for the task in the prompt library.
+        
+    Returns:
+        str: The formatted prompt.
+    """
     if prompt_library is None:
         prompt_library = {}
 
-    config = choose_prompt_text(
-        task_key="open_generation",
-        library=prompt_library,
-        lang_code=prompt_language,
-        benchmark_name=benchmark_name,
-        fallback_lang=fallback_lang
-    )
-    instruction_template = config.get("instruction", "")
-    few_shot_template = config.get("few_shot", "")
+    # Get the prompt template
+    prompt_template = None
+    
+    # Try to get a benchmark-specific prompt if specified
+    if benchmark_name and benchmark_name in prompt_library and prompt_language in prompt_library[benchmark_name]:
+        prompt_template = prompt_library[benchmark_name][prompt_language]
+    
+    # Otherwise try to get a task-specific prompt
+    elif task_key in prompt_library and prompt_language in prompt_library[task_key]:
+        prompt_template = prompt_library[task_key][prompt_language]
+    
+    # If still no template, use a default
+    if not prompt_template:
+        prompt_template = {
+            "instruction": "Please produce a creative or relevant continuation for this prompt:\n{text}",
+            "few_shot": "Example prompt: {example_text}\n---\n"
+        }
+    
+    instruction_template = prompt_template.get("instruction", "")
+    few_shot_template = prompt_template.get("few_shot", "")
 
     few_shot_str = ""
     if few_shot_examples:
         for ex in few_shot_examples:
-            snippet = few_shot_template.format(example_text=ex["text"])
+            snippet = few_shot_template.format(example_text=ex.get("text", ""))
             few_shot_str += snippet
 
     final_str = instruction_template.format(text=text)
+    
     final_prompt = ""
     if few_shot_str:
         final_prompt = few_shot_str + "\n" + final_str
@@ -380,39 +465,65 @@ def build_open_generation_prompt(
 
 
 def build_comprehension_prompt_multi(
-    lang_code,
     question,
     options_str,
     few_shot_examples=None,
     prompt_library=None,
     prompt_language="eng_Latn",
-    fallback_lang="eng_Latn",
-    benchmark_name=None
+    benchmark_name=None,
+    task_key="comprehension"
 ):
+    """
+    Build a prompt for multiple-choice comprehension tasks.
+    
+    Args:
+        question (str): The question to answer.
+        options_str (str): The formatted options string.
+        few_shot_examples (list, optional): Examples for few-shot learning.
+        prompt_library (dict, optional): Library of prompt templates.
+        prompt_language (str, optional): The language to use for the prompt.
+        benchmark_name (str, optional): The name of the benchmark.
+        task_key (str, optional): The key for the task in the prompt library.
+        
+    Returns:
+        str: The formatted prompt.
+    """
     if prompt_library is None:
         prompt_library = {}
 
-    config = choose_prompt_text(
-        task_key="comprehension",
-        library=prompt_library,
-        lang_code=prompt_language,
-        benchmark_name=benchmark_name,
-        fallback_lang=fallback_lang
-    )
-    instruction_template = config.get("instruction", "")
-    few_shot_template = config.get("few_shot", "")
+    # Get the prompt template
+    prompt_template = None
+    
+    # Try to get a benchmark-specific prompt if specified
+    if benchmark_name and benchmark_name in prompt_library and prompt_language in prompt_library[benchmark_name]:
+        prompt_template = prompt_library[benchmark_name][prompt_language]
+    
+    # Otherwise try to get a task-specific prompt
+    elif task_key in prompt_library and prompt_language in prompt_library[task_key]:
+        prompt_template = prompt_library[task_key][prompt_language]
+    
+    # If still no template, use a default
+    if not prompt_template:
+        prompt_template = {
+            "instruction": "Question: {question}\nOptions:\n{options}\nAnswer:",
+            "few_shot": "Question: {example_question}\nOptions:\n{example_options}\nAnswer: {example_answer}\n"
+        }
+    
+    instruction_template = prompt_template.get("instruction", "")
+    few_shot_template = prompt_template.get("few_shot", "")
 
     few_shot_str = ""
     if few_shot_examples:
         for ex in few_shot_examples:
             snippet = few_shot_template.format(
-                example_question=ex["example_question"],
-                example_options=ex["example_options"],
-                example_answer=ex["example_answer"]
+                example_question=ex.get("example_question", ""),
+                example_options=ex.get("example_options", ""),
+                example_answer=ex.get("example_answer", "")
             )
             few_shot_str += snippet
 
     final_str = instruction_template.format(question=question, options=options_str)
+    
     final_prompt = ""
     if few_shot_str:
         final_prompt = few_shot_str + "\n" + final_str
@@ -429,34 +540,61 @@ def build_token_classification_prompt(
     few_shot_examples=None,
     prompt_library=None,
     prompt_language="eng_Latn",
-    fallback_lang="eng_Latn",
-    benchmark_name=None
+    benchmark_name=None,
+    task_key="token_classification"
 ):
+    """
+    Build a prompt for token classification tasks.
+    
+    Args:
+        tokens (list): List of tokens in the sentence.
+        idx (int): Index of the token to classify.
+        candidate_labels (list): Possible labels for classification.
+        few_shot_examples (list, optional): Examples for few-shot learning.
+        prompt_library (dict, optional): Library of prompt templates.
+        prompt_language (str, optional): The language to use for the prompt.
+        benchmark_name (str, optional): The name of the benchmark.
+        task_key (str, optional): The key for the task in the prompt library.
+        
+    Returns:
+        str: The formatted prompt.
+    """
     if prompt_library is None:
         prompt_library = {}
-
-    config = choose_prompt_text(
-        task_key="token_classification",
-        library=prompt_library,
-        lang_code=prompt_language,
-        benchmark_name=benchmark_name,
-        fallback_lang=fallback_lang
-    )
-    instruction_template = config.get("instruction", "")
-    few_shot_template = config.get("few_shot", "")
 
     token_str = tokens[idx]
     sentence_str = " ".join(tokens)
 
+    # Get the prompt template
+    prompt_template = None
+    
+    # Try to get a benchmark-specific prompt if specified
+    if benchmark_name and benchmark_name in prompt_library and prompt_language in prompt_library[benchmark_name]:
+        prompt_template = prompt_library[benchmark_name][prompt_language]
+    
+    # Otherwise try to get a task-specific prompt
+    elif task_key in prompt_library and prompt_language in prompt_library[task_key]:
+        prompt_template = prompt_library[task_key][prompt_language]
+    
+    # If still no template, use a default
+    if not prompt_template:
+        prompt_template = {
+            "instruction": "In the sentence: {sentence}, classify the token: {token} among {candidate_labels}\nAnswer:",
+            "few_shot": "Sentence: {example_sentence}\nToken: {example_token}\nLabel: {example_label}\n"
+        }
+    
+    instruction_template = prompt_template.get("instruction", "")
+    few_shot_template = prompt_template.get("few_shot", "")
+
     few_shot_str = ""
     if few_shot_examples:
         for ex in few_shot_examples:
-            example_tokens_str = " ".join(ex["tokens"])
-            example_token_str = ex["tokens"][ex["idx"]]
+            example_tokens_str = " ".join(ex.get("tokens", []))
+            example_token_str = ex.get("tokens", [])[ex.get("idx", 0)]
             snippet = few_shot_template.format(
                 example_sentence=example_tokens_str,
                 example_token=example_token_str,
-                example_label=ex["label"]
+                example_label=ex.get("label", "")
             )
             few_shot_str += snippet
 
@@ -521,6 +659,27 @@ def load_flores200_data(src_lang, tgt_lang, split="test", limit_samples=None):
 
     if len(src_texts) != len(tgt_texts):
         raise ValueError("Source and target files have different numbers of lines.")
+
+    if limit_samples is not None:
+        src_texts = src_texts[:limit_samples]
+        tgt_texts = tgt_texts[:limit_samples]
+
+    return src_texts, tgt_texts
+
+
+
+def load_flores_plus_data_hf(src_lang, tgt_lang, split="test", limit_samples=None):
+    
+    hf_split = "devtest" if split == "test" else split
+
+    ds_src = load_dataset("openlanguagedata/flores_plus", src_lang, split=hf_split)
+    ds_tgt = load_dataset("openlanguagedata/flores_plus", tgt_lang, split=hf_split)
+
+    src_texts = ds_src["text"]
+    tgt_texts = ds_tgt["text"]
+
+    if len(src_texts) != len(tgt_texts):
+        raise ValueError("Source and target texts have different lengths.")
 
     if limit_samples is not None:
         src_texts = src_texts[:limit_samples]

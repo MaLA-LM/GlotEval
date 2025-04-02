@@ -111,7 +111,6 @@ def process_comprehension_benchmark(
             options_str = build_options_str(row["option_a"], row["option_b"], row["option_c"], row["option_d"])
 
             prompt = build_comprehension_prompt_multi(
-                lang_code=lang_code,
                 question=question,
                 options_str=options_str,
                 few_shot_examples=few_shot_examples,

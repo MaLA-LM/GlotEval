@@ -1,14 +1,14 @@
-agr_Latn
-aym_Latn
-bzd_Latn
-cni_Latn
-ctp_Latn
-spa_Latn
-grn_Latn
-guc_Latn
-hch_Latn
-nah_Latn
-oto_Latn
-quy_Latn
-shp_Latn
-tar_Latn
+agr_Latn | agr_Latn
+aym_Latn | aym_Latn
+bzd_Latn | bzd_Latn
+cni_Latn | cni_Latn
+ctp_Latn | ctp_Latn
+spa_Latn | spa_Latn
+grn_Latn | grn_Latn
+guc_Latn | guc_Latn
+hch_Latn | hch_Latn
+nah_Latn | nah_Latn
+oto_Latn | oto_Latn
+quy_Latn | quy_Latn
+shp_Latn | shp_Latn
+tar_Latn | tar_Latn
