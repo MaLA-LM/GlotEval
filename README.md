@@ -279,5 +279,11 @@ GlotEval is released under the [Apache-2.0 license](https://github.com/MaLA-LM/G
 ## 📚Citation
 
 ```
-
+@article{gloteval,
+    title={GlotEval: A Test Suite for Massively Multilingual Evaluation of Large Language Models}, 
+    author={Hengyu Luo and Zihao Li and Joseph Attieh and Sawal Devkota and Ona de Gibert and Shaoxiong Ji and Peiqin Lin and Bhavani Sai Praneeth Varma Mantina and Ananda Sreenidhi and Raúl Vázquez and Mengjie Wang and Samea Yusofi and Jörg Tiedemann},
+    year={2025},
+    journal={arXiv preprint 2504.04155},
+    url={https://arxiv.org/abs/2504.04155}, 
+}
 ```
