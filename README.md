@@ -39,7 +39,7 @@ GlotEval is a unified evaluation toolkit designed to benchmark Large Language Mo
 
 - **Text Classification**: SIB-200, Taxi-1500
 - **Machine Translation**: Flores-200, Flores+, AmericasNLP, IN22, NTREX-128, Tatoeba, NTEU, TICO-19, MAFAND, MMHB, OpenSubtitles
-- **Summarization**: XLSum
+- **Summarization**: XLSum, MassiveSumm(2 versions)
 - **Token Classification**: WikiANN, UD
 - **Comprehension**: MMLU-style tasks (MMMLU, Global-MMLU)
 - **Open-ended Generation**: Aya, PolyWrite

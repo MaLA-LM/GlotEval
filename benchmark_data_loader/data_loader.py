@@ -735,6 +735,40 @@ def load_xlsum_data(lang_code, split="test", limit_samples=None):
     return src_texts, tgt_texts
 
 
+def load_massivesumm_long_data(lang_code, split="test", limit_samples=None):
+    base_path = "benchmark_dataset/MassiveSumm_long"
+    src_texts, tgt_texts = [], []
+    file_path = os.path.join(base_path, f"{lang_code}_{split}.jsonl")
+    with open(file_path, "r", encoding="utf-8") as file:
+        for line in file:
+            dat = json.loads(line)
+            src_texts.append(dat["text"])
+            tgt_texts.append(dat["summary"])
+
+    if limit_samples is not None:
+        src_texts = src_texts[:limit_samples]
+        tgt_texts = tgt_texts[:limit_samples]
+
+    return src_texts, tgt_texts
+
+
+def load_massivesumm_short_data(lang_code, split="test", limit_samples=None):
+    base_path = "benchmark_dataset/MassiveSumm_short"
+    src_texts, tgt_texts = [], []
+    file_path = os.path.join(base_path, f"{lang_code}_{split}.jsonl")
+    with open(file_path, "r", encoding="utf-8") as file:
+        for line in file:
+            dat = json.loads(line)
+            src_texts.append(dat["text"])
+            tgt_texts.append(dat["summary"])
+
+    if limit_samples is not None:
+        src_texts = src_texts[:limit_samples]
+        tgt_texts = tgt_texts[:limit_samples]
+
+    return src_texts, tgt_texts
+
+
 def load_taxi1500_data(lang_code, split="test"):
     base_path = "benchmark_dataset/Taxi1500"
     file_path = os.path.join(base_path, lang_code, f"{lang_code}_{split}.tsv")

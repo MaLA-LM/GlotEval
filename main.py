@@ -30,7 +30,7 @@ def parse_args():
 def get_required_method(benchmark_name):
     generation_benchmarks = [
         "flores200_mt","flores_plus_mt","xlsum","aya","polywrite",
-        "americasnlp","in22","ntrex128","tatoeba","nteu","tico19","mafand","mmhb"
+        "americasnlp","in22","ntrex128","tatoeba","nteu","tico19","mafand","mmhb", "massivesumm_long", "massivesumm_short"
     ]
     non_generation_benchmarks = [
         "sib200","taxi1500","mmmlu","global_mmlu","wikiann","ud_upos","mala","pbc"
