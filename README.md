@@ -80,7 +80,7 @@ cd GlotEval
 ### 2️⃣ Set Up Environment
 
 ```bash
-conda create -n gloteval python=3.9
+conda create -n gloteval python=3.11
 conda activate gloteval
 pip install -r requirements.txt
 ```
