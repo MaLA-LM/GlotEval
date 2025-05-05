@@ -1,7 +1,7 @@
 comet==3.1.0
 datasets==2.20.0
 GlotScript==1.2
-iso639==0.1.4
+iso639-lang==2.6.0
 matplotlib==3.10.1
 pandas==2.2.3
 Requests==2.32.3
