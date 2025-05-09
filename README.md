@@ -61,7 +61,7 @@ GlotEval is a unified evaluation toolkit designed to benchmark Large Language Mo
 
 ## ⚙️Requirements
 
-- Python 3.8+
+- Python 3.11+
 - PyTorch
 - Additional libraries: `transformers`, `vllm`, `pandas`, `sacrebleu`, etc.
 - Benchmark-specific data files: .conllu, .tsv, .jsonl, etc.
