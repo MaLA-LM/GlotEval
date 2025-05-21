@@ -669,22 +669,34 @@ def load_flores200_data(src_lang, tgt_lang, split="test", limit_samples=None):
 
 
 def load_flores_plus_data_hf(src_lang, tgt_lang, split="test", limit_samples=None):
+
+    base_path = "benchmark_dataset/flores_plus_hf"
     
-    hf_split = "devtest" if split == "test" else split
-
-    ds_src = load_dataset("openlanguagedata/flores_plus", src_lang, split=hf_split)
-    ds_tgt = load_dataset("openlanguagedata/flores_plus", tgt_lang, split=hf_split)
-
-    src_texts = ds_src["text"]
-    tgt_texts = ds_tgt["text"]
-
+    # Map 'test' to 'devtest' for consistency with FLORES+ naming
+    if split == 'test':
+        split = 'devtest'
+    
+    # Construct file paths for source and target language TSV files
+    src_file = os.path.join(base_path, split, f"{src_lang}.tsv")
+    tgt_file = os.path.join(base_path, split, f"{tgt_lang}.tsv")
+    
+    # Read TSV files using pandas
+    src_df = pd.read_csv(src_file, sep='\t')
+    tgt_df = pd.read_csv(tgt_file, sep='\t')
+    
+    # Extract the 'text' column from each dataframe
+    src_texts = src_df['text'].tolist()
+    tgt_texts = tgt_df['text'].tolist()
+    
+    # Check that we have the same number of samples
     if len(src_texts) != len(tgt_texts):
-        raise ValueError("Source and target texts have different lengths.")
-
+        raise ValueError(f"Source and target files have different numbers of samples: {len(src_texts)} vs {len(tgt_texts)}")
+    
+    # Limit samples if requested
     if limit_samples is not None:
         src_texts = src_texts[:limit_samples]
         tgt_texts = tgt_texts[:limit_samples]
-
+    
     return src_texts, tgt_texts
 
 

@@ -6,7 +6,6 @@ aeb_Arab | aeb_Arab
 afr_Latn | afr_Latn
 als_Latn | als_Latn
 amh_Ethi | amh_Ethi
-apc_Arab | apc_Arab
 arb_Arab | arb_Arab
 arb_Latn | arb_Latn
 ars_Arab | ars_Arab
@@ -190,8 +189,6 @@ tso_Latn | tso_Latn
 tuk_Latn | tuk_Latn
 tum_Latn | tum_Latn
 tur_Latn | tur_Latn
-twi_Latn | twi_Latn
-twi_Latn | twi_Latn
 uig_Arab | uig_Arab
 ukr_Cyrl | ukr_Cyrl
 umb_Latn | umb_Latn
@@ -208,3 +205,16 @@ yue_Hant | yue_Hant
 zgh_Tfng | zgh_Tfng
 zsm_Latn | zsm_Latn
 zul_Latn | zul_Latn
+apc_Arab_nort3139 | apc_Arab
+apc_Arab_sout3123 | apc_Arab
+arg_Latn | arg_Latn
+oci_Latn_aran1260 | oci_Latn
+tyv_Cyrl | tyv_Cyrl
+myv_Cyrl | myv_Cyrl
+vmw_Latn | vmw_Latn
+twi_Latn_akua1239 | twi_Latn
+twi_Latn_asan1239 | twi_Latn
+wuu_Hans | wuu_Hans
+dar_Cyrl | dar_Cyrl
+dgo_Deva | dgo_Deva
+kaa_Latn | kaa_Latn

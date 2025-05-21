@@ -173,7 +173,7 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
+.history
+
 benchmark_dataset/
-benchmark_dataset_1/
-results/
-submit_work_single.sh
+slurmlog/

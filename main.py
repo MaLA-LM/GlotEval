@@ -93,7 +93,9 @@ def main():
     prompt_language = config.get("prompt_language","eng_Latn")
 
     current_time = time.strftime("%Y%m%d_%H%M%S")
-    base_output_dir = os.path.join(args.output_dir, args.model_name, current_time)
+    two_level_name = '--'.join(args.model_name.rstrip(os.sep).split(os.sep)[-2:])
+
+    base_output_dir = os.path.join(args.output_dir, two_level_name, current_time)
     os.makedirs(base_output_dir, exist_ok=True)
 
     # Create a log file for errors
