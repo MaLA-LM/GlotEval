@@ -43,6 +43,14 @@
       "n_shots": 0,
       "seed": 42
     },
+    "massivesumm_long": {
+      "n_shots": 0,
+      "seed": 42      
+    },
+    "massivesumm_short": {
+      "n_shots": 0,
+      "seed": 42         
+    },
     "aya": {
       "seed": 42
     },

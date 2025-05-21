@@ -8,6 +8,8 @@ from transformers import AutoConfig
 from metrics.summarization_metrics import calculate_rougeL_f1
 from benchmark_data_loader.data_loader import (
     load_xlsum_data,
+    load_massivesumm_long_data,
+    load_massivesumm_short_data,
     sample_few_shot_examples,
     build_summarization_prompt,
     filter_language_config,
@@ -203,4 +205,18 @@ def process_summarization_benchmark(
 def xlsum_handler(model, **kwargs):
     return process_summarization_benchmark(
         benchmark_name="xlsum", model=model, load_data_func=load_xlsum_data, **kwargs
+    )
+
+
+@register_benchmark("massivesumm_long")
+def xlsum_handler(model, **kwargs):
+    return process_summarization_benchmark(
+        benchmark_name="massivesumm_long", model=model, load_data_func=load_massivesumm_long_data, **kwargs
+    )
+
+
+@register_benchmark("massivesumm_short")
+def xlsum_handler(model, **kwargs):
+    return process_summarization_benchmark(
+        benchmark_name="massivesumm_short", model=model, load_data_func=load_massivesumm_short_data, **kwargs
     )
