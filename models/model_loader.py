@@ -67,32 +67,75 @@ class VLLMModelWrapper:
         return [out.outputs[0].text for out in full_outputs], efficiency_metrics
 
     def predict(self, prompts, candidate_labels):
-        # Currently not implemented for vLLM
         import time
-        
-        # Start time measurement
-        start_time = time.time()
-        
-        # Just raise the error with timing information
-        try:
-            raise NotImplementedError("The predict method is not implemented for vLLM")
-        finally:
-            # Calculate time even though we're raising an error
-            total_time = time.time() - start_time
-            
-            # Simple efficiency metrics for failed operation
-            efficiency_metrics = {
-                "total_samples": len(prompts),
-                "total_time": total_time,
-                "inference_time": 0,
-                "samples_per_second": 0,
-                "average_inference_time_per_sample": 0,
-                "inference_only_samples_per_second": 0,
-                "error": "Not implemented for vLLM"
-            }
-            
-            # Re-raise with efficiency metrics
-            raise NotImplementedError("predict method is not implemented for vLLM", efficiency_metrics)
+        import torch
+        from vllm import SamplingParams
+
+        predictions = []
+        total_start_time = time.time()
+
+        # Preprocess candidate labels to get token IDs
+        # Note: vLLM has an internal tokenizer, but it needs to be accessed via the model.
+        tokenizer = self.llm.llm_engine.tokenizer
+        label_token_ids = []
+        for label in candidate_labels:
+            # Get the first token ID of the label
+            tokens = tokenizer.encode(label, add_special_tokens=False)
+            if tokens:
+                label_token_ids.append(tokens[0])
+
+        # Create a special SamplingParams to generate only 1 token
+        # Set temperature=0 to make it deterministic
+        classify_params = SamplingParams(
+            max_tokens=1,
+            temperature=0.0,
+            logprobs=len(candidate_labels),  # Return logprobs for all candidate labels
+        )
+
+        # Execute generation
+        outputs = self.llm.generate(prompts, classify_params)
+
+        # Process outputs
+        for output in outputs:
+            # Get logprobs of the first generated token
+            if output.outputs[0].logprobs:
+                first_token_logprobs = output.outputs[0].logprobs[0]
+
+                # Extract scores for each candidate label token
+                label_scores = []
+                for token_id in label_token_ids:
+                    # vLLM's logprobs is a dictionary with token_id as the key
+                    if token_id in first_token_logprobs:
+                        score = first_token_logprobs[token_id].logprob
+                    else:
+                        score = float('-inf')  # If the token is not in top-k
+                    label_scores.append(score)
+
+                # Select the label with the highest score
+                max_idx = label_scores.index(max(label_scores))
+                predictions.append(candidate_labels[max_idx])
+            else:
+                # If no logprobs are available, fall back to the generated token
+                generated_token_id = output.outputs[0].token_ids[0]
+                if generated_token_id in label_token_ids:
+                    idx = label_token_ids.index(generated_token_id)
+                    predictions.append(candidate_labels[idx])
+                else:
+                    # Default to the first label
+                    predictions.append(candidate_labels[0])
+
+        total_time = time.time() - total_start_time
+
+        efficiency_metrics = {
+            "total_samples": len(prompts),
+            "total_time": total_time,
+            "inference_time": total_time,  # For classification tasks, total time is inference time
+            "samples_per_second": len(prompts) / total_time if total_time > 0 else 0,
+            "average_inference_time_per_sample": total_time / len(prompts) if len(prompts) > 0 else 0,
+            "inference_only_samples_per_second": len(prompts) / total_time if total_time > 0 else 0
+        }
+
+        return predictions, efficiency_metrics
 
 # HF
 class HFModelWrapper:

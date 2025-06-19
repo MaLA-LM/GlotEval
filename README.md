@@ -266,7 +266,7 @@ results/
 
 ## 🤝Contributing
 
-We welcome contributions! Please see the GitHub repository for guidelines and how to get involved.
+We welcome contributions! Please see the [guidelines](https://github.com/MaLA-LM/GlotEval/blob/main/Guidelines.md) and how to get involved.
 
 ------
 

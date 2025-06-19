@@ -2,535 +2,535 @@
   "translation": {
     "arb_Arab": {
       "instruction": "Translate the following sentence from {src_lang} to {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "eng_Latn": {
-      "instruction": "Translate the following sentence from {src_lang} to {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Translate the following sentence from {src_lang} to {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "spa_Latn": {
-      "instruction": "Traduzca la siguiente oración de {src_lang} a {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Traduzca la siguiente oración de {src_lang} a {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "fra_Latn": {
-      "instruction": "Traduisez la phrase suivante de {src_lang} en {tgt_lang}\\n[{src_lang}] : {src_text}\\n[{tgt_lang}] :",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Traduisez la phrase suivante de {src_lang} en {tgt_lang}\n[{src_lang}] : {src_text}\n[{tgt_lang}] :",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "zho_Hans": {
-      "instruction": "将以下句子从 {src_lang} 翻译成 {tgt_lang}\\n[{src_lang}]： {src_text}\\n[{tgt_lang}]：",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "将以下句子从 {src_lang} 翻译成 {tgt_lang}\n[{src_lang}]： {src_text}\n[{tgt_lang}]：",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "zho_Hant": {
-      "instruction": "將以下句子從 {src_lang} 翻譯成 {tgt_lang}\\n[{src_lang}]： {src_text}\\n[{tgt_lang}]：",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "將以下句子從 {src_lang} 翻譯成 {tgt_lang}\n[{src_lang}]： {src_text}\n[{tgt_lang}]：",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "rus_Cyrl": {
-      "instruction": "Переведите следующее предложение с {src_lang} на {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Переведите следующее предложение с {src_lang} на {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "deu_Latn": {
-      "instruction": "Übersetzen Sie den folgenden Satz von {src_lang} nach {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Übersetzen Sie den folgenden Satz von {src_lang} nach {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "por_Latn": {
-      "instruction": "Traduza a seguinte frase de {src_lang} para {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Traduza a seguinte frase de {src_lang} para {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "afr_Latn": {
-      "instruction": "Vertaal die volgende sin van {src_lang} na {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Vertaal die volgende sin van {src_lang} na {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "amh_Ethi": {
-      "instruction": "የሚከተለውን አረፍተ ነገር ከ {src_lang} ወደ {tgt_lang}{src_lang}] ተርጉመው፦ {src_text}\\n [{tgt_lang}]",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "የሚከተለውን አረፍተ ነገር ከ {src_lang} ወደ {tgt_lang}{src_lang}] ተርጉመው፦ {src_text}\n [{tgt_lang}]",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "ara_Arab": {
-      "instruction": "ترجم الجملة التالية من {src_lang} إلى {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "ترجم الجملة التالية من {src_lang} إلى {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "asm_Beng": {
       "instruction": "নিম্নলিখিত বাক্যটো {src_lang}ৰ পৰা {tgt_lang}gt[{src_lang}]লৈ অনুবাদ কৰক: {src_text}*এন[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "aze_Latn": {
-      "instruction": "Aşağıdakı cümləni {src_lang} dilindən tərcümə edərək {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Aşağıdakı cümləni {src_lang} dilindən tərcümə edərək {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "bak_Cyrl": {
-      "instruction": "Түбәндәге һөйләмде {src_lang} урынына {tgt_lang}\\n[{src_lang}]-ға тәржемә итегеҙ: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Түбәндәге һөйләмде {src_lang} урынына {tgt_lang}\n[{src_lang}]-ға тәржемә итегеҙ: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "bul_Cyrl": {
-      "instruction": "Преведете следното изречение от {src_lang} на {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Преведете следното изречение от {src_lang} на {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "ben_Beng": {
-      "instruction": "নিম্নলিখিত বাক্যটি {src_lang} থেকে {tgt_lang}\\n[{src_lang}]-এ অনুবাদ করুন: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "নিম্নলিখিত বাক্যটি {src_lang} থেকে {tgt_lang}\n[{src_lang}]-এ অনুবাদ করুন: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "bod_Tibt": {
       "instruction": "གཤམ་གྱི་ཚིག་འདི་{src_lang}་ནས་{tgt_lang}\\་{src_lang}་པར་བསྒྱུར་རྒྱུ་སྟེ། {src_text}\\་{tgt_lang}་ཏེ།",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "bos_Latn": {
-      "instruction": "Prevedi sljedeću rečenicu iz {src_lang} u {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Prevedi sljedeću rečenicu iz {src_lang} u {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "cat_Latn": {
-      "instruction": "Tradueix la frase següent de {src_lang} a {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Tradueix la frase següent de {src_lang} a {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "ces_Latn": {
-      "instruction": "Přeložte následující větu z {src_lang} do {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Přeložte následující větu z {src_lang} do {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "cym_Latn": {
-      "instruction": "Cyfieithwch y frawddeg ganlynol o {src_lang} i {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Cyfieithwch y frawddeg ganlynol o {src_lang} i {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "dan_Latn": {
-      "instruction": "Oversæt følgende sætning fra {src_lang} til {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Oversæt følgende sætning fra {src_lang} til {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "div_Thaa": {
-      "instruction": "{src_lang} އިން {tgt_lang}\\n[{src_lang}]އަށް ތިރީގައިމިވާ ލަފުޒު ތަރުޖަމާކުރާށެވެ: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "{src_lang} އިން {tgt_lang}\n[{src_lang}]އަށް ތިރީގައިމިވާ ލަފުޒު ތަރުޖަމާކުރާށެވެ: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "ell_Grek": {
-      "instruction": "Μεταφράστε την ακόλουθη πρόταση από {src_lang} σε {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Μεταφράστε την ακόλουθη πρόταση από {src_lang} σε {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "est_Latn": {
-      "instruction": "Tõlgi järgmine lause {src_lang} asemel {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Tõlgi järgmine lause {src_lang} asemel {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "eus_Latn": {
-      "instruction": "Itzul iezate {src_lang} otoitz hau {tgt_lang}\\n[{src_lang}]] helbidera: {src_text}\\n[{tgt_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Itzul iezate {src_lang} otoitz hau {tgt_lang}\n[{src_lang}]] helbidera: {src_text}\n[{tgt_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "fas_Arab": {
-      "instruction": "جمله زیر را از {src_lang} به {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "جمله زیر را از {src_lang} به {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "fin_Latn": {
-      "instruction": "Käännä seuraava lause {src_lang} muotoon {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Käännä seuraava lause {src_lang} muotoon {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "fij_Latn": {
-      "instruction": "Vakadewataka na yatuvosa oqo mai na {src_lang} ki na {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Vakadewataka na yatuvosa oqo mai na {src_lang} ki na {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "fao_Latn": {
-      "instruction": "Översätt följande setning från {src_lang} till {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Översätt följande setning från {src_lang} till {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "gle_Latn": {
-      "instruction": "Aistrigh an abairt seo a leanas ó {src_lang} go {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Aistrigh an abairt seo a leanas ó {src_lang} go {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "glg_Latn": {
-      "instruction": "Traducir a seguinte frase de {src_lang} a {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Traducir a seguinte frase de {src_lang} a {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "guj_Gujr": {
-      "instruction": "{src_lang}માંથી નીચેનાં વાક્યનો {tgt_lang}\\n[{src_lang}]માં ભાષાંતર કરો: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "{src_lang}માંથી નીચેનાં વાક્યનો {tgt_lang}\n[{src_lang}]માં ભાષાંતર કરો: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "hau_Latn": {
-      "instruction": "Fassara jumla mai zuwa daga {src_lang} zuwa {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Fassara jumla mai zuwa daga {src_lang} zuwa {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "heb_Hebr": {
-      "instruction": "תרגם את המשפט הבא מ-{src_lang} ל-{tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "תרגם את המשפט הבא מ-{src_lang} ל-{tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "hin_Deva": {
-      "instruction": "निम्नलिखित वाक्य का अनुवाद {src_lang} {tgt_lang} \\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "निम्नलिखित वाक्य का अनुवाद {src_lang} {tgt_lang} \n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "hrv_Latn": {
-      "instruction": "Prevedite sljedeću rečenicu s {src_lang} na {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Prevedite sljedeću rečenicu s {src_lang} na {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "hat_Latn": {
-      "instruction": "Tradui fraz sa a soti nan {src_lang} nan {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Tradui fraz sa a soti nan {src_lang} nan {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "hun_Latn": {
-      "instruction": "Fordítsa le a következő mondatot {src_lang}-ről {tgt_lang}\\n[{src_lang}]-re: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Fordítsa le a következő mondatot {src_lang}-ről {tgt_lang}\n[{src_lang}]-re: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "hye_Armn": {
-      "instruction": "Թարգմանեք հետեւյալ նախադասությունը {src_lang}-ից {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Թարգմանեք հետեւյալ նախադասությունը {src_lang}-ից {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "ind_Latn": {
-      "instruction": "Terjemahkan kalimat berikut dari {src_lang} ke {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Terjemahkan kalimat berikut dari {src_lang} ke {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "ibo_Latn": {
-      "instruction": "Sụgharịa ahịrịokwu na-esonụ site na {src_lang} gaa {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Sụgharịa ahịrịokwu na-esonụ site na {src_lang} gaa {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "isl_Latn": {
-      "instruction": "Þýddu eftirfarandi setningu frá {src_lang} yfir á {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Þýddu eftirfarandi setningu frá {src_lang} yfir á {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "ita_Latn": {
-      "instruction": "Traduci la seguente frase da {src_lang} a {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Traduci la seguente frase da {src_lang} a {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "jpn_Jpan": {
-      "instruction": "次の文を {src_lang} から {tgt_lang} に翻訳します\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "次の文を {src_lang} から {tgt_lang} に翻訳します\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "kat_Geor": {
-      "instruction": "თარგმნეთ შემდეგი წინადადება {src_lang} to {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "თარგმნეთ შემდეგი წინადადება {src_lang} to {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "kaz_Cyrl": {
-      "instruction": "Келесі сөйлемді {src_lang} бастап {tgt_lang}\\n[{src_lang}]]: {src_text}\\n[{tgt_lang}]]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Келесі сөйлемді {src_lang} бастап {tgt_lang}\n[{src_lang}]]: {src_text}\n[{tgt_lang}]]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "khm_Khmr": {
-      "instruction": "បកប្រែប្រយោគខាងក្រោមពី {src_lang} ទៅ {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "បកប្រែប្រយោគខាងក្រោមពី {src_lang} ទៅ {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "kan_Knda": {
-      "instruction": "ಈ ಕೆಳಗಿನ ವಾಕ್ಯವನ್ನು {src_lang} ರಿಂದ {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]ಗೆ ಭಾಷಾಂತರಿಸಿ:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "ಈ ಕೆಳಗಿನ ವಾಕ್ಯವನ್ನು {src_lang} ರಿಂದ {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]ಗೆ ಭಾಷಾಂತರಿಸಿ:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "kor_Hang": {
-      "instruction": "다음 문장을 {src_lang}에서 {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]로 번역합니다.",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "다음 문장을 {src_lang}에서 {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]로 번역합니다.",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "kas_Arab": {
-      "instruction": "ترجُم کْریو یم جملہ {src_lang} پیٹھ {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "ترجُم کْریو یم جملہ {src_lang} پیٹھ {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "kur_Arab": {
-      "instruction": "ئەم ڕستەیەی خوارەوە وەربگێڕە لە {src_lang} بۆ {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "ئەم ڕستەیەی خوارەوە وەربگێڕە لە {src_lang} بۆ {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "kir_Cyrl": {
-      "instruction": "Төмөнкү сүйлөмдү {src_lang} дан {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Төмөнкү сүйлөмдү {src_lang} дан {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "lin_Latn": {
-      "instruction": "Kobongola phrase elandi banda {src_lang} to {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Kobongola phrase elandi banda {src_lang} to {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "lao_Laoo": {
-      "instruction": "ແປປະໂຫຍກຕໍ່ໄປນີ້ຈາກ {src_lang} ເປັນ {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "ແປປະໂຫຍກຕໍ່ໄປນີ້ຈາກ {src_lang} ເປັນ {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "lit_Latn": {
-      "instruction": "Išversti šį sakinį iš {src_lang} į {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Išversti šį sakinį iš {src_lang} į {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "lav_Latn": {
-      "instruction": "Tulkojiet šādu teikumu no {src_lang} uz {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Tulkojiet šādu teikumu no {src_lang} uz {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "mlg_Latn": {
-      "instruction": "Adikao ity fehezanteny manaraka ity avy amin'ny {src_lang} mankany {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Adikao ity fehezanteny manaraka ity avy amin'ny {src_lang} mankany {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "mri_Latn": {
-      "instruction": "Whakamāoritia te rerenga e whai ake nei mai i {src_lang} ki {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Whakamāoritia te rerenga e whai ake nei mai i {src_lang} ki {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "mkd_Cyrl": {
-      "instruction": "Преведете ја следната реченица од {src_lang} во {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Преведете ја следната реченица од {src_lang} во {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "mal_Mlym": {
-      "instruction": "ഇനിപ്പറയുന്ന വാചകം {src_lang} എന്നതിൽ നിന്ന് {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "ഇനിപ്പറയുന്ന വാചകം {src_lang} എന്നതിൽ നിന്ന് {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "mar_Deva": {
-      "instruction": "खालील वाक्याचे {src_lang} वरून {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "खालील वाक्याचे {src_lang} वरून {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "msa_Latn": {
-      "instruction": "Terjemahkan ayat berikut daripada {src_lang} kepada {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Terjemahkan ayat berikut daripada {src_lang} kepada {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "mlt_Latn": {
-      "instruction": "Ittraduċi s-sentenza li ġejja minn {src_lang} għal {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Ittraduċi s-sentenza li ġejja minn {src_lang} għal {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "mya_Mymr": {
-      "instruction": "အောက်ပါဝါကျကို {src_lang} မှ {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "အောက်ပါဝါကျကို {src_lang} မှ {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "nob_Latn": {
-      "instruction": "Oversett følgende setning fra {src_lang} til {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Oversett følgende setning fra {src_lang} til {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "nep_Deva": {
-      "instruction": "निम्न वाक्य {src_lang} बाट {tgt_lang}\\n[{src_lang}]मा अनुवाद गर्नुहोस्: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "निम्न वाक्य {src_lang} बाट {tgt_lang}\n[{src_lang}]मा अनुवाद गर्नुहोस्: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "nld_Latn": {
-      "instruction": "Vertaal de volgende zin van {src_lang} naar {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Vertaal de volgende zin van {src_lang} naar {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "ori_Orya": {
-      "instruction": "ନିମ୍ନଲିଖିତ ବାକ୍ୟକୁ {src_lang} ରୁ {tgt_lang}\\n[{src_lang}]କୁ ଅନୁବାଦ କରନ୍ତୁ: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "ନିମ୍ନଲିଖିତ ବାକ୍ୟକୁ {src_lang} ରୁ {tgt_lang}\n[{src_lang}]କୁ ଅନୁବାଦ କରନ୍ତୁ: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "pan_Guru": {
-      "instruction": "ਹੇਠ ਲਿਖੇ ਵਾਕ ਨੂੰ {src_lang} ਤੋਂ {tgt_lang}\\n[{src_lang}] ਵਿੱਚ ਅਨੁਵਾਦ ਕਰੋ: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "ਹੇਠ ਲਿਖੇ ਵਾਕ ਨੂੰ {src_lang} ਤੋਂ {tgt_lang}\n[{src_lang}] ਵਿੱਚ ਅਨੁਵਾਦ ਕਰੋ: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "pol_Latn": {
-      "instruction": "Przetłumacz następujące zdanie z {src_lang} na {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Przetłumacz następujące zdanie z {src_lang} na {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "pus_Arab": {
-      "instruction": "لاندې جمله له {src_lang} څخه {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "لاندې جمله له {src_lang} څخه {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "ron_Latn": {
-      "instruction": "Traduceți următoarea propoziție din {src_lang} în {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Traduceți următoarea propoziție din {src_lang} în {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "kin_Latn": {
-      "instruction": "Translate the following sentence from {src_lang} to {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Translate the following sentence from {src_lang} to {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "snd_Arab": {
-      "instruction": "هيٺ ڏنل جملي کي {src_lang} کان {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]۾ ترجمو ڪريو:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "هيٺ ڏنل جملي کي {src_lang} کان {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]۾ ترجمو ڪريو:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "sin_Sinh": {
-      "instruction": "පහත දැක්වෙන වාක්යය {src_lang} සිට {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]] දක්වා පරිවර්තනය කරන්න:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "පහත දැක්වෙන වාක්යය {src_lang} සිට {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]] දක්වා පරිවර්තනය කරන්න:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "slk_Latn": {
-      "instruction": "Preložte nasledujúcu vetu z {src_lang} na {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Preložte nasledujúcu vetu z {src_lang} na {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "slv_Latn": {
-      "instruction": "Prevedite naslednji stavek iz {src_lang} v {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Prevedite naslednji stavek iz {src_lang} v {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "smo_Latn": {
-      "instruction": "Faaliliu le fuaiupu lenei mai le {src_lang} i le {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Faaliliu le fuaiupu lenei mai le {src_lang} i le {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "sna_Latn": {
-      "instruction": "Shandura mutsara unotevera kubva ku {src_lang} kuenda ku {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Shandura mutsara unotevera kubva ku {src_lang} kuenda ku {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "som_Latn": {
-      "instruction": "Turjum jumlaadaan ka {src_lang} ilaa {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Turjum jumlaadaan ka {src_lang} ilaa {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "sqi_Latn": {
-      "instruction": "Përkthejeni fjalinë e mëposhtme nga {src_lang} në {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Përkthejeni fjalinë e mëposhtme nga {src_lang} në {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "sot_Latn": {
-      "instruction": "Fetolela polelo e latelang ho tloha ho {src_lang} ho ea ho {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Fetolela polelo e latelang ho tloha ho {src_lang} ho ea ho {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "swe_Latn": {
-      "instruction": "Översätt följande mening från {src_lang} till {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Översätt följande mening från {src_lang} till {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "swa_Latn": {
-      "instruction": "Tafsiri sentensi ifuatayo kutoka {src_lang} hadi {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Tafsiri sentensi ifuatayo kutoka {src_lang} hadi {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "tam_Taml": {
-      "instruction": "பின்வரும் வாக்கியத்தை {src_lang} இலிருந்து {tgt_lang}\\n[{src_lang}] க்கு மொழிபெயர்க்கவும்: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "பின்வரும் வாக்கியத்தை {src_lang} இலிருந்து {tgt_lang}\n[{src_lang}] க்கு மொழிபெயர்க்கவும்: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "tel_Telu": {
-      "instruction": "దిగువ వాక్యాన్ని {src_lang} నుండి {tgt_lang}\\n[{src_lang}]కు అనువదించండి: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "దిగువ వాక్యాన్ని {src_lang} నుండి {tgt_lang}\n[{src_lang}]కు అనువదించండి: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "tha_Thai": {
-      "instruction": "แปลประโยคต่อไปนี้จาก {src_lang} เป็น {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "แปลประโยคต่อไปนี้จาก {src_lang} เป็น {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "tir_Ethi": {
-      "instruction": "ነዚ ዚስዕብ ዓረፍተ ነገር ካብ {src_lang} ናብ {tgt_lang}\\\\n{src_lang}፦ {src_text}\\\\n{tgt_lang}]፦",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "ነዚ ዚስዕብ ዓረፍተ ነገር ካብ {src_lang} ናብ {tgt_lang}\\\n{src_lang}፦ {src_text}\\\n{tgt_lang}]፦",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "tuk_Latn": {
-      "instruction": "Aşakdaky sözlemi {src_lang} dan {tgt_lang}\\n[{src_lang}]-e terjime ediň: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Aşakdaky sözlemi {src_lang} dan {tgt_lang}\n[{src_lang}]-e terjime ediň: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "tsn_Latn": {
-      "instruction": "Translate the following sentence from {src_lang} to {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Translate the following sentence from {src_lang} to {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "ton_Latn": {
-      "instruction": "Liliu ʻa e setesi ko ʻeni mei he {src_lang} ki he {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Liliu ʻa e setesi ko ʻeni mei he {src_lang} ki he {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "tur_Latn": {
-      "instruction": "Aşağıdaki cümleyi {src_lang} yerine {tgt_lang}\\n[{src_lang}] çevirin: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Aşağıdaki cümleyi {src_lang} yerine {tgt_lang}\n[{src_lang}] çevirin: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "tat_Cyrl": {
-      "instruction": "Түбәндәге җөмләне {src_lang} дан {tgt_lang}\\n[{src_lang}]га тәрҗемә итегез: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Түбәндәге җөмләне {src_lang} дан {tgt_lang}\n[{src_lang}]га тәрҗемә итегез: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "tah_Latn": {
-      "instruction": "A iriti i te pereota i muri nei mai te {src_lang} i te {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "A iriti i te pereota i muri nei mai te {src_lang} i te {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "uig_Arab": {
-      "instruction": "تۆۋەندىكى جۈملىنى {src_lang} دىن {tgt_lang}\\n[{src_lang}]غا تەرجىمە قىلىڭ: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "تۆۋەندىكى جۈملىنى {src_lang} دىن {tgt_lang}\n[{src_lang}]غا تەرجىمە قىلىڭ: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "ukr_Cyrl": {
-      "instruction": "Переведіть наступне речення з {src_lang} на {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Переведіть наступне речення з {src_lang} на {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "urd_Arab": {
-      "instruction": "مندرجہ ذیل جملے کو {src_lang} سے {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}] میں ترجمہ کریں:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "مندرجہ ذیل جملے کو {src_lang} سے {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}] میں ترجمہ کریں:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "uzb_Latn": {
-      "instruction": "Quyidagi jumlani {src_lang} dan {tgt_lang}\\n[{src_lang}]ga tarjima qiling: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Quyidagi jumlani {src_lang} dan {tgt_lang}\n[{src_lang}]ga tarjima qiling: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "vie_Latn": {
-      "instruction": "Dịch câu sau từ {src_lang} thành {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Dịch câu sau từ {src_lang} thành {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "xho_Latn": {
-      "instruction": "Guqulela esi sivakalisi silandelayo ukusuka kwi-{src_lang} ukuya kwi-{tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Guqulela esi sivakalisi silandelayo ukusuka kwi-{src_lang} ukuya kwi-{tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "yor_Latn": {
-      "instruction": "Túmọ̀ gbólóhùn wọ̀nyí láti {src_lang} sí {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Túmọ̀ gbólóhùn wọ̀nyí láti {src_lang} sí {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "zul_Latn": {
-      "instruction": "Humusha umusho olandelayo kusuka ku-{src_lang} kuya ku-{tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Humusha umusho olandelayo kusuka ku-{src_lang} kuya ku-{tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "yue_Hant": {
-      "instruction": "將以下句子由{src_lang}翻譯成{tgt_lang}\\n[{src_lang}]：{src_text}\\n[{tgt_lang}]：",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "將以下句子由{src_lang}翻譯成{tgt_lang}\n[{src_lang}]：{src_text}\n[{tgt_lang}]：",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "srp_Cyrl": {
-      "instruction": "Преведи следећу реченицу из {src_lang} у {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Преведи следећу реченицу из {src_lang} у {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "srp_Latn": {
-      "instruction": "Prevedi sledeću rečenicu iz {src_lang} u {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Prevedi sledeću rečenicu iz {src_lang} u {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "tlh_Latn": {
       "instruction": "{tgt_lang} {src_text}\\ {src_lang} {tgt_lang}\\ {src_lang}",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "mon_Cyrl": {
-      "instruction": "Дараах өгүүлбэрийг {src_lang} -аас {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Дараах өгүүлбэрийг {src_lang} -аас {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "mon_Mong": {
       "instruction": "Translate the following sentence from {src_lang} to {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "iku_Cans": {
       "instruction": "ᑐᑭᓕᐅᕐᓗᒍ ᐊᑖᓃᑦᑐᖅ ᑎᑎᕋᖅᓯᒪᔪᖅ {src_lang}−ᒥ {tgt_lang}n[{src_lang}]: {src_text}n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "iku_Latn": {
-      "instruction": "tukiliurlugit ukua titiraqsimajut {src_lang} to {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "tukiliurlugit ukua titiraqsimajut {src_lang} to {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "ikt_Latn": {
-      "instruction": "Numiktiqlugit hapkua titiraqhimayut {src_lang} hamunga {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]: {]: {src_text}]: {src_text}\\n[{tgt_lang}]: {]: {src_text}}n[{tgt_lang}]: {src_text}}n[{tgt_lang}]: {src_text}}n[{tgt_lang}]: {src_text]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Numiktiqlugit hapkua titiraqhimayut {src_lang} hamunga {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]: {]: {src_text}]: {src_text}\n[{tgt_lang}]: {]: {src_text}}n[{tgt_lang}]: {src_text}}n[{tgt_lang}]: {src_text}}n[{tgt_lang}]: {src_text]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "prs_Arab": {
-      "instruction": "ترجمه جمله زیر از {src_lang} به {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "ترجمه جمله زیر از {src_lang} به {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "lzh_Hans": {
-      "instruction": "将以下句从 {src_lang} 翻译成 {tgt_lang}\\n[{src_lang}]]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "将以下句从 {src_lang} 翻译成 {tgt_lang}\n[{src_lang}]]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "kmr_Latn": {
-      "instruction": "Wergerandina hevoka jêrîn ji {src_lang} bo {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Wergerandina hevoka jêrîn ji {src_lang} bo {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "bho_Deva": {
-      "instruction": "निम्नलिखित वाक्य के {src_lang} से {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}] में अनुवाद करीं:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "निम्नलिखित वाक्य के {src_lang} से {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}] में अनुवाद करीं:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "brx_Deva": {
-      "instruction": "गाहायाव होनाय बाथ्राखौ {src_lang} निफ्राय {tgt_lang}\\n[{src_lang}]आव राव सोलाय: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "गाहायाव होनाय बाथ्राखौ {src_lang} निफ्राय {tgt_lang}\n[{src_lang}]आव राव सोलाय: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "doi_Deva": {
-      "instruction": "हेठ लिखे दे वाक्य दा अनुवाद {src_lang}} कोला {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "हेठ लिखे दे वाक्य दा अनुवाद {src_lang}} कोला {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "dsb_Latn": {
-      "instruction": "Pśełožćo slědujucu sadu {src_lang} do {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]: {: {src_text}\\n[}]: {src_text",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Pśełožćo slědujucu sadu {src_lang} do {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]: {: {src_text}\n[}]: {src_text",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "fil_Latn": {
-      "instruction": "Isalin ang sumusunod na pangungusap mula sa {src_lang} patungo sa {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Isalin ang sumusunod na pangungusap mula sa {src_lang} patungo sa {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "gom_Deva": {
-      "instruction": "सकयल दिल्ल्या वाक्याचो {src_lang} वयल्यान {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "सकयल दिल्ल्या वाक्याचो {src_lang} वयल्यान {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "hne_Deva": {
-      "instruction": "निम्नलिखित वाक्य के {src_lang} ले {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "निम्नलिखित वाक्य के {src_lang} ले {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "hsb_Latn": {
-      "instruction": "Přełožće slědowacu sadu {src_lang} po {tgt_lang\\n[{src_lang]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Přełožće slědowacu sadu {src_lang} po {tgt_lang\n[{src_lang]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "lug_Latn": {
-      "instruction": "Translate the following sentence from {src_lang} to {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Translate the following sentence from {src_lang} to {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "mai_Deva": {
-      "instruction": "निम्नलिखित वाक्यकेँ {src_lang} सँ {tgt_lang}\\n[{src_lang}]मे अनुवाद करू: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "निम्नलिखित वाक्यकेँ {src_lang} सँ {tgt_lang}\n[{src_lang}]मे अनुवाद करू: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "mni_Beng": {
-      "instruction": "ꯃꯈꯥꯒꯤ ꯋꯥꯍꯩ ꯄꯔꯦꯡ ꯑꯁꯤ {src_lang} ꯗꯒꯤ {tgt_lang}\\n[{src_lang}]ꯗ ꯍꯟꯗꯣꯛꯄꯤꯌꯨ: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "ꯃꯈꯥꯒꯤ ꯋꯥꯍꯩ ꯄꯔꯦꯡ ꯑꯁꯤ {src_lang} ꯗꯒꯤ {tgt_lang}\n[{src_lang}]ꯗ ꯍꯟꯗꯣꯛꯄꯤꯌꯨ: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "mww_Latn": {
-      "instruction": "Txhais cov kab lus nram qab no los ntawm {src_lang} to {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]: ",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Txhais cov kab lus nram qab no los ntawm {src_lang} to {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]: ",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "nso_Latn": {
-      "instruction": "Fetolela lentšu le le latelago go tšwa go {src_lang} go ya go {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Fetolela lentšu le le latelago go tšwa go {src_lang} go ya go {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "nya_Latn": {
-      "instruction": "Tanthauzirani chiganizo chotsatirachi kuchokera ku {src_lang} kupita ku {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Tanthauzirani chiganizo chotsatirachi kuchokera ku {src_lang} kupita ku {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "otq_Latn": {
-      "instruction": "Traduzca la siguiente oración de {src_lang} a {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Traduzca la siguiente oración de {src_lang} a {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "run_Latn": {
-      "instruction": "Hindura interuro ikurikira kuva kuri {src_lang} gushika kuri {tgt_lang}\\n[{src_lang}]: {src_text}\\n[{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "instruction": "Hindura interuro ikurikira kuva kuri {src_lang} gushika kuri {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:",
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     },
     "yua_Latn": {
       "instruction": "Traduzca le uláak' payalchi{src_lang} u {tgt_lang}\\ma' [{src_lang}]: {src_text}\\ma' [{tgt_lang}]:",
-      "few_shot": "[{src_lang}]: {src_text}\\n[{tgt_lang}]: {tgt_text}\\n"
+      "few_shot": "[{src_lang}]: {src_text}\n[{tgt_lang}]: {tgt_text}\n"
     }
   },
   "classification": {

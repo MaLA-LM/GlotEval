@@ -13,7 +13,6 @@ from benchmark_data_loader.data_loader import (
     load_full_language_config,
     load_flores200_data,
     load_flores_plus_data,
-    load_flores_plus_data_hf,
     load_americasnlp_data,
     load_in22_data,
     load_ntrex128_data,
@@ -332,9 +331,13 @@ def process_translation_benchmark(benchmark_name, model, load_data_func, lang_co
             tsv_file = os.path.join(benchmark_output_dir, f"{src_bench_lang}-{tgt_bench_lang}.tsv")
             with open(tsv_file, "w", newline="", encoding="utf-8") as cf:
                 writer = csv.writer(cf, delimiter="\t", quoting=csv.QUOTE_MINIMAL, escapechar="\\")
-                writer.writerow(["SourceLanguage", "TargetLanguage", "PromptLanguage", "PromptSource", "Source", "Reference", "Prediction","FullPrompt"])
-                for s, ref, hyp, prpt in zip(src_texts, tgt_texts, translations, prompts):
-                    writer.writerow([src_bench_lang, tgt_bench_lang, actual_prompt_lang, prompt_source, s, ref, hyp, prpt])
+                # writer.writerow(["SourceLanguage", "TargetLanguage", "PromptLanguage", "PromptSource", "Source", "Reference", "Prediction","FullPrompt"])
+                writer.writerow(["SourceLanguage", "TargetLanguage", "PromptLanguage", "PromptSource", "Source", "Reference", "Prediction"])
+
+                for s, ref, hyp in zip(src_texts, tgt_texts, translations):
+                    writer.writerow([src_bench_lang, tgt_bench_lang, actual_prompt_lang, prompt_source, s, ref, hyp])
+                # for s, ref, hyp, prpt in zip(src_texts, tgt_texts, translations, prompts):
+                #     writer.writerow([src_bench_lang, tgt_bench_lang, actual_prompt_lang, prompt_source, s, ref, hyp, prpt])
 
     # Update scores.json with benchmark results
     metric_str = "BLEU, ChrF++" if benchmark_name != "mmhb" else "Feminine/Masculine BLEU, Bias"
@@ -391,8 +394,7 @@ def flores_plus_handler(model, **kwargs):
     return process_translation_benchmark(
         benchmark_name="flores_plus_mt",
         model=model,
-        # load_data_func=load_flores_plus_data,
-        load_data_func=load_flores_plus_data_hf,
+        load_data_func=load_flores_plus_data,
         lang_config=lang_config_path,
         **kwargs
     )

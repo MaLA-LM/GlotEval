@@ -5,11 +5,11 @@
 #   --input_file "prompt_library.json" \
 #   --copy_all
 
-python prompt_multilingual_automatic_builder.py \
+python multilingual_prompt_builder.py \
   --task_or_benchmark "translation" \
   --lang_code "eng_Latn" \
-  --target_lang_codes \
-  --new_instruction "Translate the following sentence from {src_lang} to {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:" \
+  --target_lang_codes zho_Hans fra_Latn \
+  --new_instruction $'Translate the following sentence from {src_lang} to {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:' \
   --input_file "prompt_library.json" \
-  --ms_translator_key "the_key" \
+  --ms_translator_key "CkgJ1A4jhhV6nwnCrToZl3dRGgBeYC1uAbxeiTYtuhUUSuab0ix3JQQJ99BCACi5YpzXJ3w3AAAbACOG2L9N" \
   --ms_translator_region "northeurope"

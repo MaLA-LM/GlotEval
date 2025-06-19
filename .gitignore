@@ -177,3 +177,8 @@ cython_debug/
 
 benchmark_dataset/
 slurmlog/
+
+results/
+mmmt_scripts/
+data_loader_new.py
+submit_work_single.sh
