@@ -5,8 +5,6 @@ from . import register_benchmark
 from benchmark_data_loader.data_loader import (
     load_benchmax_rule_based_data,
     build_chat_generation_prompt,
-    filter_language_config,
-    load_full_language_config
 )
 from .benchmark_utils import (
     setup_benchmark_params,
@@ -125,7 +123,7 @@ def process_benchmax_rule_based_benchmark(benchmark_name, model, load_data_func,
                 if store_details:
                     csv_file = os.path.join(benchmark_output_dir, f"{lang_code}.tsv")
                     with open(csv_file, "w", newline="", encoding="utf-8") as cf:
-                        writer = csv.writer(cf, delimiter="\t", quoting=csv.QUOTE_MINIMAL)
+                        writer = csv.writer(cf, delimiter="\t", lineterminator="\n", quoting=csv.QUOTE_MINIMAL)
                         writer.writerow(["Tested Language", "PromptLanguage", "PromptSource", "Prompt", "Instruction_id_list", "Kwargs", "Response"])
                         for d, r in zip(dataset, responses):
                             writer.writerow([lang_code, actual_prompt_lang, prompt_source, d["prompt"], d["instruction_id_list"], d["kwargs"], r])

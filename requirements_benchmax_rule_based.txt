@@ -1,0 +1,6 @@
+langdetect
+immutabledict
+sacrebleu[ja]
+kss
+pythainlp
+python-crfsuite

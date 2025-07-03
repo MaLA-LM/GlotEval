@@ -1689,9 +1689,8 @@ def count_japanese_words(text):
     return len(tokenizer(text.strip()).split())
 
 def count_korean_words(text):
-    from sacrebleu.tokenizers.tokenizer_ko_mecab import TokenizerKoMecab
-    tokenizer = TokenizerKoMecab()
-    return len(tokenizer(text.strip()).split())
+    import kss
+    return len(kss.split_morphemes(text.strip()))
 
 def count_words_by_space(text):
     return len(text.strip().split())
