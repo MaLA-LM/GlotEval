@@ -1,0 +1,17 @@
+en | eng_Latn
+ar | arb_Arab
+bn | ben_Beng
+cs | ces_Latn
+de | deu_Latn
+es | spa_Latn
+fr | fra_Latn
+hu | hun_Latn
+ja | jpn_Jpan
+ko | kor_Hang
+ru | rus_Cyrl
+sr | srp_Cyrl
+sw | swh_Latn
+te | tel_Telu
+th | tha_Thai
+vi | vie_Latn
+zh | zho_Hans

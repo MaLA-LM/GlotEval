@@ -804,5 +804,10 @@
       "instruction": "请评估此文本的perplexity或负对数似然：\n{text}",
       "few_shot": ""
     }
+  },
+  "benchmax_rule_based": {
+    "eng_Latn": {
+      "instruction": "{text}"
+    }
   }
 }

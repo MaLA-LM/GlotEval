@@ -12,6 +12,7 @@ class VLLMModelWrapper:
             max_num_seqs=max_num_seqs,
             trust_remote_code=True,
         )
+        self.tokenizer = self.llm.get_tokenizer()
         self.sampling_params = SamplingParams(**sampling_params)
         # Save the original parameters for reference
         self.sampling_params_dict = sampling_params
