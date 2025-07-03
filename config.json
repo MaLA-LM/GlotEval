@@ -85,7 +85,7 @@
       "n_shots": 0,
       "seed": 42
     },
-     "mmhb": {
+    "mmhb": {
       "center_lang": "en",
       "direction": "center-x",
       "seed": 42
@@ -122,6 +122,9 @@
       "direction": "x-center",
       "seed": 42,
       "n_shots": 3
+    },
+    "benchmax_rule_based": {
+      "seed": 42
     }
   },
 

@@ -613,6 +613,73 @@ def build_token_classification_prompt(
     return final_prompt
 
 
+def build_chat_generation_prompt(
+    text,
+    tokenizer,
+    few_shot_examples=None,
+    prompt_library=None,
+    prompt_language="eng_Latn",
+    benchmark_name=None,
+    task_key=None
+):
+    """
+    Build a prompt for open-ended generation tasks.
+
+    Args:
+        text (str): The text prompt for generation.
+        few_shot_examples (list, optional): Examples for few-shot learning.
+        prompt_library (dict, optional): Library of prompt templates.
+        prompt_language (str, optional): The language to use for the prompt.
+        benchmark_name (str, optional): The name of the benchmark.
+        task_key (str, optional): The key for the task in the prompt library.
+
+    Returns:
+        str: The formatted prompt.
+    """
+    if prompt_library is None:
+        prompt_library = {}
+
+    # Get the prompt template
+    prompt_template = None
+
+    # Try to get a benchmark-specific prompt if specified
+    if benchmark_name and benchmark_name in prompt_library and prompt_language in prompt_library[benchmark_name]:
+        prompt_template = prompt_library[benchmark_name][prompt_language]
+
+    # Otherwise try to get a task-specific prompt
+    elif task_key in prompt_library and prompt_language in prompt_library[task_key]:
+        prompt_template = prompt_library[task_key][prompt_language]
+
+    # If still no template, use a default
+    if not prompt_template:
+        prompt_template = {
+            "instruction": "{text}",
+            "few_shot": "{example_text}"
+        }
+
+    instruction_template = prompt_template.get("instruction", "")
+    few_shot_template = prompt_template.get("few_shot", "")
+
+    few_shot_str = ""
+    if few_shot_examples:
+        for ex in few_shot_examples:
+            snippet = few_shot_template.format(example_text=ex.get("text", ""))
+            few_shot_str += snippet
+
+    final_str = instruction_template.format(text=text)
+
+    final_prompt = ""
+    if few_shot_str:
+        final_prompt = few_shot_str + "\n" + final_str
+    else:
+        final_prompt = final_str
+
+    message = [{"role": "user", "content": final_prompt}]
+    final_prompt = tokenizer.apply_chat_template(message, tokenize=False, add_generation_prompt=True)
+
+    return final_prompt
+
+
 def sample_few_shot_examples(n_shots, src_texts_dev, tgt_texts_dev, seed=42):
     random.seed(seed)
     indices = range(len(src_texts_dev))
@@ -1130,3 +1197,18 @@ def load_mafand_data(src_lang, tgt_lang, split="test", limit_samples=None):
         tgt_texts = tgt_texts[:limit_samples]
 
     return src_texts, tgt_texts
+
+
+def load_benchmax_rule_based_data(lang_code, split="train", limit_samples=None):
+    print(f"[INFO] Loading new_benchmark for '{lang_code}'")
+    try:
+        dataset = load_dataset("LLaMAX/BenchMAX_Rule-based", lang_code, split=split).to_list()
+
+        if limit_samples is not None:
+            dataset = dataset[:limit_samples]
+
+        return dataset
+
+    except Exception as e:
+        print(f"[ERROR] Failed to load new_benchmark for '{lang_code}' from Hugging Face: {e}")
+        return []
