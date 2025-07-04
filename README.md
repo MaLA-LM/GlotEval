@@ -38,24 +38,27 @@ GlotEval is a unified evaluation toolkit designed to benchmark Large Language Mo
 ### 🧪 Multilingual Tasks
 
 - **Text Classification**: SIB-200, Taxi-1500
-- **Machine Translation**: Flores-200, Flores+, AmericasNLP, IN22, NTREX-128, Tatoeba, NTEU, TICO-19, MAFAND, MMHB, OpenSubtitles
+- **Machine Translation**: Flores-200, Flores+, AmericasNLP, IN22, NTREX-128, Tatoeba, NTEU, TICO-19, MAFAND, MMHB (MT-based Bias Detection), OpenSubtitles
 - **Summarization**: XLSum, MassiveSumm(2 versions)
 - **Token Classification**: WikiANN, UD
 - **Comprehension**: MMLU-style tasks (MMMLU, Global-MMLU)
 - **Open-ended Generation**: Aya, PolyWrite
 - **Intrinsic Evaluation**: PBC, MaLA
+- **Instruction Following**: BenchMAX Rule-based
 
 ### 🤖 Model Compatibility
 
-- **Hugging Face Transformers**: for classification, tagging, etc.
+- **HuggingFace Transformers**: for classification, tagging, etc.
 - **vLLM**: efficient, large-batch generation for generation tasks
 
 ### 📏 Rich Evaluation Metrics
 
-- **Machine Translation**: BLEU, ChrF++, COMET
+- **Machine Translation**: BLEU, ChrF++, COMET, etc.
 - **Summarization**: ROUGE-L
 - **Classification**: Accuracy, F1
-- **Open-ended Gen**: Self-BLEU, etc.
+- **Open-ended Generation**: Self-BLEU, etc.
+- **Instruction Following**: Prompt-level and Instruction-level Accuracy (strict & loose)
+
 
 ------
 
@@ -83,13 +86,16 @@ cd GlotEval
 conda create -n gloteval python=3.11
 conda activate gloteval
 pip install -r requirements.txt
+# BenchMax related dependencies
+pip install -r requirements_benchmax_rule_based.txt
 ```
 
 ### 3️⃣ Prepare Data
 
-- Download benchmark data from Github Release under `benchmark_dataset/`, e.g.:
+- A number of datasets support **HuggingFace datasets** loading
+- For others, please download benchmark data from Github Release under `benchmark_dataset/`, e.g.:
   - `benchmark_dataset/flores200`
-  - `benchmark_dataset/wikiann`
+  - `benchmark_dataset/ntrex128`
 - Update paths in `config.json` if needed
 
 ### 4️⃣ Run an Evaluation
@@ -138,8 +144,7 @@ The central configuration is in `config.json`, which specifies:
   "sampling_params": {
     "temperature": 0.6,
     "top_p": 0.9,
-    "max_tokens": 128,
-    "stop": "\n"
+    "max_tokens": 128
   }
 }
 ```
@@ -162,7 +167,10 @@ The central configuration is in `config.json`, which specifies:
     "n_shots": 3,
     "seed": 42,
     "center_lang": "eng_Latn",
-    "direction": "center-x"
+    "direction": "center-x",
+    "sampling_params": {
+      "stop": "\n"
+    }
   },
   "xlsum": {
     "n_shots": 0,
