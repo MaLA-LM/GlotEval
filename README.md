@@ -262,13 +262,28 @@ After running an evaluation, GlotEval produces:
 
 ```
 results/
-  └── Qwen2-1.5B/
-      └── 2025-03-30_10-12-43/
+  └── Qwen--Qwen2-0.5B/
+      ├── 20250704_173639/
+      │   ├── massivesumm_short/
+      │   │   ├── fra.jsonl
+      │   │   ├── yue.jsonl
+      │   │   ├── zho.jsonl
+      │   │   └── ...
+      │   ├── mmhb/
+      │   │   ├── eng-cmn.jsonl
+      │   │   ├── eng-fra.jsonl
+      │   │   └── ...
+      │   ├── mmmlu/
+      │   │   ├── fr.jsonl
+      │   │   ├── zh.jsonl
+      │   │   └── ...
+      │   └── scores.json
+      └── 20250704_173640/
+          ├── sib200/
+          │   └── ...
+          ├── taxi1500/
+          │   └── ...
           ├── scores.json
-          └── xlsum
-              ├── zho_Hans.csv
-          └── sib200
-              ├── zho_Hans.csv
           └── efficiency.json
 ```
 
