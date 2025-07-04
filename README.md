@@ -112,13 +112,13 @@ python main.py \
 - `--params`: Path to the config file specifying prompts, shots, etc.
 - `--output_dir`: Directory to store results
 - `--langs`: ISO 639-3 codes (e.g., `zho=Chinese`, `gsw=Swiss German`)
-- `--store_details`: Save detailed output for each sample in CSV format
+- `--store_details`: Save detailed output for each sample in JSONL format
 - `--efficiency_analysis`: Track and report token generation efficiency metrics
 
 ### 5️⃣ Check Results
 
 - Results saved under: `results/<model>/<timestamp>/`
-- Includes: `scores.json`, detailed CSVs (if enabled)
+- Includes: `scores.json`, detailed JSONLs (if enabled)
 
 ------
 
@@ -241,7 +241,7 @@ After running an evaluation, GlotEval produces:
 }
 ```
 
-### 📊 2. Detailed CSVs (if `--store_details` is specified)
+### 📊 2. Detailed JSONLs (if `--store_details` is specified)
 
 - Contains each sample's prompt, model output, reference, and corresponding scores
 - Useful for fine-grained error analysis and qualitative evaluation
@@ -257,8 +257,10 @@ results/
   └── Qwen2-1.5B/
       └── 2025-03-30_10-12-43/
           ├── scores.json
-          ├── xlsum_zho_Hans.csv
-          ├── sib200_zho_Hans.csv
+          └── xlsum
+              ├── zho_Hans.csv
+          └── sib200
+              ├── zho_Hans.csv
           └── efficiency.json
 ```
 
