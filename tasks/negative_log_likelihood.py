@@ -13,7 +13,6 @@ from .benchmark_utils import (
     setup_benchmark_output,
     update_benchmark_scores
 )
-
 def process_nll_benchmark(
     benchmark_name,
     model,
@@ -30,6 +29,14 @@ def process_nll_benchmark(
     current_time = kwargs.get("current_time", time.strftime("%Y%m%d_%H%M%S"))
     max_length = kwargs.get("max_length", 2048)
     stride = kwargs.get("stride", 1024)
+    filtered_lang_codes = kwargs.get("filtered_lang_codes", None)  # Add this line
+
+    global_sampling_params = kwargs.get("global_sampling_params", {})
+    benchmark_sampling_params = kwargs.get("sampling_params", {})
+    final_sampling_params = global_sampling_params.copy()
+    final_sampling_params.update(benchmark_sampling_params)
+    print(f"[{benchmark_name}] Using final sampling params: {final_sampling_params}")
+    
 
     # Setup benchmark output directory
     benchmark_output_dir = setup_benchmark_output(benchmark_name, output_dir)
@@ -37,8 +44,27 @@ def process_nll_benchmark(
     # Load language configuration
     if not lang_config:
         raise ValueError("No lang_config provided for NLL benchmark.")
+    
+    # Load all languages from config file
     with open(lang_config, "r", encoding="utf-8") as f:
-        langs = [line.strip() for line in f if line.strip()]
+        all_langs = [line.strip() for line in f if line.strip()]
+    
+    # Apply language filtering if requested
+    if filtered_lang_codes:
+        # Filter languages based on the expanded language codes
+        langs = [lang for lang in all_langs if lang.split('_')[0] in filtered_lang_codes]
+        num_test_langs = len(langs)
+        num_benchmark_langs = len(all_langs)
+        print(f"[INFO] Filtered {num_test_langs} / {num_benchmark_langs} languages for benchmark '{benchmark_name}'")
+        
+        if not langs:
+            print(f"[WARN] No languages matched the filter for benchmark '{benchmark_name}'")
+            return {}
+    else:
+        langs = all_langs
+        num_test_langs = len(langs)
+        num_benchmark_langs = num_test_langs
+        print(f"[INFO] Processing all {num_test_langs} languages for benchmark '{benchmark_name}'")
 
     random.seed(seed)
     all_results = {}
@@ -79,9 +105,14 @@ def process_nll_benchmark(
         all_results[lang_code] = {"nll": total_nll, "num_samples": len(texts)}
 
     # Update scores.json using utility function
+    # Add tested_languages info to benchmark_params
+    benchmark_params = {
+        "tested_languages": f'{num_test_langs} / {num_benchmark_langs}'
+    }
+    
     update_benchmark_scores(
         output_dir, benchmark_name, model_name, current_time,
-        all_results, "NLL", {}  # Empty benchmark_params since NLL doesn't use prompts
+        all_results, "NLL", benchmark_params
     )
 
     print(f"[{benchmark_name}] Done. NLL results saved.")

@@ -13,19 +13,20 @@ class VLLMModelWrapper:
             trust_remote_code=True,
         )
         self.tokenizer = self.llm.get_tokenizer()
-        self.sampling_params = SamplingParams(**sampling_params)
-        # Save the original parameters for reference
-        self.sampling_params_dict = sampling_params
+        self.default_sampling_params_dict = sampling_params
 
-    def generate(self, prompts):
+    def generate(self, prompts,**override_params):
         import time
         from vllm import SamplingParams
         
-        # Start total time measurement
+
+        final_params_dict = self.default_sampling_params_dict.copy()
+        final_params_dict.update(override_params)
+        final_sampling_params = SamplingParams(**final_params_dict)
+
         total_start_time = time.time()
         
-        # Prefilling phase - create a new SamplingParams with max_tokens=1
-        prefill_params_dict = self.sampling_params_dict.copy()  # Copy the dictionary
+        prefill_params_dict = final_params_dict.copy()
         prefill_params_dict['max_tokens'] = 1
         prefill_params = SamplingParams(**prefill_params_dict)
         
@@ -33,12 +34,11 @@ class VLLMModelWrapper:
         first_token_outputs = self.llm.generate(prompts, prefill_params)
         prefill_end_time = time.time()
         
-        # Calculate prefilling time
         prefill_time = prefill_end_time - prefill_start_time
         
-        # Decoding phase - generate the remaining tokens
         decode_start_time = time.time()
-        full_outputs = self.llm.generate(prompts, self.sampling_params)
+        final_sampling_params = SamplingParams(**final_params_dict)
+        full_outputs = self.llm.generate(prompts, final_sampling_params)
         decode_end_time = time.time()
         
         # Calculate decoding time (excluding prefilling)
@@ -81,7 +81,7 @@ class VLLMModelWrapper:
         label_token_ids = []
         for label in candidate_labels:
             # Get the first token ID of the label
-            tokens = tokenizer.encode(label, add_special_tokens=False)
+            tokens = tokenizer.encode(label)
             if tokens:
                 label_token_ids.append(tokens[0])
 

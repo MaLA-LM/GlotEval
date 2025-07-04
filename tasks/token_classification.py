@@ -34,6 +34,11 @@ def process_token_classification_benchmark(
 ):
     # Process common parameters
     params = setup_benchmark_params(**kwargs)
+    global_sampling_params = kwargs.get("global_sampling_params", {})
+    benchmark_sampling_params = params.get("sampling_params", {})
+    final_sampling_params = global_sampling_params.copy()
+    final_sampling_params.update(benchmark_sampling_params)
+    print(f"[{benchmark_name}] Using final sampling params: {final_sampling_params}")
     store_details = params["store_details"]
     efficiency_analysis = params["efficiency_analysis"]
     prompt_library = params["prompt_library"]
@@ -217,17 +222,23 @@ def process_token_classification_benchmark(
             }
 
         if store_details:
-            csv_file = os.path.join(benchmark_output_dir, f"{lang_code}.tsv")
-            with open(csv_file, "w", newline="", encoding="utf-8") as cf:
-                writer = csv.writer(cf, delimiter="\t", quoting=csv.QUOTE_MINIMAL)
-                writer.writerow(["Tested Language", "PromptLanguage", "PromptSource", "Sentence", "Gold_Labels", "Predicted_Labels"])
+            jsonl_file = os.path.join(benchmark_output_dir, f"{lang_code}.jsonl")
+            with open(jsonl_file, "w", encoding="utf-8") as jf:
                 for row in csv_rows:
-                    writer.writerow([lang_code, actual_prompt_lang, prompt_source, row[0], row[1], row[2]])
+                    record = {
+                        "tested_language": lang_code,
+                        "prompt_language": actual_prompt_lang,
+                        "prompt_source": prompt_source,
+                        "sentence": row[0],
+                        "gold_labels": row[1],
+                        "predicted_labels": row[2]
+                    }
+                    jf.write(json.dumps(record, ensure_ascii=False) + "\n")
             
-            print(f"[{benchmark_name}] {lang_code}: wrote CSV => accuracy={accuracy:.4f}, speed={samples_per_second:.2f} samples/s")
+            print(f"[{benchmark_name}] {lang_code}: wrote JSONL => accuracy={accuracy:.4f}, speed={samples_per_second:.2f} samples/s")
         else:
             print(f"[{benchmark_name}] {lang_code}: accuracy={accuracy:.4f}, speed={samples_per_second:.2f} samples/s")
-
+            
     # Update scores.json with benchmark results
     benchmark_params = {
         "n_shots": n_shots,

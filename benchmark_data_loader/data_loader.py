@@ -709,7 +709,7 @@ def sample_few_shot_classification_examples(train_data, n_shots, seed=42):
     return few_shot_examples
 
 ############################################################
-## Data loading with hardcoded paths & limit_samples
+## Data loading with unified pattern for local disk & HuggingFace
 ############################################################
 
 def load_flores200_data(src_lang, tgt_lang, split="test", limit_samples=None):
@@ -733,148 +733,313 @@ def load_flores200_data(src_lang, tgt_lang, split="test", limit_samples=None):
 
     return src_texts, tgt_texts
 
-
-
-def load_flores_plus_data_hf(src_lang, tgt_lang, split="test", limit_samples=None):
-
-    base_path = "benchmark_dataset/flores_plus_hf"
-    
-    # Map 'test' to 'devtest' for consistency with FLORES+ naming
+def load_flores_plus_data(src_lang, tgt_lang, split="test", limit_samples=None, **kwargs):
+    """
+    Loads FLORES+ data from Hugging Face.
+    """
+    print(f"[INFO] Loading FLORES+ for '{src_lang}-{tgt_lang}' from Hugging Face.")
     if split == 'test':
         split = 'devtest'
+
+    try:
+        src_dataset = load_dataset("openlanguagedata/flores_plus", src_lang, split=split)
+        tgt_dataset = load_dataset("openlanguagedata/flores_plus", tgt_lang, split=split)
+        
+        assert len(src_dataset) == len(tgt_dataset), "Source and target datasets have different lengths!"
+        
+        src_texts = src_dataset['text']
+        tgt_texts = tgt_dataset['text']
+        
+        if limit_samples is not None:
+            src_texts = src_texts[:limit_samples]
+            tgt_texts = tgt_texts[:limit_samples]
+        
+        return src_texts, tgt_texts
+        
+    except Exception as e:
+        error_msg = str(e).lower()
+        print(f"[ERROR] Failed to load FLORES+ for '{src_lang}-{tgt_lang}': {e}")
+        if any(keyword in error_msg for keyword in ['unknown split', 'not found', '404', 'does not exist', 'no config']):
+            raise FileNotFoundError(f"{split} dataset not found for {src_lang}-{tgt_lang}")
+        elif 'gated' in error_msg or 'authentication' in error_msg:
+            raise PermissionError(f"Authentication required for gated dataset: {src_lang}-{tgt_lang}")
+        else:
+            raise ValueError(f"Failed to load data for {src_lang}-{tgt_lang}: {e}")
+
+
+def load_sib200_data(lang_code, split="test", limit_samples=None, **kwargs):
+    """
+    Loads SIB-200 data from Hugging Face.
+    This benchmark is loaded from the 'Davlan/sib200' dataset.
     
-    # Construct file paths for source and target language TSV files
-    src_file = os.path.join(base_path, split, f"{src_lang}.tsv")
-    tgt_file = os.path.join(base_path, split, f"{tgt_lang}.tsv")
+    Args:
+        lang_code (str): The language code (e.g., 'eng_Latn').
+        split (str): The data split ('train', 'validation', 'test').
+        limit_samples (int, optional): Maximum number of samples to load.
+
+    Returns:
+        list: A list of data samples as dictionaries.
+    """
+    print(f"[INFO] Loading SIB-200 for '{lang_code}' from Hugging Face.")
+
+    try:
+        # SIB-200 uses the language code as the configuration name.
+        dataset = load_dataset("Davlan/sib200", lang_code, split=split)
+        data = []
+        for item in dataset:
+            data.append({
+                "text": item["text"],
+                "category": item["category"]
+            })
+
+        if limit_samples is not None:
+            data = data[:limit_samples]
+
+        return data
+    except Exception as e:
+        print(f"[ERROR] Failed to load SIB-200 for '{lang_code}' from Hugging Face: {e}")
+        return []
+
+
+def load_xlsum_data(lang_code, split="test", limit_samples=None, **kwargs):
+    """
+    Loads XLSum data from Hugging Face.
+    This benchmark is loaded from the 'csebuetnlp/xlsum' dataset.
+    Note: The 'lang_code' must match one of the available configurations (e.g., 'english', 'french').
     
-    # Read TSV files using pandas
-    src_df = pd.read_csv(src_file, sep='\t')
-    tgt_df = pd.read_csv(tgt_file, sep='\t')
+    Args:
+        lang_code (str): Language configuration name (e.g., 'english').
+        split (str): Data split ('train', 'validation', 'test').
+        limit_samples (int, optional): Maximum number of samples to load.
+        
+    Returns:
+        tuple: (src_texts, tgt_texts) - Lists of source articles and target summaries.
+    """
+    print(f"[INFO] Loading XLSum for '{lang_code}' from Hugging Face.")
     
-    # Extract the 'text' column from each dataframe
-    src_texts = src_df['text'].tolist()
-    tgt_texts = tgt_df['text'].tolist()
+    try:
+        # XLSum uses the language name as the configuration.
+        dataset = load_dataset("csebuetnlp/xlsum", lang_code, split=split)
+        
+        src_texts = dataset['text']
+        tgt_texts = dataset['summary']
+        
+        if limit_samples is not None:
+            src_texts = src_texts[:limit_samples]
+            tgt_texts = tgt_texts[:limit_samples]
+            
+        return src_texts, tgt_texts
+        
+    except Exception as e:
+        print(f"[ERROR] Failed to load XLSum for '{lang_code}' from Hugging Face: {e}")
+        print(f"[INFO] Make sure '{lang_code}' is a valid configuration for csebuetnlp/xlsum (e.g., 'english', 'hindi').")
+        return [], []
+
+def load_massivesumm_long_data(lang_code, split="train", limit_samples=None, **kwargs):
+    """
+    Loads MassiveSumm long data from Hugging Face Hub.
+    Dataset: MaLA-LM/MassiveSumm_long
+    """
+    from datasets import load_dataset
     
-    # Check that we have the same number of samples
-    if len(src_texts) != len(tgt_texts):
-        raise ValueError(f"Source and target files have different numbers of samples: {len(src_texts)} vs {len(tgt_texts)}")
+    print(f"[INFO] Loading MassiveSumm long for '{lang_code}' from Hugging Face Hub.")
     
-    # Limit samples if requested
-    if limit_samples is not None:
-        src_texts = src_texts[:limit_samples]
-        tgt_texts = tgt_texts[:limit_samples]
+    try:
+        # Load the dataset from Hugging Face
+        dataset = load_dataset("MaLA-LM/MassiveSumm_long", split="train")
+        
+        # Filter by language
+        filtered_dataset = dataset.filter(lambda x: x["language"] == lang_code)
+        
+        # Extract texts and summaries
+        src_texts = []
+        tgt_texts = []
+        
+        for item in filtered_dataset:
+            src_texts.append(item["text"])
+            tgt_texts.append(item["summary"])
+        
+        # Apply limit if specified
+        if limit_samples is not None:
+            src_texts = src_texts[:limit_samples]
+            tgt_texts = tgt_texts[:limit_samples]
+        
+        print(f"[INFO] Loaded {len(src_texts)} samples for language '{lang_code}'")
+        return src_texts, tgt_texts
+        
+    except Exception as e:
+        print(f"[ERROR] Failed to load MassiveSumm long from Hugging Face: {e}")
+        return [], []
+
+
+def load_massivesumm_short_data(lang_code, split="train", limit_samples=None, **kwargs):
+    """
+    Loads MassiveSumm short data from Hugging Face Hub.
+    Dataset: MaLA-LM/MassiveSumm_short
+    """
+    from datasets import load_dataset
     
-    return src_texts, tgt_texts
+    print(f"[INFO] Loading MassiveSumm short for '{lang_code}' from Hugging Face Hub.")
+    
+    try:
+        # Load the dataset from Hugging Face
+        dataset = load_dataset("MaLA-LM/MassiveSumm_short", split="train")
+        
+        # Filter by language
+        filtered_dataset = dataset.filter(lambda x: x["language"] == lang_code)
+        
+        # Extract texts and summaries
+        src_texts = []
+        tgt_texts = []
+        
+        for item in filtered_dataset:
+            src_texts.append(item["text"])
+            tgt_texts.append(item["summary"])
+        
+        # Apply limit if specified
+        if limit_samples is not None:
+            src_texts = src_texts[:limit_samples]
+            tgt_texts = tgt_texts[:limit_samples]
+        
+        print(f"[INFO] Loaded {len(src_texts)} samples for language '{lang_code}'")
+        return src_texts, tgt_texts
+        
+    except Exception as e:
+        print(f"[ERROR] Failed to load MassiveSumm short from Hugging Face: {e}")
+        return [], []
 
-
-def load_flores_plus_data(src_lang, tgt_lang, split="test", limit_samples=None):
-    base_path = "benchmark_dataset/flores_plus"
-    if split == 'test':
-        split = 'devtest'
-    src_file = os.path.join(base_path, split, f"{split}.{src_lang}")
-    tgt_file = os.path.join(base_path, split, f"{split}.{tgt_lang}")
-
-    with open(src_file, "r", encoding="utf-8") as f:
-        src_texts = f.read().splitlines()
-    with open(tgt_file, "r", encoding="utf-8") as f:
-        tgt_texts = f.read().splitlines()
-
-    if len(src_texts) != len(tgt_texts):
-        raise ValueError("Source and target files have different numbers of lines.")
-
-    if limit_samples is not None:
-        src_texts = src_texts[:limit_samples]
-        tgt_texts = tgt_texts[:limit_samples]
-
-    return src_texts, tgt_texts
-
-
-def load_sib200_data(lang_code, split="test"):
-    base_path = "benchmark_dataset/sib200"
-    file_path = os.path.join(base_path, lang_code, f"{split}.tsv")
-    df = pd.read_csv(file_path, delimiter="\t", index_col="index_id")
-    data = df.to_dict("records")
-    return data
-
-
-def load_xlsum_data(lang_code, split="test", limit_samples=None):
-    base_path = "benchmark_dataset/XLSum"
-    src_texts, tgt_texts = [], []
-    file_path = os.path.join(base_path, f"{lang_code}_{split}.jsonl")
-    with open(file_path, "r", encoding="utf-8") as file:
-        for line in file:
-            dat = json.loads(line)
-            src_texts.append(dat["text"])
-            tgt_texts.append(dat["summary"])
-
-    if limit_samples is not None:
-        src_texts = src_texts[:limit_samples]
-        tgt_texts = tgt_texts[:limit_samples]
-
-    return src_texts, tgt_texts
-
-
-def load_massivesumm_long_data(lang_code, split="test", limit_samples=None):
-    base_path = "benchmark_dataset/MassiveSumm_long"
-    src_texts, tgt_texts = [], []
-    file_path = os.path.join(base_path, f"{lang_code}_{split}.jsonl")
-    with open(file_path, "r", encoding="utf-8") as file:
-        for line in file:
-            dat = json.loads(line)
-            src_texts.append(dat["text"])
-            tgt_texts.append(dat["summary"])
-
-    if limit_samples is not None:
-        src_texts = src_texts[:limit_samples]
-        tgt_texts = tgt_texts[:limit_samples]
-
-    return src_texts, tgt_texts
-
-
-def load_massivesumm_short_data(lang_code, split="test", limit_samples=None):
-    base_path = "benchmark_dataset/MassiveSumm_short"
-    src_texts, tgt_texts = [], []
-    file_path = os.path.join(base_path, f"{lang_code}_{split}.jsonl")
-    with open(file_path, "r", encoding="utf-8") as file:
-        for line in file:
-            dat = json.loads(line)
-            src_texts.append(dat["text"])
-            tgt_texts.append(dat["summary"])
-
-    if limit_samples is not None:
-        src_texts = src_texts[:limit_samples]
-        tgt_texts = tgt_texts[:limit_samples]
-
-    return src_texts, tgt_texts
-
-
-def load_taxi1500_data(lang_code, split="test"):
+def load_taxi1500_data(lang_code, split="test", limit_samples=None, **kwargs):
+    """
+    Loads Taxi1500 data from local disk.
+    """
+    print(f"[INFO] Loading Taxi1500 for '{lang_code}' from local disk.")
     base_path = "benchmark_dataset/Taxi1500"
     file_path = os.path.join(base_path, lang_code, f"{lang_code}_{split}.tsv")
-    df = pd.read_csv(
-        file_path,
-        delimiter="\t",
-        names=["index_id", "category", "text"],
-        index_col="index_id",
-        on_bad_lines="skip",
-        engine="python",
-    )
-    data = df.to_dict("records")
-    return data
+    
+    try:
+        df = pd.read_csv(
+            file_path,
+            delimiter="\t",
+            names=["index_id", "category", "text"],
+            index_col="index_id",
+            on_bad_lines="skip",
+            engine="python",
+        )
+        data = df.to_dict("records")
+        if limit_samples is not None:
+            data = data[:limit_samples]
+        return data
+    except FileNotFoundError:
+        print(f"[ERROR] Local file not found for Taxi1500: {file_path}")
+        return []
+
+# Global cache for Aya dataset
+_aya_cache = None
+def load_aya_data(lang_code, limit_samples=None, **kwargs):
+    """
+    Loads Aya data from both subsets based on language_script format.
+    
+    Args:
+        lang_code (str): Language code in format 'language_script' (e.g., 'eng_Latn', 'arb_Arab')
+        limit_samples (int, optional): Maximum number of samples to load.
+        
+    Returns:
+        list: A list of input texts from both subsets combined.
+    """
+    global _aya_cache
+    
+    # Parse language and script from input
+    try:
+        language, script = lang_code.split('_')
+    except ValueError:
+        raise ValueError(f"Invalid language code format: '{lang_code}'. Expected format: 'language_script' (e.g., 'eng_Latn')")
+    
+    print(f"[INFO] Loading Aya for language='{language}', script='{script}'")
+    
+    try:
+        # Load and cache both subsets on first call
+        if _aya_cache is None:
+            print("[INFO] Loading and preprocessing Aya dataset (first time)...")
+            _aya_cache = {}
+            
+            # Load both subsets
+            subsets = ['aya_human_annotated', 'dolly_machine_translated']
+            
+            for subset in subsets:
+                print(f"[INFO] Loading subset: {subset}")
+                dataset = load_dataset("CohereLabs/aya_evaluation_suite", subset, split="test")
+                
+                # Group by language_script combination
+                for item in dataset:
+                    key = f"{item['language']}_{item['script']}"
+                    if key not in _aya_cache:
+                        _aya_cache[key] = []
+                    _aya_cache[key].append(item['inputs'])
+            
+            print(f"[INFO] Cached data for {len(_aya_cache)} language-script combinations")
+        
+        # Check if the requested combination exists
+        if lang_code not in _aya_cache:
+            raise ValueError(f"No data found for language-script combination '{lang_code}'")
+        
+        src_texts = _aya_cache[lang_code]
+        
+        if limit_samples is not None:
+            src_texts = src_texts[:limit_samples]
+        
+        print(f"[INFO] Loaded {len(src_texts)} samples for '{lang_code}'")
+        return src_texts
+        
+    except Exception as e:
+        print(f"[ERROR] Failed to load Aya for '{lang_code}': {e}")
+        raise ValueError(f"Failed to load Aya dataset for '{lang_code}': {e}")
+
+# def load_polywrite_data_hf(lang_code, limit_samples=None, **kwargs):
+#     """
+#     Loads PolyWrite data from Hugging Face.
+#     This benchmark is loaded from 'MaLA-LM/PolyWrite'.
+    
+#     Args:
+#         lang_code (str): Language script code (e.g., 'aar_Latn', 'eng_Latn').
+#         limit_samples (int, optional): Maximum number of samples to load.
+        
+#     Returns:
+#         list: A list of translated prompts.
+#     """
+#     print(f"[INFO] Loading PolyWrite for '{lang_code}' from Hugging Face.")
+    
+#     try:
+#         # Load the dataset - all languages are in a single dataset
+#         dataset = load_dataset("MaLA-LM/PolyWrite", split="train", streaming=True)
+        
+#         # Filter for the specific language and collect prompts
+#         src_texts = []
+#         for item in dataset:
+#             if item["lang_script"] == lang_code:
+#                 # Use the translated prompt
+#                 if item.get("prompt_translated"):
+#                     src_texts.append(item["prompt_translated"])
+                
+#                 # Stop if we've collected enough samples
+#                 if limit_samples is not None and len(src_texts) >= limit_samples:
+#                     break
+        
+#         if not src_texts:
+#             print(f"[WARN] No data found for language '{lang_code}' in PolyWrite")
+#             raise FileNotFoundError(f"No data found for language '{lang_code}'")
+            
+#         return src_texts
+        
+#     except Exception as e:
+#         error_msg = str(e).lower()
+#         print(f"[ERROR] Failed to load PolyWrite for '{lang_code}': {e}")
+#         if 'not found' in error_msg or 'does not exist' in error_msg:
+#             raise FileNotFoundError(f"Dataset not found for {lang_code}")
+#         else:
+#             raise ValueError(f"Failed to load data for {lang_code}: {e}")
 
 
-def load_aya_data(lang_code):
-    base_path = "benchmark_dataset/Aya"
-    file_path = os.path.join(base_path, lang_code + ".jsonl")
-    src_texts = []
-    with open(file_path, "r", encoding="utf-8") as file:
-        for line in file:
-            dat = json.loads(line)
-            src_texts.append(dat["inputs"])
-    return src_texts
-
-
-def load_polywrite_data(lang_code):
+def load_polywrite_data(lang_code,limit_samples=None):
     base_path = "benchmark_dataset/PolyWrite"
     file_path = os.path.join(base_path, lang_code + ".jsonl")
     src_texts = []
@@ -882,6 +1047,8 @@ def load_polywrite_data(lang_code):
         for line in file:
             dat = json.loads(line)
             src_texts.append(dat["prompt_translated"])
+    if limit_samples is not None:
+        src_texts = src_texts[:limit_samples]
     return src_texts
 
 
@@ -889,79 +1056,126 @@ def build_options_str(a, b, c, d):
     return f"A) {a}\nB) {b}\nC) {c}\nD) {d}"
 
 
-def load_mmmlu_data(lang_code, split="test", limit_samples=None):
-    base_path = "benchmark_dataset/MMMLU"
-    file_name = f"mmlu_{lang_code}.csv"
-    file_path = os.path.join(base_path, split, file_name)
-
-    df = pd.read_csv(file_path, encoding='utf-8')
-    data = []
-    for _, row in df.iterrows():
-        example = {
-            "question": row["Question"],
-            "option_a": row["A"],
-            "option_b": row["B"],
-            "option_c": row["C"],
-            "option_d": row["D"],
-            "answer":   row["Answer"]
-        }
-        data.append(example)
-
-    if limit_samples is not None and len(data) > limit_samples:
-        data = data[:limit_samples]
-
-    return data
-
-
-def load_global_mmlu_data(lang_code, split="test", limit_samples=None):
-    base_path = "benchmark_dataset/Global_MMLU"
-    file_path = os.path.join(base_path, lang_code, f"{split}-00000-of-00001.parquet")
-    if not os.path.exists(file_path):
-        raise FileNotFoundError(f"File not found: {file_path}")
-
-    df = pd.read_parquet(file_path)
-    data = df.to_dict(orient="records")
-    # Re-label the fields
-    for row in data:
-        row["question"]  = row["question"]
-        row["option_a"]  = row["option_a"]
-        row["option_b"]  = row["option_b"]
-        row["option_c"]  = row["option_c"]
-        row["option_d"]  = row["option_d"]
-        row["answer"]    = row["answer"]
-
-    if limit_samples is not None and len(data) > limit_samples:
-        data = data[:limit_samples]
-
-    return data
+def load_mmmlu_data(lang_code, split="test", limit_samples=None, **kwargs):
+    """
+    Loads MMLU data from Hugging Face.
+    This function loads the English MMLU from 'cais/mmlu'.
+    The 'lang_code' parameter is ignored as this dataset is in English.
+    For multilingual versions, use 'load_global_mmlu_data'.
+    
+    Args:
+        lang_code (str): Language code (ignored).
+        split (str): Data split ('validation', 'test').
+        limit_samples (int, optional): Maximum number of samples to load.
+        
+    Returns:
+        list: A list of data samples.
+    """
+    print(f"[INFO] Loading MMLU (English) from Hugging Face for all subjects.")
+    
+    try:
+        # MMLU on HF is best loaded by subject, but we can load 'all' and filter.
+        # 'cais/mmlu' is the standard implementation.
+        dataset = load_dataset("cais/mmlu", "all", split=split)
+        
+        data = []
+        for item in dataset:
+            example = {
+                "question": item["question"],
+                "option_a": item["choices"][0],
+                "option_b": item["choices"][1],
+                "option_c": item["choices"][2],
+                "option_d": item["choices"][3],
+                "answer": ["A", "B", "C", "D"][item["answer"]]
+            }
+            data.append(example)
+        
+        if limit_samples is not None and len(data) > limit_samples:
+            # Note: Sampling might be better than truncating for MMLU
+            data = data[:limit_samples]
+            
+        return data
+        
+    except Exception as e:
+        print(f"[ERROR] Failed to load MMLU from Hugging Face: {e}")
+        return []
 
 
-def load_wikiann_data(lang_code, split="test", limit_samples=None):
-    base_path = "benchmark_dataset/wikiann"
+def load_global_mmlu_data(lang_code, split="test", limit_samples=None, **kwargs):
+    """
+    Loads Global MMLU data from Hugging Face.
+    This benchmark is loaded from 'CohereLabs/Global-MMLU'.
+    
+    Args:
+        lang_code (str): Language code (e.g., 'ar', 'bn').
+        split (str): Data split ('train', 'validation', 'test').
+        limit_samples (int, optional): Maximum number of samples to load.
+        
+    Returns:
+        list: A list of data samples.
+    """
+    print(f"[INFO] Loading Global MMLU for '{lang_code}' from Hugging Face.")
+    
+    try:
+        # Global MMLU uses the language code as the configuration.
+        dataset = load_dataset("CohereLabs/Global-MMLU", lang_code, split=split)
+        
+        # Directly convert to list of dicts, columns match our format.
+        data = dataset.to_dict()
+        
+        # The dataset is already in the desired list-of-dicts format.
+        # But we need to re-format it to be safe.
+        formatted_data = []
+        for i in range(len(data['question'])):
+            formatted_data.append({k: data[k][i] for k in data.keys()})
+
+        if limit_samples is not None and len(formatted_data) > limit_samples:
+            formatted_data = formatted_data[:limit_samples]
+            
+        return formatted_data
+        
+    except Exception as e:
+        print(f"[ERROR] Failed to load Global MMLU for '{lang_code}' from Hugging Face: {e}")
+        return []
+
+
+def load_wikiann_data(lang_code, split="test", limit_samples=None, **kwargs):
+    """
+    Loads WikiANN (PAN-X) data from Hugging Face.
+    This benchmark is loaded from 'unimelb-nlp/wikiann'.
+    
+    Args:
+        lang_code (str): Two-letter language code (e.g., 'en', 'de').
+        split (str): Data split ('train', 'validation', 'test').
+        limit_samples (int, optional): Maximum number of samples to load.
+        
+    Returns:
+        list: A list of data samples.
+    """
+    print(f"[INFO] Loading WikiANN for '{lang_code}' from Hugging Face.")
+    
     if split == 'dev':
-        split = 'validation'
-    file_name = f"{split}-00000-of-00001.parquet"
-    file_path = os.path.join(base_path, lang_code, file_name)
-    if not os.path.exists(file_path):
-        raise FileNotFoundError(f"File not found: {file_path}")
-
-    df = pd.read_parquet(file_path)
-    data = []
-    for _, row in df.iterrows():
-        example = {
-            "tokens": row["tokens"],
-            "ner_tags": row["ner_tags"],
-            "langs": row.get("langs", None),
-            "spans": row.get("spans", None),
-        }
-        data.append(example)
-
-    if limit_samples is not None and len(data) > limit_samples:
-        data = data[:limit_samples]
-    return data
+        split = 'validation'  
+    try:
+        # WikiANN uses two-letter language codes as configurations.
+        dataset = load_dataset("wikiann", lang_code, split=split)
+        
+        # Convert to a list of dicts.
+        data = [row for row in dataset]
+        
+        if limit_samples is not None and len(data) > limit_samples:
+            data = data[:limit_samples]
+            
+        return data
+        
+    except Exception as e:
+        print(f"[ERROR] Failed to load WikiANN for '{lang_code}' from Hugging Face: {e}")
+        print(f"[INFO] Make sure '{lang_code}' is a valid two-letter configuration for wikiann (e.g., 'en', 'de', 'zh').")
+        return []
 
 
 def parse_conllu_file(file_path):
+    """Helper to parse a CoNLL-U file for Universal Dependencies."""
     data = []
     with open(file_path, "r", encoding="utf-8") as f:
         tokens, upos_tags = [], []
@@ -974,28 +1188,36 @@ def parse_conllu_file(file_path):
                 continue
 
             cols = line.split("\t")
-            if len(cols) < 4:
-                continue
-            form = cols[1]
-            upos = cols[3]
-            tokens.append(form)
-            upos_tags.append(upos)
+            if len(cols) < 4: continue
+            tokens.append(cols[1]) # form
+            upos_tags.append(cols[3]) # upos
         if tokens:
             data.append({"tokens": tokens, "upos_tags": upos_tags})
     return data
 
-def load_ud_data(treebank_code, split="test", limit_samples=None):
+
+def load_ud_data(treebank_code, split="test", limit_samples=None, **kwargs):
+    """
+    Loads Universal Dependencies data from local disk.
+    UD datasets are distributed as individual treebanks and not available as a single unified HuggingFace dataset.
+    """
+    print(f"[INFO] Loading Universal Dependencies for '{treebank_code}' from local disk.")
     base_path = "benchmark_dataset/ud-treebanks-v2.15"
     folder_name = f"UD_{treebank_code}"
     folder_path = os.path.join(base_path, folder_name)
     conllu_file = None
+    
+    if not os.path.exists(folder_path):
+        print(f"[ERROR] Treebank folder not found: {folder_path}")
+        return []
+
     for f in os.listdir(folder_path):
         if f.endswith(f"ud-{split}.conllu"):
             conllu_file = os.path.join(folder_path, f)
             break
 
     if not conllu_file or not os.path.exists(conllu_file):
-        print(f"[load_ud_data] No .conllu file found for {treebank_code} / {split}.")
+        print(f"[ERROR] No .conllu file found for {treebank_code} / {split}.")
         return []
 
     data = parse_conllu_file(conllu_file)
@@ -1018,50 +1240,109 @@ def load_mala_data(lang_code, split="validation"):
     return texts
 
 
-def load_pbc_data(lang_code, split="test"):
+# def load_mala_data_hf(lang_code, split="validation", limit_samples=None, **kwargs):
+#     """
+#     Loads MaLA data for perplexity evaluation from Hugging Face.
+#     """
+#     print(f"[INFO] Loading MaLA for '{lang_code}' from Hugging Face.")
+    
+#     try:
+#         dataset = load_dataset(
+#             "MaLA-LM/mala-monolingual-split",
+#             split="validation",
+#         )
+        
+#         filtered_dataset = dataset.filter(lambda x: x["original_code"] == lang_code)
+        
+#         texts = filtered_dataset["text"]
+        
+#         if len(texts) == 0:
+#             raise ValueError(f"No data found for language code: {lang_code}")
+        
+#         if limit_samples is not None:
+#             texts = texts[:limit_samples]
+        
+#         print(f"[INFO] Loaded {len(texts)} samples for '{lang_code}'")
+#         return texts
+        
+#     except Exception as e:
+#         print(f"[ERROR] Failed to load MaLA data for '{lang_code}': {str(e)}")
+#         raise
+
+
+def load_pbc_data(lang_code, split="test", limit_samples=None, **kwargs):
+    """
+    Loads PBC data from local disk cache of a Hugging Face dataset.
+    """
+    print(f"[INFO] Loading PBC for '{lang_code}' from local disk.")
     base_path = "benchmark_dataset/pbc"
     file_path = os.path.join(base_path, lang_code)
-    dataset = load_from_disk(file_path)
-    if split not in dataset:
-        print(f"[load_pbc_data] split '{split}' not in dataset: keys={list(dataset.keys())}")
+    
+    try:
+        dataset = load_from_disk(file_path)
+        if split not in dataset:
+            print(f"[ERROR] Split '{split}' not in dataset: keys={list(dataset.keys())}")
+            return []
+        
+        src_texts = dataset[split]['text']
+        if limit_samples is not None:
+            src_texts = src_texts[:limit_samples]
+
+        return src_texts
+    except Exception as e:
+        print(f"[ERROR] Failed to load PBC from local disk: {e}")
         return []
-    data_split = dataset[split]
-    src_texts = []
-    for d in data_split:
-        src_texts.append(d["text"])
-    return src_texts
 
-def load_mmhb_data(src_lang, tgt_lang, split="devtest", limit_samples=None):
-    base_path = f"benchmark_dataset/mmhb/{tgt_lang}/{split}.csv"
-    df = pd.read_csv(base_path ,  sep='\t', encoding='utf-8')
-    selected_cols = ['sentence_eng', 'both', 'feminine', 'masculine', 'lang']
-    df = df[selected_cols]
-    if limit_samples is not None:
-        df = df.head(limit_samples) 
-    src_texts = df[f"sentence_{src_lang}"].tolist()
-    return src_texts, df
-
-def load_americasnlp_data(src_lang, tgt_lang, split="test", limit_samples=None):
-    base_path = "benchmark_dataset/americasnlp"
-    src_code=src_lang.replace("_Latn","")
-    tgt_code=tgt_lang.replace("_Latn","")
-    pair_code = f"{src_code}-spa" if tgt_code == "spa" else f"{tgt_code}-spa"
-    # No few-shot support
-    if split =='dev':
-        return None, None
-    # Dev set as test set
+def load_mmhb_data(src_lang, tgt_lang, split="test", limit_samples=None, **kwargs):
+    """
+    Loads MMHB data for bias evaluation from local disk.
+    For MMHB, we return the source texts and the full dataframe 
+    since it needs special handling.
+    """
+    print(f"[INFO] Loading MMHB for '{tgt_lang}' from local disk.")
     if split == 'test':
-        split = 'dev'
-    src_file = os.path.join(base_path, f"{split}.{pair_code}.{src_code}") 
+        split = 'devtest'  
+    base_path = f"benchmark_dataset/mmhb/{tgt_lang}/{split}.csv"
+    
+    try:
+        df = pd.read_csv(base_path, sep='\t', encoding='utf-8')
+        selected_cols = ['sentence_eng', 'both', 'feminine', 'masculine', 'lang']
+        df = df[selected_cols]
+        if limit_samples is not None:
+            df = df.head(limit_samples) 
+        src_texts = df["sentence_eng"].tolist()  # Fixed: use actual column name
+        return src_texts, df  # Return DataFrame for special MMHB handling
+    except FileNotFoundError:
+        print(f"[ERROR] Local file not found for MMHB: {base_path}")
+        return [], None
+
+
+def load_americasnlp_data(src_lang, tgt_lang, split="test", limit_samples=None, **kwargs):
+    """
+    Loads AmericasNLP data from local disk.
+    """
+    print(f"[INFO] Loading AmericasNLP for '{src_lang}-{tgt_lang}' from local disk.")
+    base_path = "benchmark_dataset/americasnlp"
+    src_code = src_lang.replace("_Latn", "")
+    tgt_code = tgt_lang.replace("_Latn", "")
+    # Logic assumes Spanish ('spa') is always one of the languages in the pair
+    pair_code = f"{src_code}-spa" if tgt_code == "spa" else f"{tgt_code}-spa"
+    
+    if split == 'dev' or split == 'train':
+        print(f"[INFO] AmericasNLP local setup only provides 'test' split (from original 'dev'). Requested '{split}' is not available.")
+        return [], []
+    if split == 'test':
+        split = 'dev' # The local test set is the original dev set.
+        
+    src_file = os.path.join(base_path, f"{split}.{pair_code}.{src_code}")
     tgt_file = os.path.join(base_path, f"{split}.{pair_code}.{tgt_code}")
 
-    with open(src_file, "r", encoding="utf-8") as f:
-        src_texts = f.read().splitlines()
-    with open(tgt_file, "r", encoding="utf-8") as f:
-        tgt_texts = f.read().splitlines()
-
-    if len(src_texts) != len(tgt_texts):
-        raise ValueError("Source and target files have different numbers of lines.")
+    try:
+        with open(src_file, "r", encoding="utf-8") as f: src_texts = f.read().splitlines()
+        with open(tgt_file, "r", encoding="utf-8") as f: tgt_texts = f.read().splitlines()
+    except FileNotFoundError as e:
+        print(f"[ERROR] Local file not found for AmericasNLP: {e}")
+        return [], []
 
     if limit_samples is not None:
         src_texts = src_texts[:limit_samples]
@@ -1090,18 +1371,21 @@ def load_in22_data(src_lang, tgt_lang, split="test", limit_samples=None):
     return src_texts, tgt_texts
 
 
-def load_ntrex128_data(src_lang, tgt_lang, split="test", limit_samples=None):
+def load_ntrex128_data(src_lang, tgt_lang, split="test", limit_samples=None, **kwargs):
+    """
+    Loads NTREX-128 data from local disk.
+    """
+    print(f"[INFO] Loading NTREX-128 for '{src_lang}-{tgt_lang}' from local disk.")
     base_path = "benchmark_dataset/ntrex128"
     src_file = os.path.join(base_path, f"{split}.{src_lang}")
     tgt_file = os.path.join(base_path, f"{split}.{tgt_lang}")
 
-    with open(src_file, "r", encoding="utf-8") as f:
-        src_texts = f.read().splitlines()
-    with open(tgt_file, "r", encoding="utf-8") as f:
-        tgt_texts = f.read().splitlines()
-
-    if len(src_texts) != len(tgt_texts):
-        raise ValueError("Source and target files have different numbers of lines.")
+    try:
+        with open(src_file, "r", encoding="utf-8") as f: src_texts = f.read().splitlines()
+        with open(tgt_file, "r", encoding="utf-8") as f: tgt_texts = f.read().splitlines()
+    except FileNotFoundError as e:
+        print(f"[ERROR] Local file not found for NTREX-128: {e}")
+        return [], []
 
     if limit_samples is not None:
         src_texts = src_texts[:limit_samples]
@@ -1110,23 +1394,27 @@ def load_ntrex128_data(src_lang, tgt_lang, split="test", limit_samples=None):
     return src_texts, tgt_texts
 
 
-def load_tatoeba_data(src_lang, tgt_lang, split="test", limit_samples=None):
-    base_path = "benchmark_dataset/tatoeba"
+def load_tatoeba_data(src_lang, tgt_lang, split="test", limit_samples=None, **kwargs):
+    """
+    Loads Tatoeba data from local disk.
+    """
+    print(f"[INFO] Loading Tatoeba for '{src_lang}-{tgt_lang}' from local disk.")
+    base_path = f"benchmark_dataset/tatoeba/{split}"
+    # Files are named with sorted language codes.
     sorted_langs = sorted([src_lang, tgt_lang])
-    pair="-".join(sorted_langs)
-
-    file = os.path.join(base_path, split, f"tatoeba-{split}-v2023-09-26.{pair}.txt")
-    with open(file, "r", encoding="utf-8") as f:
-        texts = f.read().splitlines()
-
-    if len(texts) < 1000 and split=='test':
-        raise ValueError(f"Not enough data for {pair}: only {len(texts)} sentences available.")
-
-    src_idx = sorted_langs.index(src_lang)+2
-    tgt_idx = sorted_langs.index(tgt_lang)+2
-
-    src_texts = [line.split('\t')[src_idx] for line in texts]
-    tgt_texts = [line.split('\t')[tgt_idx] for line in texts]
+    pair = "-".join(sorted_langs)
+    file_path = os.path.join(base_path, f"tatoeba-{split}-v2023-09-26.{pair}.txt")
+    try:
+        df = pd.read_csv(file_path, sep='\t', header=None, names=['src', 'tgt'])
+        lang_to_text = {
+            sorted_langs[0]: df['src'].tolist(),
+            sorted_langs[1]: df['tgt'].tolist()
+        }
+        src_texts = lang_to_text[src_lang]
+        tgt_texts = lang_to_text[tgt_lang]
+    except FileNotFoundError:
+        print(f"[ERROR] Local file not found for Tatoeba: {file_path}. ")
+        raise FileNotFoundError(f"Tatoeba file not found for language pair '{pair}'.")
 
     if limit_samples is not None:
         src_texts = src_texts[:limit_samples]
@@ -1135,18 +1423,21 @@ def load_tatoeba_data(src_lang, tgt_lang, split="test", limit_samples=None):
     return src_texts, tgt_texts
 
 
-def load_nteu_data(src_lang, tgt_lang, split="test", limit_samples=None):
+def load_nteu_data(src_lang, tgt_lang, split="test", limit_samples=None, **kwargs):
+    """
+    Loads NTEU data from local disk. This dataset is not on Hugging Face.
+    """
+    print(f"[INFO] Loading NTEU for '{src_lang}-{tgt_lang}' from local disk.")
     base_path = "benchmark_dataset/nteu"
     src_file = os.path.join(base_path, f"{split}.{src_lang}")
     tgt_file = os.path.join(base_path, f"{split}.{tgt_lang}")
 
-    with open(src_file, "r", encoding="utf-8") as f:
-        src_texts = f.read().splitlines()
-    with open(tgt_file, "r", encoding="utf-8") as f:
-        tgt_texts = f.read().splitlines()
-
-    if len(src_texts) != len(tgt_texts):
-        raise ValueError("Source and target files have different numbers of lines.")
+    try:
+        with open(src_file, "r", encoding="utf-8") as f: src_texts = f.read().splitlines()
+        with open(tgt_file, "r", encoding="utf-8") as f: tgt_texts = f.read().splitlines()
+    except FileNotFoundError as e:
+        print(f"[ERROR] Local file not found for NTEU: {e}")
+        return [], []
 
     if limit_samples is not None:
         src_texts = src_texts[:limit_samples]
@@ -1155,18 +1446,21 @@ def load_nteu_data(src_lang, tgt_lang, split="test", limit_samples=None):
     return src_texts, tgt_texts
 
 
-def load_tico19_data(src_lang, tgt_lang, split="test", limit_samples=None):
+def load_tico19_data(src_lang, tgt_lang, split="test", limit_samples=None, **kwargs):
+    """
+    Loads TICO-19 data from local disk.
+    """
+    print(f"[INFO] Loading TICO-19 for '{src_lang}-{tgt_lang}' from local disk.")
     base_path = "benchmark_dataset/tico19"
     src_file = os.path.join(base_path, split, f"{split}.{src_lang}")
     tgt_file = os.path.join(base_path, split, f"{split}.{tgt_lang}")
 
-    with open(src_file, "r", encoding="utf-8") as f:
-        src_texts = f.read().splitlines()
-    with open(tgt_file, "r", encoding="utf-8") as f:
-        tgt_texts = f.read().splitlines()
-
-    if len(src_texts) != len(tgt_texts):
-        raise ValueError("Source and target files have different numbers of lines.")
+    try:
+        with open(src_file, "r", encoding="utf-8") as f: src_texts = f.read().splitlines()
+        with open(tgt_file, "r", encoding="utf-8") as f: tgt_texts = f.read().splitlines()
+    except FileNotFoundError as e:
+        print(f"[ERROR] Local file not found for TICO-19: {e}")
+        return [], []
 
     if limit_samples is not None:
         src_texts = src_texts[:limit_samples]
@@ -1175,22 +1469,94 @@ def load_tico19_data(src_lang, tgt_lang, split="test", limit_samples=None):
     return src_texts, tgt_texts
 
 
-def load_mafand_data(src_lang, tgt_lang, split="test", limit_samples=None):
-    base_path = "benchmark_dataset/mafand"
+def load_mafand_data(src_lang, tgt_lang, split="test", limit_samples=None, **kwargs):
+    """
+    Loads MAFAND data from Hugging Face.
+    This benchmark is loaded from 'masakhane/mafand'.
+    
+    Args:
+        src_lang (str): Source language code (e.g., 'en', 'fr', 'yor').
+        tgt_lang (str): Target language code.
+        split (str): Data split ('train', 'validation', 'test').
+        limit_samples (int, optional): Maximum number of samples to load.
+        
+    Returns:
+        tuple: (src_texts, tgt_texts) - Lists of source and target texts.
+    """
+    print(f"[INFO] Loading MAFAND for '{src_lang}-{tgt_lang}' from Hugging Face.")
+    
+    # MAFAND pairs are named with 'en' or 'fr' first.
     if src_lang in ["en", "fr"]:
-        src_file = os.path.join(base_path, f"{src_lang}-{tgt_lang}", f"{split}.{src_lang}")
-        tgt_file = os.path.join(base_path, f"{src_lang}-{tgt_lang}", f"{split}.{tgt_lang}")
+        pair_name = f"{src_lang}-{tgt_lang}"
     else:
-        src_file = os.path.join(base_path, f"{tgt_lang}-{src_lang}", f"{split}.{src_lang}")
-        tgt_file = os.path.join(base_path, f"{tgt_lang}-{src_lang}", f"{split}.{tgt_lang}")
+        pair_name = f"{tgt_lang}-{src_lang}"
 
-    with open(src_file, "r", encoding="utf-8") as f:
-        src_texts = f.read().splitlines()
-    with open(tgt_file, "r", encoding="utf-8") as f:
-        tgt_texts = f.read().splitlines()
+    try:
+        # MAFAND uses language pair as the configuration.
+        dataset = load_dataset("masakhane/mafand", pair_name, split=split)
+        
+        translations = dataset['translation']
+        src_texts = [t[src_lang] for t in translations]
+        tgt_texts = [t[tgt_lang] for t in translations]
+        
+        if limit_samples is not None:
+            src_texts = src_texts[:limit_samples]
+            tgt_texts = tgt_texts[:limit_samples]
+            
+        return src_texts, tgt_texts
+        
+    except Exception as e:
+        print(f"[ERROR] Failed to load MAFAND for '{src_lang}-{tgt_lang}' from Hugging Face: {e}")
+        return [], []
 
-    if len(src_texts) != len(tgt_texts):
-        raise ValueError("Source and target files have different numbers of lines.")
+def load_opensubtitles_data(src_lang, tgt_lang, split="test", limit_samples=None):
+    """
+    Loads a language pair from the Helsinki-NLP/OpenSubtitles2024 dataset using Hugging Face.
+
+    This function handles the order of language pairs automatically (e.g., trying both
+    'ar-de' and 'de-ar' if one fails) and extracts the text columns.
+
+    Args:
+        src_lang (str): The source language code (e.g., 'en', 'pt-BR').
+        tgt_lang (str): The target language code (e.g., 'de', 'ar').
+        split (str, optional): The dataset split to load. Defaults to "test".
+        limit_samples (int, optional): If specified, limits the number of returned samples. Defaults to None.
+
+    Raises:
+        ValueError: If the specified language pair cannot be found in the dataset in either order.
+
+    Returns:
+        tuple[list[str], list[str]]: A tuple containing two lists: (source_texts, target_texts).
+    """
+    print(f"[INFO] Loading OpenSubtitles2024 for '{src_lang}-{tgt_lang}' from Huggingface.")
+
+    repo_id = "Helsinki-NLP/OpenSubtitles2024"
+    sorted_langs = sorted([src_lang, tgt_lang])
+    pair = "-".join(sorted_langs)
+
+    # Try the first language order (src-tgt)
+    data_file_path = f"{split}/{pair}/{pair}.parquet"
+    # Files are named with sorted language codes.
+
+    try:
+        dataset = load_dataset(repo_id, data_files={'data': data_file_path})
+        lang_to_text = {
+            sorted_langs[0]: dataset['data']['src_text'],
+            sorted_langs[1]: dataset['data']['tgt_text']
+        }
+
+        src_texts = lang_to_text[src_lang]
+        tgt_texts = lang_to_text[tgt_lang]
+
+    except Exception as e:  
+        error_msg = str(e)
+
+        if "Couldn't find cache" in error_msg:
+            print(f"[INFO] Cache mismatch for {pair}, skipping this pair")
+            raise ValueError(f"Cache configuration mismatch for {pair}")
+        
+        print(f"[ERROR] Failed to load {pair}: {error_msg}")
+        raise ValueError(f"Failed to load language pair {pair}")
 
     if limit_samples is not None:
         src_texts = src_texts[:limit_samples]

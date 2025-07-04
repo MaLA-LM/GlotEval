@@ -2,6 +2,7 @@ import os
 import csv
 import json
 import time
+from typing import List, Tuple, Set, Dict, Optional
 
 
 from . import register_benchmark
@@ -20,7 +21,8 @@ from benchmark_data_loader.data_loader import (
     load_nteu_data,
     load_tico19_data,
     load_mafand_data,
-    load_mmhb_data
+    load_mmhb_data,
+    load_opensubtitles_data
 )
 from .benchmark_utils import (
     setup_benchmark_params,
@@ -51,94 +53,168 @@ def get_language_name(lang_code: str, prompt_lang: str, name_matrix) -> str:
 
 
 
-def build_language_pairs(prompt_langs_map, center_lang: str, direction: str):
+
+def parse_pair_lang_config(lang_config_path: str, 
+                          filtered_lang_codes: Optional[Set[str]] = None) -> Tuple[Dict[str, str], List[Tuple[str, str]]]:
+    """
+    Parse language configuration file for pair-wise benchmarks.
+    
+    Args:
+        lang_config_path: Path to language config file
+        filtered_lang_codes: Optional set of language codes to filter by
+        
+    Returns:
+        Tuple of:
+        - prompt_langs_map: Mapping from benchmark codes to prompt codes
+        - language_pairs: List of (src, tgt) pairs to process
+    """
+    prompt_langs_map = {}
+    language_pairs = []
+    
+    if not os.path.exists(lang_config_path):
+        print(f"[WARN] Language config file not found: {lang_config_path}")
+        return prompt_langs_map, language_pairs
+    
+    with open(lang_config_path, 'r', encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+                
+            # Parse line format: "en-amh | eng_Latn-amh_Ethi"
+            parts = line.split('|')
+            if len(parts) != 2:
+                continue
+                
+            benchmark_pair = parts[0].strip()
+            prompt_pair = parts[1].strip()
+            
+            # Extract individual language codes
+            if '-' in benchmark_pair and '-' in prompt_pair:
+                bench_parts = benchmark_pair.split('-', 1)
+                prompt_parts = prompt_pair.split('-', 1)
+                
+                if len(bench_parts) == 2 and len(prompt_parts) == 2:
+                    src_bench, tgt_bench = bench_parts[0], bench_parts[1]
+                    src_prompt, tgt_prompt = prompt_parts[0], prompt_parts[1]
+                    
+                    # Add to mapping (for individual languages)
+                    prompt_langs_map[src_bench] = src_prompt
+                    prompt_langs_map[tgt_bench] = tgt_prompt
+                    
+                    # Check if this pair should be included based on filter
+                    if filtered_lang_codes:
+                        # Include if any language in the pair matches filter
+                        if (src_prompt.split('_')[0] in filtered_lang_codes or 
+                            tgt_prompt.split('_')[0] in filtered_lang_codes):
+                            # Add both directions for pair-wise benchmarks
+                            language_pairs.append((src_bench, tgt_bench))
+                            language_pairs.append((tgt_bench, src_bench))
+                    else:
+                        # No filter, include all pairs (both directions)
+                        language_pairs.append((src_bench, tgt_bench))
+                        language_pairs.append((tgt_bench, src_bench))
+    
+    # Remove duplicate pairs
+    language_pairs = list(set(language_pairs))
+    
+    return prompt_langs_map, language_pairs
+
+
+def build_language_pairs(prompt_langs_map, center_lang: str, direction: str, 
+                        translation_mode: str = "center", 
+                        language_pairs: Optional[List[Tuple[str, str]]] = None):
     """
     Build the list of language pairs to translate based on the language map.
+    Modified to support both center and pairs modes cleanly.
     
     Args:
         prompt_langs_map (Dict[str, str]): Dictionary mapping benchmark codes to prompt codes
-        center_lang (str): Center language code
-        direction (str): Direction of translation ('center-x' or 'x-center')
+        center_lang (str): Center language code (for center mode)
+        direction (str): Direction of translation (for center mode)
+        translation_mode (str): "center" or "pairs"
+        language_pairs (List[Tuple[str, str]]): Pre-computed pairs for pairs mode
         
     Returns:
         List[Tuple[str, str, bool]]: List of (src, tgt, is_multi_aligned) tuples
     """
     pairs_to_process = []
-    multi_aligned_langs = set()
-    pair_langs = []  # list of (src_code, tgt_code)
     
-    # Parse language codes for multi-aligned versus pairs
+    if translation_mode == "pairs" and language_pairs is not None:
+        # Use pre-computed pairs from config parsing
+        for src, tgt in language_pairs:
+            pairs_to_process.append((src, tgt, False))
+        return pairs_to_process
+    
+    # Original center mode logic (unchanged)
+    multi_aligned_langs = set()
+    
+    # Parse language codes for multi-aligned languages
     for benchmark_code in prompt_langs_map.keys():
-        if '<->' in benchmark_code:
-            # e.g. "por_Latn<->eng_Latn"
-            parts = benchmark_code.split('<->')
-            if len(parts) == 2:
-                pair_langs.append((parts[0], parts[1]))
-            else:
-                print(f"[WARN] Unrecognized pair line: {benchmark_code}")
-        else:
-            # single language code
+        # Skip any codes that look like pairs (shouldn't happen in center mode)
+        if '-' not in benchmark_code or len(benchmark_code.split('-')) > 2:
             multi_aligned_langs.add(benchmark_code)
     
-    # Build language pairs to process
+    # Build language pairs for center mode
     if center_lang in multi_aligned_langs:
-        # Process center language with other languages in multi-aligned set
         for lang_code in multi_aligned_langs:
             if lang_code == center_lang:
                 continue
             if direction == "center-x":
-                # center is src, lang_code is tgt
                 pairs_to_process.append((center_lang, lang_code, True))
             else:
-                # center is tgt, lang_code is src
                 pairs_to_process.append((lang_code, center_lang, True))
     
-    # Process explicit language pairs that include center_lang
-    for (src, tgt) in pair_langs:
-        if center_lang in (src, tgt):
-            if direction == "center-x":
-                # If center_lang is in src, do src->tgt, else do tgt->src
-                if src == center_lang:
-                    pairs_to_process.append((src, tgt, False))
-                else:
-                    pairs_to_process.append((src, tgt, False))
-            else:
-                # "x-center"
-                # We reverse it so that the center ends up on the 'target' side
-                if src == center_lang:
-                    pairs_to_process.append((tgt, src, False))
-                else:
-                    pairs_to_process.append((tgt, src, False))
-    
-    # Make them unique (in case duplicates appear)
     return list(set(pairs_to_process))
+
+
+def handle_language_config_enhanced(benchmark_name: str, 
+                                   lang_config: Optional[str],
+                                   filtered_lang_codes: Optional[Set[str]],
+                                   center_lang: Optional[str],
+                                   translation_mode: str = "center") -> Tuple[Dict[str, str], int, int, Optional[List[Tuple[str, str]]]]:
+    """
+    Enhanced language configuration handler that supports both center and pairs modes.
+    
+    Returns:
+        Tuple of (prompt_langs_map, num_test_langs, num_benchmark_langs, language_pairs)
+    """
+    if translation_mode == "pairs":
+        # For pairs mode, parse pairs from config
+        prompt_langs_map, language_pairs = parse_pair_lang_config(lang_config, filtered_lang_codes)
+        
+        # Count unique languages in pairs
+        unique_langs = set()
+        for src, tgt in language_pairs:
+            unique_langs.add(src)
+            unique_langs.add(tgt)
+        
+        num_test_langs = len(unique_langs)
+        num_benchmark_langs = len(unique_langs)  # Could be different if we had full list
+        
+        return prompt_langs_map, num_test_langs, num_benchmark_langs, language_pairs
+    else:
+        # Original center mode logic
+        prompt_langs_map, num_test_langs, num_benchmark_langs = handle_language_config(
+            benchmark_name, lang_config, filtered_lang_codes, center_lang
+        )
+        return prompt_langs_map, num_test_langs, num_benchmark_langs, None
 
 
 def process_translation_benchmark(benchmark_name, model, load_data_func, lang_config=None, **kwargs):
     """
-    Process a translation benchmark with support for different language codes for benchmarks and prompts,
-    and with support for multi-language prompting using language names from a name matrix.
-    
-    This function now supports language filtering through the filtered_lang_codes parameter.
-    
-    Args:
-        benchmark_name (str): Name of the benchmark
-        model: Model object with a generate method
-        load_data_func: Function to load the benchmark data
-        lang_config (str, optional): Path to language configuration file
-        **kwargs: Additional arguments including:
-            - filtered_lang_codes (set): Set of ISO 639 language codes to filter by
-            - center_lang (str): Center language for translation pairs
-            - direction (str): Direction of translation ('center-x' or 'x-center')
-            - n_shots (int): Number of few-shot examples
-            - prompt_language (str): Language code for prompts
-            - prompt_language_strategy (str): Strategy for prompting ('single' or 'multi')
-    
-    Returns:
-        dict: Dictionary of scores for each language pair
+    Process a translation benchmark with support for different language codes for benchmarks and prompts.
+    Minimally modified to support pair-wise translation.
     """
     # Process common parameters
     params = setup_benchmark_params(**kwargs)
+    global_sampling_params = kwargs.get("global_sampling_params", {})
+    benchmark_sampling_params = params.get("sampling_params", {})
+    # print(f"[{benchmark_name}] Using benchmark sampling params: {benchmark_sampling_params}")
+    final_sampling_params = global_sampling_params.copy()
+    final_sampling_params.update(benchmark_sampling_params)
+    # print(f"[{benchmark_name}] Using final sampling params: {final_sampling_params}")
+    
     store_details = params["store_details"]
     efficiency_analysis = params["efficiency_analysis"]
     prompt_library = params["prompt_library"]
@@ -153,41 +229,58 @@ def process_translation_benchmark(benchmark_name, model, load_data_func, lang_co
     output_dir = params["output_dir"]
     model_name = params["model_name"]
     current_time = params["current_time"]
+    
+    # New parameter for translation mode
+    translation_mode = params.get("translation_mode", "center")
 
     # Additional prompt/model config
     comet_model = kwargs.get("comet_model", "Unbabel/wmt22-comet-da")
-    name_matrix = kwargs.get("name_matrix", {})  # Language names in different languages
+    name_matrix = kwargs.get("name_matrix", {})
 
     # Setup benchmark output directory
     benchmark_output_dir = setup_benchmark_output(benchmark_name, output_dir)
 
-    # Handle language configuration
-    prompt_langs_map, num_test_langs, num_benchmark_langs = handle_language_config(
-        benchmark_name, lang_config, filtered_lang_codes, center_lang
-    )
-    
+    # Handle language configuration based on mode
+    if translation_mode == "pairs":
+        prompt_langs_map, num_test_langs, num_benchmark_langs, language_pairs = handle_language_config_enhanced(
+            benchmark_name, lang_config, filtered_lang_codes, center_lang, translation_mode
+        )
+
+    else:
+        # Original center mode
+        prompt_langs_map, num_test_langs, num_benchmark_langs = handle_language_config(
+            benchmark_name, lang_config, filtered_lang_codes, center_lang
+        )
+        language_pairs = None
+
+
     # Get available prompt languages from the prompt library
     benchmark_prompt_langs, task_prompt_langs = get_available_prompt_languages(
         prompt_library, benchmark_name, "translation"
     )
-    
-    # 2) Build the list of language pairs to translate
-    pairs_to_process = build_language_pairs(prompt_langs_map, center_lang, direction)
-    
+
+    # Build the list of language pairs to translate
+    pairs_to_process = build_language_pairs(
+        prompt_langs_map, center_lang, direction, translation_mode, language_pairs
+    )
+    # print(f"[DEBUG] After building language pairs:")
+    # print(f"[DEBUG]   pairs_to_process: {pairs_to_process}")
+
     if not pairs_to_process:
-        print(f"[WARN] No valid translation pairs formed for benchmark '{benchmark_name}'. Check center language config.")
+        print(f"[WARN] No valid translation pairs formed for benchmark '{benchmark_name}'. Check configuration.")
         return {}
-        
-    print(f"[INFO] Processing {len(pairs_to_process)} language pairs")
+
+    print(f"[INFO] Processing {len(pairs_to_process)} language pairs in {translation_mode} mode")
     
-    # 3) Iterate over pairs_to_process, run translation, compute metrics
+    # Rest of the function remains the same...
     all_scores = {}
     if efficiency_analysis:
         all_efficiency_statistics = {}
 
-    # for multi-prompting strategy
+    # Load language name matrix
     with open("benchmark_data_loader/prompt_library/language_matrix/language_name_matrix.json", "r", encoding="utf-8") as f: 
         name_matrix = json.load(f)
+        
 
     for (src_bench_lang, tgt_bench_lang, is_multi_aligned) in pairs_to_process:
         print(f"[{benchmark_name}] Processing: {src_bench_lang} -> {tgt_bench_lang}, multi_aligned={is_multi_aligned}")
@@ -195,12 +288,6 @@ def process_translation_benchmark(benchmark_name, model, load_data_func, lang_co
         # Map benchmark language codes to prompt language codes
         src_prompt_lang = prompt_langs_map.get(src_bench_lang, src_bench_lang)
         tgt_prompt_lang = prompt_langs_map.get(tgt_bench_lang, tgt_bench_lang)
-        
-        # Determine the actual prompt language based on strategy
-        if strategy == "single":
-            proposed_prompt_lang = prompt_language  # Use the configured global prompt language
-        else:  # strategy == "multi"
-            proposed_prompt_lang = src_prompt_lang  # Use the source language for prompting in multi strategy
         
         # Determine the actual prompt language and source using utility function
         actual_prompt_lang, prompt_source = select_prompt_language(
@@ -211,22 +298,32 @@ def process_translation_benchmark(benchmark_name, model, load_data_func, lang_co
         print(f"[{benchmark_name}] Using {prompt_source} prompt in {actual_prompt_lang} for {src_bench_lang}->{tgt_bench_lang}")
         
         try:
-            src_texts, tgt_texts = load_data_func(src_bench_lang, tgt_bench_lang, split="test", limit_samples=dev_max_samples)
-        except FileNotFoundError:
-            print(f"No data found for pair {src_bench_lang}-{tgt_bench_lang}")
-            continue
-        except ValueError as e:
-            print(e)
+            src_texts, tgt_texts = load_data_func(
+                src_bench_lang, 
+                tgt_bench_lang, 
+                split="test", 
+                limit_samples=dev_max_samples
+            )
+        except (FileNotFoundError, ValueError) as e:
+            print(f"[WARN] Skipping {src_bench_lang}-{tgt_bench_lang}: {e}")
+            # failed_pairs.append((src_bench_lang, tgt_bench_lang, str(e)))
+            continue 
+        except Exception as e:
+            print(f"[ERROR] Unexpected error for {src_bench_lang}-{tgt_bench_lang}: {e}")
             continue
 
         # Few-shot examples (from dev set) if needed
+
         few_shot_examples = None
         if n_shots > 0:
             try:
                 src_dev, tgt_dev = load_data_func(src_bench_lang, tgt_bench_lang, split="dev", limit_samples=None)
                 few_shot_examples = sample_few_shot_examples(n_shots, src_dev, tgt_dev, seed)
-            except FileNotFoundError:
-                print(f"[WARN] No dev set for {src_bench_lang}-{tgt_bench_lang}, skipping few-shot.")
+            except (FileNotFoundError, ValueError) as e:
+                print(f"[WARN] Cannot load dev set for {src_bench_lang}-{tgt_bench_lang}: {e}, skipping few-shot.")
+                few_shot_examples = None
+            except Exception as e:
+                print(f"[ERROR] Unexpected error loading dev set for {src_bench_lang}-{tgt_bench_lang}: {e}")
                 few_shot_examples = None
             
         # Get language names for the prompt from the name matrix
@@ -234,7 +331,6 @@ def process_translation_benchmark(benchmark_name, model, load_data_func, lang_co
             src_lang_name = get_language_name(src_prompt_lang, actual_prompt_lang, name_matrix)
             tgt_lang_name = get_language_name(tgt_prompt_lang, actual_prompt_lang, name_matrix)
         else:
-            # Fallback to prompt language codes if name matrix not available
             src_lang_name = src_prompt_lang
             tgt_lang_name = tgt_prompt_lang
             print(f"[WARN] No name matrix entry for {actual_prompt_lang}, using codes instead")
@@ -243,8 +339,8 @@ def process_translation_benchmark(benchmark_name, model, load_data_func, lang_co
         prompts = []
         for src_text in src_texts:
             prompt_text = build_translation_prompt(
-                src_lang=src_lang_name,  # Use language name or code
-                tgt_lang=tgt_lang_name,  # Use language name or code
+                src_lang=src_lang_name,
+                tgt_lang=tgt_lang_name,
                 src_text=src_text,
                 few_shot_examples=few_shot_examples,
                 prompt_library=prompt_library,
@@ -253,48 +349,32 @@ def process_translation_benchmark(benchmark_name, model, load_data_func, lang_co
                 task_key="translation"
             )
             prompts.append(prompt_text)
-
+        # print(f"[DEBUG] final_sampling_params: {final_sampling_params}")
         # Generate predictions with efficiency metrics
-        translations, efficiency_metrics = model.generate(prompts)
+        translations, efficiency_metrics = model.generate(prompts, **final_sampling_params)
         
         pair_key = f"{src_bench_lang}->{tgt_bench_lang}"
-        
+        # After loading data, check if it's MMHB
         if benchmark_name == "mmhb":
-            df = tgt_texts
-            df["translation"] = translations
-            mmhb_scores = compute_mmhb(df)
+            # Special handling for MMHB
+            # tgt_texts is actually a DataFrame for MMHB
+            mmhb_df = tgt_texts
+            # Add translation column to DataFrame
+            mmhb_df['translation'] = translations
             
-            # Store basic results
+            # Compute MMHB-specific metrics
+            mmhb_scores = compute_mmhb(mmhb_df)
+            
             all_scores[pair_key] = {
-                "feminine_bleu": mmhb_scores.get("feminine_bleu", 0),
-                "masculine_bleu": mmhb_scores.get("masculine_bleu", 0),
-                "bias": mmhb_scores.get("bias", 0),
+                "chrfs_masculine": mmhb_scores['chrfs_masculine'],
+                "chrfs_feminine": mmhb_scores['chrfs_feminine'],
+                "chrfs_both": mmhb_scores['chrfs_both'],
                 "num_samples": len(src_texts),
-                "multi_aligned": is_multi_aligned,
                 "prompt_language": actual_prompt_lang,
                 "prompt_source": prompt_source
             }
-            
-            # Store efficiency metrics if needed
-            if efficiency_analysis:
-                all_efficiency_statistics[pair_key] = {
-                    "feminine_bleu": mmhb_scores.get("feminine_bleu", 0),
-                    "masculine_bleu": mmhb_scores.get("masculine_bleu", 0),
-                    "bias": mmhb_scores.get("bias", 0),
-                    "prompt_language": actual_prompt_lang,
-                    "prompt_source": prompt_source,
-                    "num_samples": len(src_texts),
-                    "multi_aligned": is_multi_aligned,
-                    "generated_tokens": efficiency_metrics["generated_tokens"],
-                    "total_time_seconds": efficiency_metrics["total_time"],
-                    "prefill_time_seconds": efficiency_metrics["prefill_time"],
-                    "decode_time_seconds": efficiency_metrics["decode_time"],
-                    "tokens_per_second": efficiency_metrics["generated_tokens"] / efficiency_metrics["total_time"] if efficiency_metrics["total_time"] > 0 else 0,
-                    "first_token_latency": efficiency_metrics["first_token_time"] / len(prompts) if len(prompts) > 0 else 0,
-                    "remaining_tokens_per_second": efficiency_metrics["remaining_tokens_count"] / efficiency_metrics["remaining_tokens_time"] if efficiency_metrics["remaining_tokens_time"] > 0 else 0
-                }
         else:
-            # Compute metrics (using benchmark language codes)
+            # Compute metrics
             bleu_score = compute_bleu_score(translations, tgt_texts)
             chrf_score = compute_chrf_score(translations, tgt_texts)
             
@@ -308,36 +388,40 @@ def process_translation_benchmark(benchmark_name, model, load_data_func, lang_co
                 "prompt_source": prompt_source
             }
             
-            # Store efficiency metrics if needed
-            if efficiency_analysis:
-                all_efficiency_statistics[pair_key] = {
-                    "bleu_score": bleu_score,
-                    "chrf_score": chrf_score,
-                    "prompt_language": actual_prompt_lang,
-                    "prompt_source": prompt_source,
-                    "num_samples": len(src_texts),
-                    "multi_aligned": is_multi_aligned,
-                    "generated_tokens": efficiency_metrics["generated_tokens"],
-                    "total_time_seconds": efficiency_metrics["total_time"],
-                    "prefill_time_seconds": efficiency_metrics["prefill_time"],
-                    "decode_time_seconds": efficiency_metrics["decode_time"],
-                    "tokens_per_second": efficiency_metrics["generated_tokens"] / efficiency_metrics["total_time"] if efficiency_metrics["total_time"] > 0 else 0,
-                    "first_token_latency": efficiency_metrics["first_token_time"] / len(prompts) if len(prompts) > 0 else 0,
-                    "remaining_tokens_per_second": efficiency_metrics["remaining_tokens_count"] / efficiency_metrics["remaining_tokens_time"] if efficiency_metrics["remaining_tokens_time"] > 0 else 0
-                }
+        # Store efficiency metrics if needed
+        if efficiency_analysis:
+            all_efficiency_statistics[pair_key] = {
+                "bleu_score": bleu_score,
+                "chrf_score": chrf_score,
+                "prompt_language": actual_prompt_lang,
+                "prompt_source": prompt_source,
+                "num_samples": len(src_texts),
+                "multi_aligned": is_multi_aligned,
+                "generated_tokens": efficiency_metrics["generated_tokens"],
+                "total_time_seconds": efficiency_metrics["total_time"],
+                "prefill_time_seconds": efficiency_metrics["prefill_time"],
+                "decode_time_seconds": efficiency_metrics["decode_time"],
+                "tokens_per_second": efficiency_metrics["generated_tokens"] / efficiency_metrics["total_time"] if efficiency_metrics["total_time"] > 0 else 0,
+                "first_token_latency": efficiency_metrics["first_token_time"] / len(prompts) if len(prompts) > 0 else 0,
+                "remaining_tokens_per_second": efficiency_metrics["remaining_tokens_count"] / efficiency_metrics["remaining_tokens_time"] if efficiency_metrics["remaining_tokens_time"] > 0 else 0
+            }
 
-        # Optionally store TSV
+        # Optionally store JSONL (compact version)
         if store_details:
-            tsv_file = os.path.join(benchmark_output_dir, f"{src_bench_lang}-{tgt_bench_lang}.tsv")
-            with open(tsv_file, "w", newline="", encoding="utf-8") as cf:
-                writer = csv.writer(cf, delimiter="\t", quoting=csv.QUOTE_MINIMAL, escapechar="\\")
-                # writer.writerow(["SourceLanguage", "TargetLanguage", "PromptLanguage", "PromptSource", "Source", "Reference", "Prediction","FullPrompt"])
-                writer.writerow(["SourceLanguage", "TargetLanguage", "PromptLanguage", "PromptSource", "Source", "Reference", "Prediction"])
-
-                for s, ref, hyp in zip(src_texts, tgt_texts, translations):
-                    writer.writerow([src_bench_lang, tgt_bench_lang, actual_prompt_lang, prompt_source, s, ref, hyp])
-                # for s, ref, hyp, prpt in zip(src_texts, tgt_texts, translations, prompts):
-                #     writer.writerow([src_bench_lang, tgt_bench_lang, actual_prompt_lang, prompt_source, s, ref, hyp, prpt])
+            jsonl_file = os.path.join(benchmark_output_dir, f"{src_bench_lang}-{tgt_bench_lang}.jsonl")
+            with open(jsonl_file, "w", encoding="utf-8") as jf:
+                for s, ref, hyp, prompt in zip(src_texts, tgt_texts, translations, prompts):
+                    record = {
+                        "src_lang": src_bench_lang,
+                        "tgt_lang": tgt_bench_lang,
+                        "prompt_lang": actual_prompt_lang,
+                        "prompt_src": prompt_source,
+                        "src": s,
+                        "ref": ref,
+                        "pred": hyp,
+                        "prompt": prompt
+                    }
+                    jf.write(json.dumps(record, ensure_ascii=False) + "\n")
 
     # Update scores.json with benchmark results
     metric_str = "BLEU, ChrF++" if benchmark_name != "mmhb" else "Feminine/Masculine BLEU, Bias"
@@ -345,10 +429,16 @@ def process_translation_benchmark(benchmark_name, model, load_data_func, lang_co
         "n_shots": n_shots,
         "prompt_strategy": strategy,
         "prompt_language": 'language-specific' if strategy == 'multi' else prompt_language,
-        "central_lang": center_lang,
-        "direction": direction,
-        "tested_languages": f'{num_test_langs} / {num_benchmark_langs}'
+        "translation_mode": translation_mode
     }
+    
+    # Add mode-specific parameters
+    if translation_mode == "center":
+        benchmark_params["central_lang"] = center_lang
+        benchmark_params["direction"] = direction
+        benchmark_params["tested_languages"] = f'{num_test_langs} / {num_benchmark_langs}'
+    else:
+        benchmark_params["tested_pairs"] = len(pairs_to_process) // 2  # Divide by 2 since we test both directions
     
     update_benchmark_scores(
         output_dir, benchmark_name, model_name, current_time,
@@ -364,7 +454,7 @@ def process_translation_benchmark(benchmark_name, model, load_data_func, lang_co
 
     # Log summary of results
     if all_scores:
-        print(f"[INFO] Completed benchmark '{benchmark_name}' with {len(all_scores)} language pairs over {num_test_langs} selected languages")
+        print(f"[INFO] Completed benchmark '{benchmark_name}' with {len(all_scores)} translation directions")
     else:
         print(f"[WARN] No scores were generated for benchmark '{benchmark_name}'")
 
@@ -514,3 +604,19 @@ def mafand_handler(model, **kwargs):
         lang_config=lang_config_path,
         **kwargs
     )
+
+@register_benchmark("opensubtitles")
+def opensubtitles_handler(model, **kwargs):
+    """
+    OpenSubtitles translation benchmark using pair-wise mode.
+    """
+    # Force pairs mode for OpenSubtitles    
+    lang_config_path = "benchmark_data_loader/data_langid/opensubtitles_langs.txt"
+    return process_translation_benchmark(
+        benchmark_name="opensubtitles",
+        model=model,
+        load_data_func=load_opensubtitles_data,
+        lang_config=lang_config_path,
+        **kwargs
+    )
+

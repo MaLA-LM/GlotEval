@@ -180,5 +180,7 @@ slurmlog/
 
 results/
 mmmt_scripts/
-data_loader_new.py
+submit_work.sh
 submit_work_single.sh
+glotevaldev-venv/
+data_loader_old.py

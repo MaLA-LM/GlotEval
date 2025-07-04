@@ -1,9 +1,10 @@
-eng-cmn
-eng-fra
-eng-hin
-eng-ind
-eng-ita
-eng-kor
-eng-por
-eng-spa
-eng-vie
+eng | eng_Latn
+cmn | cmn_Hans
+fra | fra_Latn
+hin | hin_Deva
+ind | ind_Latn
+ita | ita_Latn
+kor | kor_Hang
+por | por_Latn
+spa | spa_Latn
+vie | vie_Latn

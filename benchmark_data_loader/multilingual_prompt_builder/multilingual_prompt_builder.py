@@ -80,6 +80,8 @@ def copy_prompt_to_all_languages(task_or_bench, src_lang_code, instruction, few_
 
 def main():
     parser = argparse.ArgumentParser(description="Prompt Multilingual Automatic Builder Tool")
+    parser.add_argument("--config_file", type=str, default="../../config.json",
+                    help="Path to the config.json file.")
     parser.add_argument("--task_or_benchmark", type=str, required=True,
                         help="Which top-level name to update: e.g. 'translation' or 'flores200_mt'")
     parser.add_argument("--lang_code", type=str, required=True,
@@ -138,11 +140,11 @@ def main():
         library = {}
 
     # Check config & guidelines
-    if not os.path.exists("config.json"):
-        print("config.json not found. Exiting.")
+    if not os.path.exists(args.config_file):
+        print(f"{args.config_file} not found. Exiting.")
         return
-    
-    with open("config.json", "r", encoding="utf-8") as f:
+
+    with open(args.config_file, "r", encoding="utf-8") as f:
         config = json.load(f)
     guidelines = config.get("prompt_guidelines", {})
 

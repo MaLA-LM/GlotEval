@@ -30,7 +30,7 @@ def parse_args():
 def get_required_method(benchmark_name):
     generation_benchmarks = [
         "flores200_mt","flores_plus_mt","xlsum","aya","polywrite",
-        "americasnlp","in22","ntrex128","tatoeba","nteu","tico19","mafand","mmhb", "massivesumm_long", "massivesumm_short",
+        "americasnlp","in22","ntrex128","tatoeba","nteu","tico19","mafand","opensubtitles","mmhb", "massivesumm_long", "massivesumm_short",
         "benchmax_rule_based"
     ]
     non_generation_benchmarks = [
@@ -88,6 +88,8 @@ def main():
         prompt_library = json.load(f)
 
     model_args = config.get("model_args", {})
+    global_sampling_params = model_args.get("sampling_params", {})
+
     benchmark_params = config.get("benchmark_params", {})
     dev_max_samples = config.get("dev_max_samples", None)
     prompt_language_strategy = config.get("prompt_language_strategy","single")
@@ -146,7 +148,7 @@ def main():
             params["prompt_language"] = prompt_language
             params["store_details"] = args.store_details
             params["efficiency_analysis"] = args.efficiency_analysis
-            # Add filtered language codes to parameters
+            params["global_sampling_params"] = global_sampling_params
             params["filtered_lang_codes"] = expanded_lang_codes
 
             print(f"[INFO] Running benchmark '{b}' with HF.")
@@ -195,6 +197,7 @@ def main():
             params["prompt_language"] = prompt_language
             params["store_details"] = args.store_details
             params["efficiency_analysis"] = args.efficiency_analysis
+            params["global_sampling_params"] = global_sampling_params
             # Add filtered language codes to parameters
             params["filtered_lang_codes"] = expanded_lang_codes
 

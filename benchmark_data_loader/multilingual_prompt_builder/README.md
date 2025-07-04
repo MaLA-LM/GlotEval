@@ -39,6 +39,7 @@ In this mode, the tool translates prompts from a source language to multiple tar
 ```bash
 python multilingual_prompt_builder.py \
   --task_or_benchmark "translation" \
+  --config_file "../../config.json" \
   --lang_code "eng_Latn" \
   --target_lang_codes zho_Hans fra_Latn spa_Latn \
   --new_instruction "Translate the following sentence from {src_lang} to {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:" \

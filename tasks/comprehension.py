@@ -31,6 +31,13 @@ def process_comprehension_benchmark(
 ):
     # Process common parameters
     params = setup_benchmark_params(**kwargs)
+    
+    global_sampling_params = kwargs.get("global_sampling_params", {})
+    benchmark_sampling_params = params.get("sampling_params", {})
+    final_sampling_params = global_sampling_params.copy()
+    final_sampling_params.update(benchmark_sampling_params)
+    print(f"[{benchmark_name}] Using final sampling params: {final_sampling_params}")
+    
     store_details = params["store_details"]
     efficiency_analysis = params["efficiency_analysis"]
     prompt_library = params["prompt_library"]
@@ -155,28 +162,27 @@ def process_comprehension_benchmark(
             }
 
         if store_details:
-            csv_path = os.path.join(benchmark_output_dir, f"{lang_code}.tsv")
-            with open(csv_path, "w", newline="", encoding="utf-8") as cf:
-                writer = csv.writer(cf, delimiter="\t", quoting=csv.QUOTE_MINIMAL)
-                writer.writerow(["Tested Language","PromptLanguage","PromptSource","question","A","B","C","D","gold","prediction"])
+            jsonl_path = os.path.join(benchmark_output_dir, f"{lang_code}.jsonl")
+            with open(jsonl_path, "w", encoding="utf-8") as jf:
                 for row, pred in zip(test_data, predictions):
-                    writer.writerow([
-                        lang_code,
-                        actual_prompt_lang,
-                        prompt_source,
-                        row["question"],
-                        row["option_a"],
-                        row["option_b"],
-                        row["option_c"],
-                        row["option_d"],
-                        row["answer"],
-                        pred
-                    ])
+                    record = {
+                        "tested_language": lang_code,
+                        "prompt_language": actual_prompt_lang,
+                        "prompt_source": prompt_source,
+                        "question": row["question"],
+                        "option_a": row["option_a"],
+                        "option_b": row["option_b"],
+                        "option_c": row["option_c"],
+                        "option_d": row["option_d"],
+                        "gold": row["answer"],
+                        "prediction": pred
+                    }
+                    jf.write(json.dumps(record, ensure_ascii=False) + "\n")
             
-            print(f"[{benchmark_name}] Saved results to {csv_path}, accuracy={acc:.4f}, speed={efficiency_metrics['samples_per_second']:.2f} samples/s")
+            print(f"[{benchmark_name}] Saved results to {jsonl_path}, accuracy={acc:.4f}, speed={efficiency_metrics['samples_per_second']:.2f} samples/s")
         else:
             print(f"[{benchmark_name}] Results for {lang_code}: accuracy={acc:.4f}, speed={efficiency_metrics['samples_per_second']:.2f} samples/s")
-
+            
     # Update scores.json using utility function
     benchmark_params = {
         "n_shots": n_shots,

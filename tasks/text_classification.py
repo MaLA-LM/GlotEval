@@ -34,6 +34,12 @@ def process_classification_benchmark(
 ):
     # Process common parameters
     params = setup_benchmark_params(**kwargs)
+    global_sampling_params = kwargs.get("global_sampling_params", {})
+    benchmark_sampling_params = params.get("sampling_params", {})
+    final_sampling_params = global_sampling_params.copy()
+    final_sampling_params.update(benchmark_sampling_params)
+    print(f"[{benchmark_name}] Using final sampling params: {final_sampling_params}")
+    
     store_details = params["store_details"]
     efficiency_analysis = params["efficiency_analysis"]
     prompt_library = params["prompt_library"]
@@ -132,13 +138,20 @@ def process_classification_benchmark(
         }
 
         if store_details:
-            csv_path = os.path.join(benchmark_output_dir, f"{lang_code}.tsv")
-            with open(csv_path, "w", newline="", encoding="utf-8") as cf:
-                writer = csv.writer(cf, delimiter="\t", quoting=csv.QUOTE_MINIMAL)
-                writer.writerow(["Tested Language","PromptLanguage","PromptSource","Text","Ground Truth","Prediction","PromptUsed"])
+            jsonl_path = os.path.join(benchmark_output_dir, f"{lang_code}.jsonl")
+            with open(jsonl_path, "w", encoding="utf-8") as jf:
                 for txt_, ref_, pred_, prompt_ in zip(texts, references, predictions, prompts):
-                    writer.writerow([lang_code,actual_prompt_lang,prompt_source,txt_, ref_, pred_, prompt_,])
-        
+                    record = {
+                        "tested_language": lang_code,
+                        "prompt_language": actual_prompt_lang,
+                        "prompt_source": prompt_source,
+                        "text": txt_,
+                        "ground_truth": ref_,
+                        "prediction": pred_,
+                        "prompt_used": prompt_
+                    }
+                    jf.write(json.dumps(record, ensure_ascii=False) + "\n")
+                    
         if efficiency_analysis:       
             all_efficiency_statistics[lang_code] = {
                 "prompt_language": actual_prompt_lang,

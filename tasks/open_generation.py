@@ -25,6 +25,12 @@ from .benchmark_utils import (
 def process_benchmark(benchmark_name, model, load_data_func, lang_config=None, **kwargs):
     # Process common parameters
     params = setup_benchmark_params(**kwargs)
+    global_sampling_params = kwargs.get("global_sampling_params", {})
+    benchmark_sampling_params = params.get("sampling_params", {})
+    final_sampling_params = global_sampling_params.copy()
+    final_sampling_params.update(benchmark_sampling_params)
+    print(f"[{benchmark_name}] Using final sampling params: {final_sampling_params}")
+    
     store_details = params["store_details"]
     efficiency_analysis = params["efficiency_analysis"]
     prompt_library = params["prompt_library"]
@@ -54,132 +60,66 @@ def process_benchmark(benchmark_name, model, load_data_func, lang_config=None, *
     num_test_langs = 1
     num_benchmark_langs = 1
 
-    # If we have a language config file, process languages based on that
-    if lang_config:
-        # Handle language configuration
-        prompt_langs_map, num_test_langs, num_benchmark_langs = handle_language_config(
-            benchmark_name, lang_config, filtered_lang_codes, None
+
+    # Handle language configuration
+    prompt_langs_map, num_test_langs, num_benchmark_langs = handle_language_config(
+        benchmark_name, lang_config, filtered_lang_codes, None
+    )
+    
+    # Get list of benchmark language codes
+    lang_codes = list(prompt_langs_map.keys())
+    
+    # Get available prompt languages from the prompt library
+    benchmark_prompt_langs, task_prompt_langs = get_available_prompt_languages(
+        prompt_library, benchmark_name, "open_generation"
+    )
+    
+    # multi-lingual approach
+    for lang_code in lang_codes:
+        print(f"[{benchmark_name}] Processing language: {lang_code}")
+        
+        # Select appropriate prompt language
+        actual_prompt_lang, prompt_source = select_prompt_language(
+            lang_code, strategy, prompt_language, prompt_langs_map,
+            benchmark_prompt_langs, task_prompt_langs
         )
         
-        # Get list of benchmark language codes
-        lang_codes = list(prompt_langs_map.keys())
+        print(f"[{benchmark_name}] Using {prompt_source} prompt in {actual_prompt_lang} for {lang_code}")
         
-        # Get available prompt languages from the prompt library
-        benchmark_prompt_langs, task_prompt_langs = get_available_prompt_languages(
-            prompt_library, benchmark_name, "open_generation"
-        )
-        
-        # multi-lingual approach
-        for lang_code in lang_codes:
-            print(f"[{benchmark_name}] Processing language: {lang_code}")
-            
-            # Select appropriate prompt language
-            actual_prompt_lang, prompt_source = select_prompt_language(
-                lang_code, strategy, prompt_language, prompt_langs_map,
-                benchmark_prompt_langs, task_prompt_langs
-            )
-            
-            print(f"[{benchmark_name}] Using {prompt_source} prompt in {actual_prompt_lang} for {lang_code}")
-            
-            try:
-                src_texts = load_data_func(lang_code)
-                if dev_max_samples is not None and len(src_texts) > dev_max_samples:
-                    src_texts = src_texts[:dev_max_samples]
-
-                prompts = []
-                for text in src_texts:
-                    p = build_open_generation_prompt(
-                        text=text,
-                        prompt_library=prompt_library,
-                        prompt_language=actual_prompt_lang,
-                        benchmark_name=benchmark_name if prompt_source == "benchmark" else None,
-                        task_key="open_generation"
-                    )
-                    prompts.append(p)
-
-                # Generate with efficiency metrics
-                hyp_texts, efficiency_metrics = model.generate(prompts)
-                
-                # Calculate self-BLEU score
-                self_bleu_score = compute_self_bleu(hyp_texts)
-                
-                # Store basic results
-                all_self_bleu_score[lang_code] = {
-                    "self_bleu": self_bleu_score,
-                    "num_samples": len(src_texts),
-                    "prompt_language": actual_prompt_lang,
-                    "prompt_source": prompt_source
-                }
-                
-                # Store efficiency metrics if needed
-                if efficiency_analysis:
-                    all_efficiency_statistics[lang_code] = {
-                        "prompt_language": actual_prompt_lang,
-                        "prompt_source": prompt_source,
-                        "num_samples": len(src_texts),
-                        "self_bleu": self_bleu_score,
-                        "generated_tokens": efficiency_metrics["generated_tokens"],
-                        "total_time_seconds": efficiency_metrics["total_time"],
-                        "prefill_time_seconds": efficiency_metrics["prefill_time"],
-                        "decode_time_seconds": efficiency_metrics["decode_time"],
-                        "tokens_per_second": efficiency_metrics["generated_tokens"] / efficiency_metrics["total_time"] if efficiency_metrics["total_time"] > 0 else 0,
-                        "first_token_latency": efficiency_metrics["first_token_time"] / len(prompts) if len(prompts) > 0 else 0,
-                        "remaining_tokens_per_second": efficiency_metrics["remaining_tokens_count"] / efficiency_metrics["remaining_tokens_time"] if efficiency_metrics["remaining_tokens_time"] > 0 else 0
-                    }
-
-                if store_details:
-                    csv_file = os.path.join(benchmark_output_dir, f"{lang_code}.tsv")
-                    with open(csv_file, "w", newline="", encoding="utf-8") as cf:
-                        writer = csv.writer(cf, delimiter="\t", quoting=csv.QUOTE_MINIMAL)
-                        writer.writerow(["Tested Language", "PromptLanguage", "PromptSource", "Src", "Hyp"])
-                        for s, h in zip(src_texts, hyp_texts):
-                            writer.writerow([lang_code, actual_prompt_lang, prompt_source, s, h])
-                    
-                    print(f"[{benchmark_name}] Saved results for {lang_code}")
-
-            except Exception as e:
-                print(f"Error processing language {lang_code}: {str(e)}")
-                continue
-
-    else:
-        # single-lingual approach or pre-coded (no language config)
-        print(f"[{benchmark_name}] No lang_config provided or it's empty. Attempting single load.")
         try:
-            src_texts = load_data_func("")
-            if dev_max_samples is not None and len(src_texts) > dev_max_samples:
-                src_texts = src_texts[:dev_max_samples]
+            src_texts = load_data_func(lang_code,dev_max_samples)
+
 
             prompts = []
             for text in src_texts:
                 p = build_open_generation_prompt(
-                    lang_code="",
                     text=text,
                     prompt_library=prompt_library,
-                    prompt_language=prompt_language,
-                    benchmark_name=None,
+                    prompt_language=actual_prompt_lang,
+                    benchmark_name=benchmark_name if prompt_source == "benchmark" else None,
                     task_key="open_generation"
                 )
                 prompts.append(p)
 
             # Generate with efficiency metrics
-            hyp_texts, efficiency_metrics = model.generate(prompts)
+            hyp_texts, efficiency_metrics = model.generate(prompts, **final_sampling_params)
             
             # Calculate self-BLEU score
             self_bleu_score = compute_self_bleu(hyp_texts)
             
             # Store basic results
-            all_self_bleu_score["default"] = {
+            all_self_bleu_score[lang_code] = {
                 "self_bleu": self_bleu_score,
                 "num_samples": len(src_texts),
-                "prompt_language": prompt_language,
-                "prompt_source": "default"
+                "prompt_language": actual_prompt_lang,
+                "prompt_source": prompt_source
             }
             
             # Store efficiency metrics if needed
             if efficiency_analysis:
-                all_efficiency_statistics["default"] = {
-                    "prompt_language": prompt_language,
-                    "prompt_source": "default",
+                all_efficiency_statistics[lang_code] = {
+                    "prompt_language": actual_prompt_lang,
+                    "prompt_source": prompt_source,
                     "num_samples": len(src_texts),
                     "self_bleu": self_bleu_score,
                     "generated_tokens": efficiency_metrics["generated_tokens"],
@@ -192,16 +132,25 @@ def process_benchmark(benchmark_name, model, load_data_func, lang_config=None, *
                 }
 
             if store_details:
-                csv_file = os.path.join(benchmark_output_dir, f"{benchmark_name}_info.tsv")
-                with open(csv_file, "w", newline="", encoding="utf-8") as cf:
-                    writer = csv.writer(cf)
-                    writer.writerow(["Src", "Hyp"])
+                jsonl_file = os.path.join(benchmark_output_dir, f"{lang_code}.jsonl")
+                with open(jsonl_file, "w", encoding="utf-8") as jf:
                     for s, h in zip(src_texts, hyp_texts):
-                        writer.writerow([s, h])
+                        record = {
+                            "Tested Language": lang_code,
+                            "PromptLanguage": actual_prompt_lang,
+                            "PromptSource": prompt_source,
+                            "Src": s,
+                            "Hyp": h
+                        }
+                        jf.write(json.dumps(record, ensure_ascii=False) + "\n")
                 
-                print(f"[{benchmark_name}] Saved default results")
+                print(f"[{benchmark_name}] Saved results for {lang_code}")
+
         except Exception as e:
-            print(f"Error in default processing: {str(e)}")
+            print(f"Error processing language {lang_code}: {str(e)}")
+            continue
+
+
 
     # Update scores.json with benchmark results
     benchmark_params = {

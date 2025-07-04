@@ -43,6 +43,12 @@ def process_summarization_benchmark(
 ):
     # Process common parameters
     params = setup_benchmark_params(**kwargs)
+    global_sampling_params = kwargs.get("global_sampling_params", {})
+    benchmark_sampling_params = params.get("sampling_params", {})
+    final_sampling_params = global_sampling_params.copy()
+    final_sampling_params.update(benchmark_sampling_params)
+    print(f"[{benchmark_name}] Using final sampling params: {final_sampling_params}")
+    
     store_details = params["store_details"]
     efficiency_analysis = params["efficiency_analysis"]
     prompt_library = params["prompt_library"]
@@ -132,7 +138,7 @@ def process_summarization_benchmark(
             prompts.append(prompt_str)
 
         # Generate with efficiency metrics
-        hyp_texts, efficiency_metrics = model.generate(prompts)
+        hyp_texts, efficiency_metrics = model.generate(prompts, **final_sampling_params)
 
         # Evaluate
         rouge_score = calculate_rougeL_f1(hyp_texts, tgt_texts)
@@ -162,13 +168,19 @@ def process_summarization_benchmark(
             }
 
         if store_details:
-            csv_file = os.path.join(benchmark_output_dir, f"{lang_code}.tsv")
-            with open(csv_file, "w", newline="", encoding="utf-8") as cf:
-                writer = csv.writer(cf, delimiter="\t", quoting=csv.QUOTE_MINIMAL)
-                writer.writerow(["Tested Language", "PromptLanguage", "PromptSource", "Src", "Tgt", "Hyp"])
+            jsonl_file = os.path.join(benchmark_output_dir, f"{lang_code}.jsonl")
+            with open(jsonl_file, "w", encoding="utf-8") as jf:
                 for s, t, h in zip(src_texts, tgt_texts, hyp_texts):
-                    writer.writerow([lang_code, actual_prompt_lang, prompt_source, s, t, h])
-
+                    record = {
+                        "tested_language": lang_code,
+                        "prompt_language": actual_prompt_lang,
+                        "prompt_source": prompt_source,
+                        "src": s,
+                        "tgt": t,
+                        "hyp": h
+                    }
+                    jf.write(json.dumps(record, ensure_ascii=False) + "\n")
+            
             print(f"[{benchmark_name}] Saved results for {lang_code}")
 
     # Update scores.json with benchmark results

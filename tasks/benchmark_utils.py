@@ -100,11 +100,13 @@ def setup_benchmark_params(**kwargs):
         "n_shots": kwargs.get("n_shots", 0),
         "seed": kwargs.get("seed", 42),
         "dev_max_samples": kwargs.get("dev_max_samples", None),
+        "sampling_params": kwargs.get("sampling_params", {}),
         
         # Language filtering
         "filtered_lang_codes": kwargs.get("filtered_lang_codes", None),
         "center_lang": kwargs.get("center_lang", "eng_Latn"),
         "direction": kwargs.get("direction", "center-x"),
+        "translation_mode": kwargs.get("translation_mode", None),
         
         # Model info
         "model_name": kwargs.get("model_name", "unknown_model"),

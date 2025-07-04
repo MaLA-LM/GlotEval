@@ -1,139 +1,663 @@
-afr
-ain
-ara
-asm
-avk
-awa
-aze
-bel
-ben
-ber
-bre
-bua
-bul
-cat
-cbk
-ceb
-ces
-cha
-chm
-chv
-cor
-crh
-cym
-dan
-deu
-dsb
-dtp
-egl
-ell
-eng
-epo
-est
-eus
-fao
-fas
-fin
-fkv
-fra
-frr
-fry
-gcf
-gla
-gle
-glg
-gos
-got
-grc
-grn
-gsw
-hau
-hbs
-heb
-hin
-hoc
-hrx
-hsb
-hun
-hye
-ido
-ile
-ilo
-ina
-isl
-ita
-jav
-jbo
-jpn
-kab
-kat
-kaz
-kha
-khm
-kor
-kur
-lad
-lat
-lav
-lfn
-lij
-lit
-ltz
-mal
-mar
-mkd
-mlt
-mon
-mri
-msa
-mya
-nds
-nld
-nor
-nov
-nst
-oci
-orv
-oss
-ota
-pam
-pcd
-pms
-pol
-por
-prg
-que
-rom
-ron
-run
-rus
-sah
-sat
-slv
-spa
-sqi
-swa
-swe
-swg
-tam
-tat
-tel
-tgl
-tha
-tlh
-tok
-tuk
-tur
-tzl
-uig
-ukr
-urd
-uzb
-vie
-vol
-war
-xal
-yid
-zho
-zza
-
+afr-deu | afr_Latn-deu_Latn
+afr-eng | afr_Latn-eng_Latn
+afr-epo | afr_Latn-epo_Latn
+afr-nld | afr_Latn-nld_Latn
+afr-rus | afr_Latn-rus_Cyrl
+afr-spa | afr_Latn-spa_Latn
+ain-fin | ain_Latn-fin_Latn
+ara-ber | ara_Arab-ber_Latn
+ara-deu | ara_Arab-deu_Latn
+ara-ell | ara_Arab-ell_Grek
+ara-eng | ara_Arab-eng_Latn
+ara-epo | ara_Arab-epo_Latn
+ara-fra | ara_Arab-fra_Latn
+ara-heb | ara_Arab-heb_Hebr
+ara-ita | ara_Arab-ita_Latn
+ara-jpn | ara_Arab-jpn_Jpan
+ara-kab | ara_Arab-kab_Latn
+ara-pol | ara_Arab-pol_Latn
+ara-rus | ara_Arab-rus_Cyrl
+ara-spa | ara_Arab-spa_Latn
+ara-tur | ara_Arab-tur_Latn
+asm-eng | asm_Beng-eng_Latn
+avk-fra | avk_Latn-fra_Latn
+avk-spa | avk_Latn-spa_Latn
+awa-eng | awa_Deva-eng_Latn
+aze-eng | aze_Latn-eng_Latn
+aze-spa | aze_Latn-spa_Latn
+aze-tur | aze_Latn-tur_Latn
+bel-deu | bel_Cyrl-deu_Latn
+bel-eng | bel_Cyrl-eng_Latn
+bel-epo | bel_Cyrl-epo_Latn
+bel-fra | bel_Cyrl-fra_Latn
+bel-ita | bel_Cyrl-ita_Latn
+bel-lat | bel_Cyrl-lat_Latn
+bel-nld | bel_Cyrl-nld_Latn
+bel-pol | bel_Cyrl-pol_Latn
+bel-rus | bel_Cyrl-rus_Cyrl
+bel-spa | bel_Cyrl-spa_Latn
+bel-ukr | bel_Cyrl-ukr_Cyrl
+bel-zho | bel_Cyrl-zho_Hans
+ben-eng | ben_Beng-eng_Latn
+ber-deu | ber_Latn-deu_Latn
+ber-eng | ber_Latn-eng_Latn
+ber-epo | ber_Latn-epo_Latn
+ber-fra | ber_Latn-fra_Latn
+ber-spa | ber_Latn-spa_Latn
+bre-eng | bre_Latn-eng_Latn
+bre-fra | bre_Latn-fra_Latn
+bua-rus | bua_Cyrl-rus_Cyrl
+bul-bul | bul_Cyrl-bul_Cyrl
+bul-deu | bul_Cyrl-deu_Latn
+bul-eng | bul_Cyrl-eng_Latn
+bul-epo | bul_Cyrl-epo_Latn
+bul-fra | bul_Cyrl-fra_Latn
+bul-ita | bul_Cyrl-ita_Latn
+bul-jpn | bul_Cyrl-jpn_Jpan
+bul-rus | bul_Cyrl-rus_Cyrl
+bul-spa | bul_Cyrl-spa_Latn
+bul-tur | bul_Cyrl-tur_Latn
+bul-ukr | bul_Cyrl-ukr_Cyrl
+bul-zho | bul_Cyrl-zho_Hans
+cat-deu | cat_Latn-deu_Latn
+cat-eng | cat_Latn-eng_Latn
+cat-epo | cat_Latn-epo_Latn
+cat-fra | cat_Latn-fra_Latn
+cat-ita | cat_Latn-ita_Latn
+cat-nld | cat_Latn-nld_Latn
+cat-por | cat_Latn-por_Latn
+cat-spa | cat_Latn-spa_Latn
+cat-ukr | cat_Latn-ukr_Cyrl
+cbk-eng | cbk_Latn-eng_Latn
+ceb-deu | ceb_Latn-deu_Latn
+ceb-eng | ceb_Latn-eng_Latn
+ces-deu | ces_Latn-deu_Latn
+ces-eng | ces_Latn-eng_Latn
+ces-epo | ces_Latn-epo_Latn
+ces-fra | ces_Latn-fra_Latn
+ces-hun | ces_Latn-hun_Latn
+ces-ita | ces_Latn-ita_Latn
+ces-lat | ces_Latn-lat_Latn
+ces-pol | ces_Latn-pol_Latn
+ces-rus | ces_Latn-rus_Cyrl
+ces-slv | ces_Latn-slv_Latn
+ces-spa | ces_Latn-spa_Latn
+ces-ukr | ces_Latn-ukr_Cyrl
+cha-eng | cha_Latn-eng_Latn
+chm-rus | chm_Cyrl-rus_Cyrl
+chv-eng | chv_Cyrl-eng_Latn
+chv-rus | chv_Cyrl-rus_Cyrl
+chv-tur | chv_Cyrl-tur_Latn
+cor-deu | cor_Latn-deu_Latn
+cor-eng | cor_Latn-eng_Latn
+cor-epo | cor_Latn-epo_Latn
+cor-fra | cor_Latn-fra_Latn
+cor-ita | cor_Latn-ita_Latn
+cor-rus | cor_Latn-rus_Cyrl
+cor-spa | cor_Latn-spa_Latn
+crh-tur | crh_Latn-tur_Latn
+cym-eng | cym_Latn-eng_Latn
+dan-dan | dan_Latn-dan_Latn
+dan-deu | dan_Latn-deu_Latn
+dan-eng | dan_Latn-eng_Latn
+dan-epo | dan_Latn-epo_Latn
+dan-fin | dan_Latn-fin_Latn
+dan-fra | dan_Latn-fra_Latn
+dan-hun | dan_Latn-hun_Latn
+dan-ita | dan_Latn-ita_Latn
+dan-jpn | dan_Latn-jpn_Jpan
+dan-nld | dan_Latn-nld_Latn
+dan-nor | dan_Latn-nob_Latn
+dan-por | dan_Latn-por_Latn
+dan-rus | dan_Latn-rus_Cyrl
+dan-spa | dan_Latn-spa_Latn
+dan-swe | dan_Latn-swe_Latn
+dan-tur | dan_Latn-tur_Latn
+dan-yid | dan_Latn-yid_Hebr
+dan-zho | dan_Latn-zho_Hans
+deu-deu | deu_Latn-deu_Latn
+deu-dsb | deu_Latn-dsb_Latn
+deu-ell | deu_Latn-ell_Grek
+deu-eng | deu_Latn-eng_Latn
+deu-epo | deu_Latn-epo_Latn
+deu-est | deu_Latn-est_Latn
+deu-eus | deu_Latn-eus_Latn
+deu-fas | deu_Latn-fas_Arab
+deu-fin | deu_Latn-fin_Latn
+deu-fra | deu_Latn-fra_Latn
+deu-frr | deu_Latn-frr_Latn
+deu-gos | deu_Latn-gos_Latn
+deu-hbs | deu_Latn-hbs_Latn
+deu-heb | deu_Latn-heb_Hebr
+deu-hrx | deu_Latn-hrx_Latn
+deu-hsb | deu_Latn-hsb_Latn
+deu-hun | deu_Latn-hun_Latn
+deu-ido | deu_Latn-ido_Latn
+deu-ile | deu_Latn-ile_Latn
+deu-ina | deu_Latn-ina_Latn
+deu-isl | deu_Latn-isl_Latn
+deu-ita | deu_Latn-ita_Latn
+deu-jbo | deu_Latn-jbo_Latn
+deu-jpn | deu_Latn-jpn_Jpan
+deu-kab | deu_Latn-kab_Latn
+deu-kor | deu_Latn-kor_Hang
+deu-kur | deu_Latn-kmr_Latn
+deu-lad | deu_Latn-lad_Latn
+deu-lat | deu_Latn-lat_Latn
+deu-lav | deu_Latn-lav_Latn
+deu-lfn | deu_Latn-lfn_Latn
+deu-lit | deu_Latn-lit_Latn
+deu-ltz | deu_Latn-ltz_Latn
+deu-msa | deu_Latn-msa_Latn
+deu-nds | deu_Latn-nds_Latn
+deu-nld | deu_Latn-nld_Latn
+deu-nor | deu_Latn-nob_Latn
+deu-pol | deu_Latn-pol_Latn
+deu-por | deu_Latn-por_Latn
+deu-ron | deu_Latn-ron_Latn
+deu-run | deu_Latn-run_Latn
+deu-rus | deu_Latn-rus_Cyrl
+deu-slv | deu_Latn-slv_Latn
+deu-spa | deu_Latn-spa_Latn
+deu-swe | deu_Latn-swe_Latn
+deu-swg | deu_Latn-swg_Latn
+deu-tat | deu_Latn-tat_Cyrl
+deu-tgl | deu_Latn-tgl_Latn
+deu-tlh | deu_Latn-tlh_Latn
+deu-tok | deu_Latn-tok_Latn
+deu-tur | deu_Latn-tur_Latn
+deu-ukr | deu_Latn-ukr_Cyrl
+deu-vie | deu_Latn-vie_Latn
+deu-vol | deu_Latn-vol_Latn
+deu-yid | deu_Latn-yid_Hebr
+deu-zho | deu_Latn-zho_Hans
+dsb-hsb | dsb_Latn-hsb_Latn
+dsb-slv | dsb_Latn-slv_Latn
+dtp-eng | dtp_Latn-eng_Latn
+dtp-jpn | dtp_Latn-jpn_Jpan
+dtp-msa | dtp_Latn-msa_Latn
+dtp-zho | dtp_Latn-zho_Hans
+egl-ita | egl_Latn-ita_Latn
+ell-ell | ell_Grek-ell_Grek
+ell-eng | ell_Grek-eng_Latn
+ell-epo | ell_Grek-epo_Latn
+ell-fra | ell_Grek-fra_Latn
+ell-ita | ell_Grek-ita_Latn
+ell-nld | ell_Grek-nld_Latn
+ell-por | ell_Grek-por_Latn
+ell-rus | ell_Grek-rus_Cyrl
+ell-spa | ell_Grek-spa_Latn
+ell-swe | ell_Grek-swe_Latn
+ell-tur | ell_Grek-tur_Latn
+eng-eng | eng_Latn-eng_Latn
+eng-epo | eng_Latn-epo_Latn
+eng-est | eng_Latn-est_Latn
+eng-eus | eng_Latn-eus_Latn
+eng-fao | eng_Latn-fao_Latn
+eng-fas | eng_Latn-fas_Arab
+eng-fin | eng_Latn-fin_Latn
+eng-fra | eng_Latn-fra_Latn
+eng-fry | eng_Latn-fry_Latn
+eng-gla | eng_Latn-gla_Latn
+eng-gle | eng_Latn-gle_Latn
+eng-glg | eng_Latn-glg_Latn
+eng-gos | eng_Latn-gos_Latn
+eng-got | eng_Latn-got_Goth
+eng-grc | eng_Latn-grc_Grek
+eng-gsw | eng_Latn-gsw_Latn
+eng-hau | eng_Latn-hau_Latn
+eng-hbs | eng_Latn-hbs_Latn
+eng-heb | eng_Latn-heb_Hebr
+eng-hin | eng_Latn-hin_Deva
+eng-hoc | eng_Latn-hoc_Latn
+eng-hrx | eng_Latn-hrx_Latn
+eng-hun | eng_Latn-hun_Latn
+eng-hye | eng_Latn-hye_Armn
+eng-ido | eng_Latn-ido_Latn
+eng-ile | eng_Latn-ile_Latn
+eng-ilo | eng_Latn-ilo_Latn
+eng-ina | eng_Latn-ina_Latn
+eng-isl | eng_Latn-isl_Latn
+eng-ita | eng_Latn-ita_Latn
+eng-jav | eng_Latn-jav_Latn
+eng-jbo | eng_Latn-jbo_Latn
+eng-jpn | eng_Latn-jpn_Jpan
+eng-kab | eng_Latn-kab_Latn
+eng-kat | eng_Latn-kat_Geor
+eng-kaz | eng_Latn-kaz_Cyrl
+eng-kha | eng_Latn-kha_Latn
+eng-khm | eng_Latn-khm_Khmr
+eng-kor | eng_Latn-kor_Hang
+eng-kur | eng_Latn-kmr_Latn
+eng-lad | eng_Latn-lad_Latn
+eng-lat | eng_Latn-lat_Latn
+eng-lav | eng_Latn-lav_Latn
+eng-lfn | eng_Latn-lfn_Latn
+eng-lit | eng_Latn-lit_Latn
+eng-ltz | eng_Latn-ltz_Latn
+eng-mal | eng_Latn-mal_Mlym
+eng-mar | eng_Latn-mar_Deva
+eng-mkd | eng_Latn-mkd_Cyrl
+eng-mlt | eng_Latn-mlt_Latn
+eng-mon | eng_Latn-mon_Cyrl
+eng-mri | eng_Latn-mri_Latn
+eng-msa | eng_Latn-msa_Latn
+eng-mya | eng_Latn-mya_Mymr
+eng-nds | eng_Latn-nds_Latn
+eng-nld | eng_Latn-nld_Latn
+eng-nor | eng_Latn-nob_Latn
+eng-nov | eng_Latn-nov_Latn
+eng-nst | eng_Latn-nst_Latn
+eng-oci | eng_Latn-oci_Latn
+eng-orv | eng_Latn-orv_Cyrl
+eng-ota | eng_Latn-ota_Arab
+eng-pam | eng_Latn-pam_Latn
+eng-pms | eng_Latn-pms_Latn
+eng-pol | eng_Latn-pol_Latn
+eng-por | eng_Latn-por_Latn
+eng-prg | eng_Latn-prg_Latn
+eng-que | eng_Latn-que_Latn
+eng-rom | eng_Latn-rom_Latn
+eng-ron | eng_Latn-ron_Latn
+eng-run | eng_Latn-run_Latn
+eng-rus | eng_Latn-rus_Cyrl
+eng-slv | eng_Latn-slv_Latn
+eng-spa | eng_Latn-spa_Latn
+eng-sqi | eng_Latn-sqi_Latn
+eng-swa | eng_Latn-swa_Latn
+eng-swe | eng_Latn-swe_Latn
+eng-tam | eng_Latn-tam_Taml
+eng-tat | eng_Latn-tat_Cyrl
+eng-tel | eng_Latn-tel_Telu
+eng-tgl | eng_Latn-tgl_Latn
+eng-tha | eng_Latn-tha_Thai
+eng-tlh | eng_Latn-tlh_Latn
+eng-tok | eng_Latn-tok_Latn
+eng-tuk | eng_Latn-tuk_Latn
+eng-tur | eng_Latn-tur_Latn
+eng-tzl | eng_Latn-tzl_Latn
+eng-uig | eng_Latn-uig_Arab
+eng-ukr | eng_Latn-ukr_Cyrl
+eng-urd | eng_Latn-urd_Arab
+eng-uzb | eng_Latn-uzb_Latn
+eng-vie | eng_Latn-vie_Latn
+eng-vol | eng_Latn-vol_Latn
+eng-war | eng_Latn-war_Latn
+eng-xal | eng_Latn-xal_Cyrl
+eng-yid | eng_Latn-yid_Hebr
+eng-zho | eng_Latn-zho_Hans
+eng-zza | eng_Latn-zza_Latn
+epo-epo | epo_Latn-epo_Latn
+epo-fas | epo_Latn-fas_Arab
+epo-fin | epo_Latn-fin_Latn
+epo-fra | epo_Latn-fra_Latn
+epo-glg | epo_Latn-glg_Latn
+epo-hbs | epo_Latn-hbs_Latn
+epo-heb | epo_Latn-heb_Hebr
+epo-hun | epo_Latn-hun_Latn
+epo-ido | epo_Latn-ido_Latn
+epo-ile | epo_Latn-ile_Latn
+epo-ina | epo_Latn-ina_Latn
+epo-isl | epo_Latn-isl_Latn
+epo-ita | epo_Latn-ita_Latn
+epo-jbo | epo_Latn-jbo_Latn
+epo-jpn | epo_Latn-jpn_Jpan
+epo-lad | epo_Latn-lad_Latn
+epo-lat | epo_Latn-lat_Latn
+epo-lfn | epo_Latn-lfn_Latn
+epo-lit | epo_Latn-lit_Latn
+epo-msa | epo_Latn-msa_Latn
+epo-nds | epo_Latn-nds_Latn
+epo-nld | epo_Latn-nld_Latn
+epo-nor | epo_Latn-nob_Latn
+epo-oci | epo_Latn-oci_Latn
+epo-pol | epo_Latn-pol_Latn
+epo-por | epo_Latn-por_Latn
+epo-ron | epo_Latn-ron_Latn
+epo-rus | epo_Latn-rus_Cyrl
+epo-slv | epo_Latn-slv_Latn
+epo-spa | epo_Latn-spa_Latn
+epo-swe | epo_Latn-swe_Latn
+epo-tgl | epo_Latn-tgl_Latn
+epo-tlh | epo_Latn-tlh_Latn
+epo-tok | epo_Latn-tok_Latn
+epo-tur | epo_Latn-tur_Latn
+epo-ukr | epo_Latn-ukr_Cyrl
+epo-vie | epo_Latn-vie_Latn
+epo-vol | epo_Latn-vol_Latn
+epo-yid | epo_Latn-yid_Hebr
+epo-zho | epo_Latn-zho_Hans
+est-fin | est_Latn-fin_Latn
+est-rus | est_Latn-rus_Cyrl
+eus-jpn | eus_Latn-jpn_Jpan
+eus-rus | eus_Latn-rus_Cyrl
+eus-spa | eus_Latn-spa_Latn
+fas-fra | fas_Arab-fra_Latn
+fin-fin | fin_Latn-fin_Latn
+fin-fkv | fin_Latn-fkv_Latn
+fin-fra | fin_Latn-fra_Latn
+fin-heb | fin_Latn-heb_Hebr
+fin-hun | fin_Latn-hun_Latn
+fin-ita | fin_Latn-ita_Latn
+fin-jpn | fin_Latn-jpn_Jpan
+fin-kor | fin_Latn-kor_Hang
+fin-kur | fin_Latn-kmr_Latn
+fin-lat | fin_Latn-lat_Latn
+fin-nld | fin_Latn-nld_Latn
+fin-nor | fin_Latn-nob_Latn
+fin-pol | fin_Latn-pol_Latn
+fin-por | fin_Latn-por_Latn
+fin-rus | fin_Latn-rus_Cyrl
+fin-spa | fin_Latn-spa_Latn
+fin-swe | fin_Latn-swe_Latn
+fin-tur | fin_Latn-tur_Latn
+fin-zho | fin_Latn-zho_Hans
+fra-fra | fra_Latn-fra_Latn
+fra-gcf | fra_Latn-gcf_Latn
+fra-hbs | fra_Latn-hbs_Latn
+fra-heb | fra_Latn-heb_Hebr
+fra-hun | fra_Latn-hun_Latn
+fra-ido | fra_Latn-ido_Latn
+fra-ile | fra_Latn-ile_Latn
+fra-ina | fra_Latn-ina_Latn
+fra-ita | fra_Latn-ita_Latn
+fra-jbo | fra_Latn-jbo_Latn
+fra-jpn | fra_Latn-jpn_Jpan
+fra-kab | fra_Latn-kab_Latn
+fra-kor | fra_Latn-kor_Hang
+fra-lat | fra_Latn-lat_Latn
+fra-lfn | fra_Latn-lfn_Latn
+fra-msa | fra_Latn-msa_Latn
+fra-nds | fra_Latn-nds_Latn
+fra-nld | fra_Latn-nld_Latn
+fra-nor | fra_Latn-nob_Latn
+fra-oci | fra_Latn-oci_Latn
+fra-pcd | fra_Latn-pcd_Latn
+fra-pol | fra_Latn-pol_Latn
+fra-por | fra_Latn-por_Latn
+fra-ron | fra_Latn-ron_Latn
+fra-run | fra_Latn-run_Latn
+fra-rus | fra_Latn-rus_Cyrl
+fra-slv | fra_Latn-slv_Latn
+fra-spa | fra_Latn-spa_Latn
+fra-swe | fra_Latn-swe_Latn
+fra-tat | fra_Latn-tat_Cyrl
+fra-tgl | fra_Latn-tgl_Latn
+fra-tlh | fra_Latn-tlh_Latn
+fra-tok | fra_Latn-tok_Latn
+fra-tur | fra_Latn-tur_Latn
+fra-uig | fra_Latn-uig_Arab
+fra-ukr | fra_Latn-ukr_Cyrl
+fra-vie | fra_Latn-vie_Latn
+fra-yid | fra_Latn-yid_Hebr
+fra-zho | fra_Latn-zho_Hans
+fry-nld | fry_Latn-nld_Latn
+gcf-gcf | gcf_Latn-gcf_Latn
+gla-spa | gla_Latn-spa_Latn
+glg-por | glg_Latn-por_Latn
+glg-spa | glg_Latn-spa_Latn
+gos-nld | gos_Latn-nld_Latn
+grn-por | grn_Latn-por_Latn
+grn-spa | grn_Latn-spa_Latn
+hbs-ita | hbs_Latn-ita_Latn
+hbs-jpn | hbs_Latn-jpn_Jpan
+hbs-nor | hbs_Latn-nob_Latn
+hbs-pol | hbs_Latn-pol_Latn
+hbs-rus | hbs_Latn-rus_Cyrl
+hbs-spa | hbs_Latn-spa_Latn
+hbs-tur | hbs_Latn-tur_Latn
+hbs-ukr | hbs_Latn-ukr_Cyrl
+hbs-zho | hbs_Latn-zho_Hans
+heb-heb | heb_Hebr-heb_Hebr
+heb-hun | heb_Hebr-hun_Latn
+heb-ina | heb_Hebr-ina_Latn
+heb-ita | heb_Hebr-ita_Latn
+heb-jpn | heb_Hebr-jpn_Jpan
+heb-lad | heb_Hebr-lad_Latn
+heb-lat | heb_Hebr-lat_Latn
+heb-lfn | heb_Hebr-lfn_Latn
+heb-nld | heb_Hebr-nld_Latn
+heb-pol | heb_Hebr-pol_Latn
+heb-por | heb_Hebr-por_Latn
+heb-rus | heb_Hebr-rus_Cyrl
+heb-spa | heb_Hebr-spa_Latn
+heb-tur | heb_Hebr-tur_Latn
+heb-ukr | heb_Hebr-ukr_Cyrl
+heb-yid | heb_Hebr-yid_Hebr
+heb-zho | heb_Hebr-zho_Hans
+hin-mar | hin_Deva-mar_Deva
+hin-urd | hin_Deva-urd_Arab
+hin-zho | hin_Deva-zho_Hans
+hoc-sat | hoc_Latn-sat_Latn
+hsb-slv | hsb_Latn-slv_Latn
+hun-hun | hun_Latn-hun_Latn
+hun-ita | hun_Latn-ita_Latn
+hun-jpn | hun_Latn-jpn_Jpan
+hun-kor | hun_Latn-kor_Hang
+hun-lat | hun_Latn-lat_Latn
+hun-nld | hun_Latn-nld_Latn
+hun-nor | hun_Latn-nob_Latn
+hun-pol | hun_Latn-pol_Latn
+hun-por | hun_Latn-por_Latn
+hun-rus | hun_Latn-rus_Cyrl
+hun-spa | hun_Latn-spa_Latn
+hun-swe | hun_Latn-swe_Latn
+hun-tur | hun_Latn-tur_Latn
+hun-ukr | hun_Latn-ukr_Cyrl
+hun-zho | hun_Latn-zho_Hans
+hye-rus | hye_Armn-rus_Cyrl
+ido-ina | ido_Latn-ina_Latn
+ido-ita | ido_Latn-ita_Latn
+ido-lat | ido_Latn-lat_Latn
+ido-lfn | ido_Latn-lfn_Latn
+ido-spa | ido_Latn-spa_Latn
+ido-yid | ido_Latn-yid_Hebr
+ina-ita | ina_Latn-ita_Latn
+ina-lad | ina_Latn-lad_Latn
+ina-lat | ina_Latn-lat_Latn
+ina-lfn | ina_Latn-lfn_Latn
+ina-nld | ina_Latn-nld_Latn
+ina-por | ina_Latn-por_Latn
+ina-rus | ina_Latn-rus_Cyrl
+ina-spa | ina_Latn-spa_Latn
+ina-tlh | ina_Latn-tlh_Latn
+ina-tur | ina_Latn-tur_Latn
+ina-yid | ina_Latn-yid_Hebr
+isl-ita | isl_Latn-ita_Latn
+isl-jpn | isl_Latn-jpn_Jpan
+isl-rus | isl_Latn-rus_Cyrl
+isl-spa | isl_Latn-spa_Latn
+ita-ita | ita_Latn-ita_Latn
+ita-jpn | ita_Latn-jpn_Jpan
+ita-lat | ita_Latn-lat_Latn
+ita-lij | ita_Latn-lij_Latn
+ita-lit | ita_Latn-lit_Latn
+ita-msa | ita_Latn-msa_Latn
+ita-nds | ita_Latn-nds_Latn
+ita-nld | ita_Latn-nld_Latn
+ita-nor | ita_Latn-nob_Latn
+ita-pms | ita_Latn-pms_Latn
+ita-pol | ita_Latn-pol_Latn
+ita-por | ita_Latn-por_Latn
+ita-ron | ita_Latn-ron_Latn
+ita-rus | ita_Latn-rus_Cyrl
+ita-spa | ita_Latn-spa_Latn
+ita-swe | ita_Latn-swe_Latn
+ita-tok | ita_Latn-tok_Latn
+ita-tur | ita_Latn-tur_Latn
+ita-ukr | ita_Latn-ukr_Cyrl
+ita-vie | ita_Latn-vie_Latn
+ita-yid | ita_Latn-yid_Hebr
+ita-zho | ita_Latn-zho_Hans
+jav-jav | jav_Latn-jav_Latn
+jav-msa | jav_Latn-msa_Latn
+jbo-jpn | jbo_Latn-jpn_Jpan
+jbo-rus | jbo_Latn-rus_Cyrl
+jbo-spa | jbo_Latn-spa_Latn
+jbo-swe | jbo_Latn-swe_Latn
+jbo-zho | jbo_Latn-zho_Hans
+jpn-jpn | jpn_Jpan-jpn_Jpan
+jpn-kor | jpn_Jpan-kor_Hang
+jpn-lit | jpn_Jpan-lit_Latn
+jpn-mar | jpn_Jpan-mar_Deva
+jpn-msa | jpn_Jpan-msa_Latn
+jpn-nds | jpn_Jpan-nds_Latn
+jpn-nld | jpn_Jpan-nld_Latn
+jpn-nor | jpn_Jpan-nob_Latn
+jpn-pol | jpn_Jpan-pol_Latn
+jpn-por | jpn_Jpan-por_Latn
+jpn-rus | jpn_Jpan-rus_Cyrl
+jpn-spa | jpn_Jpan-spa_Latn
+jpn-swe | jpn_Jpan-swe_Latn
+jpn-tlh | jpn_Jpan-tlh_Latn
+jpn-tok | jpn_Jpan-tok_Latn
+jpn-tur | jpn_Jpan-tur_Latn
+jpn-ukr | jpn_Jpan-ukr_Cyrl
+jpn-vie | jpn_Jpan-vie_Latn
+jpn-zho | jpn_Jpan-zho_Hans
+kab-kab | kab_Latn-kab_Latn
+kab-rus | kab_Latn-rus_Cyrl
+kab-spa | kab_Latn-spa_Latn
+kat-rus | kat_Geor-rus_Cyrl
+kaz-rus | kaz_Cyrl-rus_Cyrl
+khm-spa | khm_Khmr-spa_Latn
+kor-rus | kor_Hang-rus_Cyrl
+kor-spa | kor_Hang-spa_Latn
+kor-zho | kor_Hang-zho_Hans
+kur-kur | kmr_Latn-kmr_Latn
+kur-tur | kmr_Latn-tur_Latn
+lad-lat | lad_Latn-lat_Latn
+lad-lfn | lad_Latn-lfn_Latn
+lad-spa | lad_Latn-spa_Latn
+lad-yid | lad_Latn-yid_Hebr
+lat-lat | lat_Latn-lat_Latn
+lat-lfn | lat_Latn-lfn_Latn
+lat-nld | lat_Latn-nld_Latn
+lat-nor | lat_Latn-nob_Latn
+lat-pol | lat_Latn-pol_Latn
+lat-por | lat_Latn-por_Latn
+lat-rus | lat_Latn-rus_Cyrl
+lat-spa | lat_Latn-spa_Latn
+lat-tlh | lat_Latn-tlh_Latn
+lat-tok | lat_Latn-tok_Latn
+lat-ukr | lat_Latn-ukr_Cyrl
+lat-yid | lat_Latn-yid_Hebr
+lav-rus | lav_Latn-rus_Cyrl
+lfn-por | lfn_Latn-por_Latn
+lfn-rus | lfn_Latn-rus_Cyrl
+lfn-spa | lfn_Latn-spa_Latn
+lfn-tlh | lfn_Latn-tlh_Latn
+lfn-tur | lfn_Latn-tur_Latn
+lfn-yid | lfn_Latn-yid_Hebr
+lit-pol | lit_Latn-pol_Latn
+lit-rus | lit_Latn-rus_Cyrl
+lit-spa | lit_Latn-spa_Latn
+lit-tur | lit_Latn-tur_Latn
+ltz-nld | ltz_Latn-nld_Latn
+mkd-spa | mkd_Cyrl-spa_Latn
+msa-msa | msa_Latn-msa_Latn
+msa-spa | msa_Latn-spa_Latn
+msa-zho | msa_Latn-zho_Hans
+nds-nld | nds_Latn-nld_Latn
+nds-por | nds_Latn-por_Latn
+nds-rus | nds_Latn-rus_Cyrl
+nds-spa | nds_Latn-spa_Latn
+nld-nld | nld_Latn-nld_Latn
+nld-nor | nld_Latn-nob_Latn
+nld-pol | nld_Latn-pol_Latn
+nld-por | nld_Latn-por_Latn
+nld-ron | nld_Latn-ron_Latn
+nld-rus | nld_Latn-rus_Cyrl
+nld-spa | nld_Latn-spa_Latn
+nld-tok | nld_Latn-tok_Latn
+nld-tur | nld_Latn-tur_Latn
+nld-ukr | nld_Latn-ukr_Cyrl
+nld-yid | nld_Latn-yid_Hebr
+nld-zho | nld_Latn-zho_Hans
+nor-nor | nob_Latn-nob_Latn
+nor-pol | nob_Latn-pol_Latn
+nor-por | nob_Latn-por_Latn
+nor-rus | nob_Latn-rus_Cyrl
+nor-spa | nob_Latn-spa_Latn
+nor-swe | nob_Latn-swe_Latn
+nor-ukr | nob_Latn-ukr_Cyrl
+nor-zho | nob_Latn-zho_Hans
+orv-ukr | orv_Cyrl-ukr_Cyrl
+oss-rus | oss_Cyrl-rus_Cyrl
+ota-tur | ota_Arab-tur_Latn
+pol-pol | pol_Latn-pol_Latn
+pol-por | pol_Latn-por_Latn
+pol-ron | pol_Latn-ron_Latn
+pol-rus | pol_Latn-rus_Cyrl
+pol-spa | pol_Latn-spa_Latn
+pol-swe | pol_Latn-swe_Latn
+pol-tok | pol_Latn-tok_Latn
+pol-tur | pol_Latn-tur_Latn
+pol-ukr | pol_Latn-ukr_Cyrl
+pol-zho | pol_Latn-zho_Hans
+por-por | por_Latn-por_Latn
+por-ron | por_Latn-ron_Latn
+por-rus | por_Latn-rus_Cyrl
+por-spa | por_Latn-spa_Latn
+por-swe | por_Latn-swe_Latn
+por-tgl | por_Latn-tgl_Latn
+por-tok | por_Latn-tok_Latn
+por-tur | por_Latn-tur_Latn
+por-ukr | por_Latn-ukr_Cyrl
+por-yid | por_Latn-yid_Hebr
+por-zho | por_Latn-zho_Hans
+ron-rus | ron_Latn-rus_Cyrl
+ron-spa | ron_Latn-spa_Latn
+ron-tur | ron_Latn-tur_Latn
+run-rus | run_Latn-rus_Cyrl
+run-spa | run_Latn-spa_Latn
+rus-rus | rus_Cyrl-rus_Cyrl
+rus-sah | rus_Cyrl-sah_Cyrl
+rus-slv | rus_Cyrl-slv_Latn
+rus-spa | rus_Cyrl-spa_Latn
+rus-swe | rus_Cyrl-swe_Latn
+rus-tat | rus_Cyrl-tat_Cyrl
+rus-tlh | rus_Cyrl-tlh_Latn
+rus-tok | rus_Cyrl-tok_Latn
+rus-tur | rus_Cyrl-tur_Latn
+rus-uig | rus_Cyrl-uig_Arab
+rus-ukr | rus_Cyrl-ukr_Cyrl
+rus-vie | rus_Cyrl-vie_Latn
+rus-xal | rus_Cyrl-xal_Cyrl
+rus-yid | rus_Cyrl-yid_Hebr
+rus-zho | rus_Cyrl-zho_Hans
+slv-ukr | slv_Latn-ukr_Cyrl
+slv-zho | slv_Latn-zho_Hans
+spa-spa | spa_Latn-spa_Latn
+spa-swe | spa_Latn-swe_Latn
+spa-tat | spa_Latn-tat_Cyrl
+spa-tgl | spa_Latn-tgl_Latn
+spa-tlh | spa_Latn-tlh_Latn
+spa-tok | spa_Latn-tok_Latn
+spa-tur | spa_Latn-tur_Latn
+spa-ukr | spa_Latn-ukr_Cyrl
+spa-vie | spa_Latn-vie_Latn
+spa-yid | spa_Latn-yid_Hebr
+spa-zho | spa_Latn-zho_Hans
+swe-swe | swe_Latn-swe_Latn
+swe-tur | swe_Latn-tur_Latn
+swe-zho | swe_Latn-zho_Hans
+tat-tur | tat_Cyrl-tur_Latn
+tat-vie | tat_Cyrl-vie_Latn
+tlh-yid | tlh_Latn-yid_Hebr
+tlh-zho | tlh_Latn-zho_Hans
+tok-tok | tok_Latn-tok_Latn
+tok-yid | tok_Latn-yid_Hebr
+tur-tur | tur_Latn-tur_Latn
+tur-uig | tur_Latn-uig_Arab
+tur-ukr | tur_Latn-ukr_Cyrl
+tur-uzb | tur_Latn-uzb_Latn
+tur-yid | tur_Latn-yid_Hebr
+tur-zho | tur_Latn-zho_Hans
+uig-zho | uig_Arab-zho_Hans
+ukr-ukr | ukr_Cyrl-ukr_Cyrl
+ukr-zho | ukr_Cyrl-zho_Hans
+vie-vie | vie_Latn-vie_Latn
+vie-zho | vie_Latn-zho_Hans
+yid-yid | yid_Hebr-yid_Hebr
+zho-zho | zho_Hans-zho_Hans
