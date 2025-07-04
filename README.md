@@ -32,8 +32,8 @@ GlotEval is a unified evaluation toolkit designed to benchmark Large Language Mo
 
 ### 🔁 Non-English-Centered Machine Translation
 
-- Evaluate translation beyond English-centric pivots
-- Support `any-to-pivot` and `pivot-to-any` directions
+- Evaluate translation beyond English-centric pivots and English-centric prompts
+- Support `any-to-pivot` and `pivot-to-any` directions for multi-aligned MT benchmarks
 
 ### 🧪 Multilingual Tasks
 
