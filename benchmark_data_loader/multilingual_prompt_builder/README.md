@@ -53,6 +53,7 @@ If `--target_lang_codes` is left empty, it will translate to all supported langu
 ```bash
 python multilingual_prompt_builder.py \
   --task_or_benchmark "translation" \
+  --config_file "../../config.json" \
   --lang_code "eng_Latn" \
   --target_lang_codes \
   --new_instruction "Translate the following sentence from {src_lang} to {tgt_lang}\n[{src_lang}]: {src_text}\n[{tgt_lang}]:" \
