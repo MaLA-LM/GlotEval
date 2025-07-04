@@ -167,7 +167,11 @@
       }
     },
     "benchmax_rule_based": {
-      "seed": 42
+      "seed": 42,
+      "sampling_params": {
+        "temperature": 0.0,
+        "max_tokens": 2048
+    }
     }
   },
 
