@@ -809,5 +809,111 @@
     "eng_Latn": {
       "instruction": "{text}"
     }
+  },
+  "benchmax_math": {
+    "eng_Latn": {
+      "instruction": "Solve this math problem. Give the reasoning steps before giving the final answer on the last line by itself in the format of \"Answer:\". Do not add anything other than the integer answer after \"Answer:\".\n\n{text}"
+    },
+    "arb_Arab": {
+      "instruction": "قم بحل هذه المسألة الرياضية. قدم خطوات التفكير المنطقي قبل إعطاء الإجابة النهائية في السطر الأخير بمفرده بصيغة \"الإجابة:\". لا تضف أي شيء آخر غير الإجابة الصحيحة كعدد صحيح بعد \"الإجابة:\".\n\n{text}"
+    },
+    "ben_Beng": {
+      "instruction": "এই গণিতের সমস্যাটি সমাধান করুন। চূড়ান্ত উত্তর দেওয়ার আগে যুক্তিসম্পন্ন পদক্ষেপ প্রদান করুন। চূড়ান্ত উত্তরটি একক সংখ্যা হিসাবে \"উত্তর:\" এর পরে শেষ লাইনে দিন। \"উত্তর:\" এর পরে অন্য কিছু যুক্ত করবেন না।.\n\n{text}"
+    },
+    "ces_Latn": {
+      "instruction": "Vyřešte tento matematický problém. Uveďte kroky odůvodnění před uvedením konečné odpovědi na posledním řádku ve formátu \"Odpověď:\". Za \"Odpověď:\" nepřidávejte nic jiného než celočíselnou odpověď.\n\n{text}"
+    },
+    "deu_Latn": {
+      "instruction": "Löse dieses Mathematikproblem. Gib die Schritte zur Begründung an, bevor du die endgültige Antwort in der letzten Zeile alleine im Format \"Antwort:\" gibst. Füge nichts anderes als die ganzzahlige Antwort nach \"Antwort:\" hinzu.\n\n{text}"
+    },
+    "spa_Latn": {
+      "instruction": "Resuelve este problema matemático. Proporciona los pasos de razonamiento antes de dar la respuesta final en la última línea por sí misma en el formato de \"Respuesta:\". No añadas nada más que la respuesta entera después de \"Respuesta:\".\n\n{text}"
+    },
+    "fra_Latn": {
+      "instruction": "Résolvez ce problème de mathématiques. Donnez les étapes de raisonnement avant de fournir la réponse finale sur la dernière ligne elle-même dans le format de \"Réponse:\". N'ajoutez rien d'autre que la réponse entière après \"Réponse:\".\n\n{text}"
+    },
+    "hun_Latn": {
+      "instruction": "Oldja meg ezt a matematikai feladatot. Adja meg az érvelési lépéseket, mielőtt a végső választ az utolsó sorban önmagában megadja a \"Válasz:\" formátumban. A \"Válasz:\" után ne adjon hozzá semmi mást, mint az egészértékű választ.\n\n{text}"
+    },
+    "jpn_Jpan": {
+      "instruction": "の数学の問題を解いてください。最終的な答えを出す前に、解答の推論過程を記述してください。そして最後の行には \"答え:\" の形式で答えを記述し、その後には整数の答え以外何も追加しないでください。\n\n{text}"
+    },
+    "kor_Hang": {
+      "instruction": "이 수학 문제를 풀어보세요. 최종 답을 제시하기 전에 풀이 과정을 먼저 설명하세요. 마지막 줄에는 \"정답:\" 형식으로 정답만 정수로 적으세요. \"정답:\" 뒤에는 정수 외에 아무것도 추가하지 마세요.\n\n{text}"
+    },
+    "rus_Cyrl": {
+      "instruction": "Решите эту математическую задачу. Объясните шаги рассуждения перед тем, как дать окончательный ответ в последней строке сам по себе в формате \"Ответ:\". Не добавляйте ничего, кроме целочисленного ответа после \"Ответ:\".\n\n{text}"
+    },
+    "srp_Cyrl": {
+      "instruction": "Реши овај математички задатак. Прво наведи кораке објашњења пре него што даш коначни одговор у последњем реду у формату \"Одговор:\". Немој додавати ништа друго осим целобројног одговора после \"Одговор:\".\n\n{text}"
+    },
+    "swh_Latn": {
+      "instruction": "Suluhisha tatizo hili la hesabu. Toa hatua za mantiki kabla ya kutoa jibu la mwisho kwenye mstari wa mwisho peke yake katika muundo wa \"Jibu:\". Usiongeze chochote kingine isipokuwa jibu la integer baada ya \"Jibu:\".\n\n{text}"
+    },
+    "tel_Telu": {
+      "instruction": "ఈ గణిత సమస్యను పరిష్కరించండి. చివరి సమాధానాన్ని ఇవ్వదానికి ముందు తర్కాత్మక అదుగులను ఇవ్వండి. చివరి పంక్తిలో మాత్రమే 'సమాధానం:' అనే ఆకారంలో చివరి సమాధానాద్ని ఇవ్వండి సమాధానం: తర్వాత పూర్ణాంక సమాధానానికి తప్పించి ఎదేనా చేర్చవద్దు.\n\n{text}"
+    },
+    "tha_Thai": {
+      "instruction": "แก้ปัญหาคณิตศาสตร์นี้ ให้ให้ขั้นตอนการใช้เหตุผลก่อนที่จะให้คำตอบสุดท้ายในบรรทัดสุดท้ายโดยอยู่ในรูปแบบ \"คำตอบ:\" ไม่ควรเพิ่มอะไรนอกจากคำตอบที่เป็นจำนวนเต็มหลังจาก \"คำตอบ:\"\n\n{text}"
+    },
+    "vie_Latn": {
+      "instruction": "Giải bài toán này. Đưa ra các bước lập luận trước khi đưa ra đáp án cuối cùng trên dòng cuối cùng chỉ bao gồm định dạng \"Đáp án:\". Không thêm bất kỳ điều gì khác ngoài câu trả lời là số nguyên sau \"Đáp án:\".\n\n{text}"
+    },
+    "zho_Hans": {
+      "instruction": "解决这个数学问题。在最后一行给出答案前，请提供推理步骤。最后一行应该以 \"答案: \" 的形式独立给出答案。在 \"答案：\" 后不要添加除整数答案之外的任何内容。\n\n{text}"
+    }
+  },
+  "benchmax_science": {
+    "eng_Latn": {
+      "instruction": "What is the correct answer to this question: {question}\nChoices:\n{options}\nLet's think step by step: "
+    },
+    "arb_Arab": {
+      "instruction": "ما هي الإجابة الصحيحة لهذا السؤال: {question}\nالخيارات:\n{options}\nلنفكر خطوة بخطوة: "
+    },
+    "ben_Beng": {
+      "instruction": "এই প্রশ্নের সঠিক উত্তর কি: {question}\nপছন্দ:\n{options}\nআসুন ধাপে ধাপে চিন্তা করি: "
+    },
+    "ces_Latn": {
+      "instruction": "Jaká je správná odpověď na tuto otázku: {question}\nMožnosti:\n{options}\nZamysleme se krok za krokem: "
+    },
+    "deu_Latn": {
+      "instruction": "Was ist die richtige Antwort auf diese Frage: {question}\nAuswahlmöglichkeiten:\n{options}\nLassen Sie uns Schritt für Schritt überlegen: "
+    },
+    "spa_Latn": {
+      "instruction": "¿Cuál es la respuesta correcta a esta pregunta? {question}\nOpciones:\n{options}\nPensemos paso a paso: "
+    },
+    "fra_Latn": {
+      "instruction": "Quelle est la bonne réponse à cette question : {question}\nChoix :\n{options}\nRéfléchissons étape par étape : "
+    },
+    "hun_Latn": {
+      "instruction": "Mi a helyes válasz erre a kérdésre: {question}\nVálasztási lehetőségek:\n{options}\nGondoljuk végig lépésről lépésre: "
+    },
+    "jpn_Jpan": {
+      "instruction": "この質問の正しい答えは何ですか: {question}\n選択肢:\n{options}\nステップごとに考えてみましょう: "
+    },
+    "kor_Hang": {
+      "instruction": "이 질문에 대한 정답은 무엇입니까? {question}\n선택지:\n{options}\n단계별로 생각해 보겠습니다: "
+    },
+    "rus_Cyrl": {
+      "instruction": "Какой правильный ответ на этот вопрос: {question}\nВарианты:\n{options}\nДавайте подумаем шаг за шагом: "
+    },
+    "srp_Cyrl": {
+      "instruction": "Који је тачан одговор на ово питање: {question}\nИзбори:\n{options}\nХајде да размислимо корак по корак: "
+    },
+    "swh_Latn": {
+      "instruction": "Je, ni jibu gani sahihi kwa swali hili: {question}\nChaguo: \n{options}\nWacha tufikirie hatua kwa hatua: "
+    },
+    "tel_Telu": {
+      "instruction": "ఈ ప్రశ్నకు సరైన సమాధానం ఏమిటి: {question}\nఎంపికలు:\n{options}\nదశలవారీగా ఆలోచిద్దాం: "
+    },
+    "tha_Thai": {
+      "instruction": "คำตอบที่ถูกต้องสำหรับคำถามนี้คืออะไร: {question}\nตัวเลือก:\n{options}\nมาคิดทีละขั้นตอนกัน: "
+    },
+    "vie_Latn": {
+      "instruction": "Câu trả lời đúng cho câu hỏi này là gì: {question}\nCác lựa chọn:\n{options}\nChúng ta hãy suy nghĩ từng bước một: "
+    },
+    "zho_Hans": {
+      "instruction": "这个问题的正确答案是什么:{question}\n选项:\n{options}\n我们来一步步思考一下: "
+    }
   }
 }

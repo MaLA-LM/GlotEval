@@ -11,6 +11,7 @@ class VLLMModelWrapper:
             dtype=dtype,
             max_num_seqs=max_num_seqs,
             trust_remote_code=True,
+            gpu_memory_utilization=0.7
         )
         self.tokenizer = self.llm.get_tokenizer()
         self.default_sampling_params_dict = sampling_params
