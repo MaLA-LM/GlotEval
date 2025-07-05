@@ -92,8 +92,8 @@ def main():
 
     benchmark_params = config.get("benchmark_params", {})
     dev_max_samples = config.get("dev_max_samples", None)
-    prompt_language_strategy = config.get("prompt_language_strategy","single")
-    prompt_language = config.get("prompt_language","eng_Latn")
+    prompt_language_strategy = config.get("prompt_language_strategy", "single")
+    prompt_language = config.get("prompt_language", "eng_Latn")
 
     current_time = time.strftime("%Y%m%d_%H%M%S")
     two_level_name = '--'.join(args.model_name.rstrip(os.sep).split(os.sep)[-2:])

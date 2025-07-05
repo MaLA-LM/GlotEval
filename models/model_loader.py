@@ -16,7 +16,7 @@ class VLLMModelWrapper:
         self.tokenizer = self.llm.get_tokenizer()
         self.default_sampling_params_dict = sampling_params
 
-    def generate(self, prompts,**override_params):
+    def generate(self, prompts, **override_params):
         import time
         from vllm import SamplingParams
         

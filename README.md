@@ -45,6 +45,7 @@ GlotEval is a unified evaluation toolkit designed to benchmark Large Language Mo
 - **Open-ended Generation**: Aya, PolyWrite
 - **Intrinsic Evaluation**: PBC, MaLA
 - **Instruction Following**: BenchMAX Rule-based
+- **Reasoning**: BenchMAX Math, BenchMAX Science
 
 ### 🤖 Model Compatibility
 
@@ -58,6 +59,7 @@ GlotEval is a unified evaluation toolkit designed to benchmark Large Language Mo
 - **Classification**: Accuracy, F1
 - **Open-ended Generation**: Self-BLEU, etc.
 - **Instruction Following**: Prompt-level and Instruction-level Accuracy (strict & loose)
+- **Reasoning**: Accuracy
 
 
 ------

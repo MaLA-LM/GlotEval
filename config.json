@@ -172,6 +172,20 @@
         "temperature": 0.0,
         "max_tokens": 2048
       }
+    },
+    "benchmax_math": {
+      "seed": 42,
+      "sampling_params": {
+        "temperature": 0.0,
+        "max_tokens": 1024
+      }
+    },
+    "benchmax_science": {
+      "seed": 42,
+      "sampling_params": {
+        "temperature": 0.0,
+        "max_tokens": 2048
+      }
     }
   },
 

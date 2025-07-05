@@ -1,5 +1,5 @@
 import os
-import csv
+import json
 from . import register_benchmark
 
 from benchmark_data_loader.data_loader import (
@@ -21,6 +21,12 @@ from .benchmark_utils import (
 def process_benchmax_benchmark(benchmark_name, model, load_data_func, lang_config=None, **kwargs):
     # Process common parameters
     params = setup_benchmark_params(**kwargs)
+    global_sampling_params = kwargs.get("global_sampling_params", {})
+    benchmark_sampling_params = params.get("sampling_params", {})
+    final_sampling_params = global_sampling_params.copy()
+    final_sampling_params.update(benchmark_sampling_params)
+    print(f"[{benchmark_name}] Using final sampling params: {final_sampling_params}")
+
     store_details = params["store_details"]
     efficiency_analysis = params["efficiency_analysis"]
     prompt_library = params["prompt_library"]
@@ -109,7 +115,7 @@ def process_benchmax_benchmark(benchmark_name, model, load_data_func, lang_confi
                     prompts.append(p)
 
                 # Generate with efficiency metrics
-                responses, efficiency_metrics = model.generate(prompts)
+                responses, efficiency_metrics = model.generate(prompts, **final_sampling_params)
                 
                 result_dict = metric_fn(dataset, responses, lang_code)
 
@@ -137,21 +143,46 @@ def process_benchmax_benchmark(benchmark_name, model, load_data_func, lang_confi
                     }
 
                 if store_details:
-                    csv_file = os.path.join(benchmark_output_dir, f"{lang_code}.tsv")
-                    with open(csv_file, "w", newline="", encoding="utf-8") as cf:
-                        writer = csv.writer(cf, delimiter="\t", lineterminator="\n", quoting=csv.QUOTE_MINIMAL)
+                    jsonl_file = os.path.join(benchmark_output_dir, f"{lang_code}.jsonl")
+                    with open(jsonl_file, "w", encoding="utf-8") as jf:
                         if benchmark_name == "benchmax_rule_based":
-                            writer.writerow(["Tested Language", "PromptLanguage", "PromptSource", "Prompt", "Instruction_id_list", "Kwargs", "Response"])
                             for d, r in zip(dataset, responses):
-                                writer.writerow([lang_code, actual_prompt_lang, prompt_source, d["prompt"], d["instruction_id_list"], d["kwargs"], r])
+                                record = {
+                                    "Tested Language": lang_code,
+                                    "PromptLanguage": actual_prompt_lang,
+                                    "PromptSource": prompt_source,
+                                    "Prompt": d["prompt"],
+                                    "Instruction_id_list": d["instruction_id_list"],
+                                    "Kwargs": d["kwargs"],
+                                    "Response": r
+                                }
+                                jf.write(json.dumps(record, ensure_ascii=False) + "\n")
                         elif benchmark_name == "benchmax_math":
-                            writer.writerow(["Tested Language", "PromptLanguage", "PromptSource", "Question", "Answer_number", "Response"])
                             for d, r in zip(dataset, responses):
-                                writer.writerow([lang_code, actual_prompt_lang, prompt_source, d["question"], d["answer_number"], r])
+                                record = {
+                                    "Tested Language": lang_code,
+                                    "PromptLanguage": actual_prompt_lang,
+                                    "PromptSource": prompt_source,
+                                    "Question": d["question"],
+                                    "Answer_number": d["answer_number"],
+                                    "Response": r
+                                }
+                                jf.write(json.dumps(record, ensure_ascii=False) + "\n")
                         elif benchmark_name == "benchmax_science":
-                            writer.writerow(["Tested Language", "PromptLanguage", "PromptSource", "Question", "A", "B", "C", "D", "Answer", "Response"])
                             for d, r in zip(dataset, responses):
-                                writer.writerow([lang_code, actual_prompt_lang, prompt_source, d["Question"], d["option_a"], d["option_b"], d["option_c"], d["option_d"], d["answer"], r])
+                                record = {
+                                    "Tested Language": lang_code,
+                                    "PromptLanguage": actual_prompt_lang,
+                                    "PromptSource": prompt_source,
+                                    "Question": d["Question"],
+                                    "A": d["option_a"],
+                                    "B": d["option_b"],
+                                    "C": d["option_c"],
+                                    "D": d["option_d"],
+                                    "Answer": d["answer"],
+                                    "Response": r
+                                }
+                                jf.write(json.dumps(record, ensure_ascii=False) + "\n")
 
                     print(f"[{benchmark_name}] Saved results for {lang_code}")
 
