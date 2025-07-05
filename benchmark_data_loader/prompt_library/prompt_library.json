@@ -862,5 +862,58 @@
     "zho_Hans": {
       "instruction": "解决这个数学问题。在最后一行给出答案前，请提供推理步骤。最后一行应该以 \"答案: \" 的形式独立给出答案。在 \"答案：\" 后不要添加除整数答案之外的任何内容。\n\n{text}"
     }
+  },
+  "benchmax_science": {
+    "eng_Latn": {
+      "instruction": "What is the correct answer to this question: {question}\nChoices:\n{options}\nLet's think step by step: "
+    },
+    "arb_Arab": {
+      "instruction": "ما هي الإجابة الصحيحة لهذا السؤال: {question}\nالخيارات:\n{options}\nلنفكر خطوة بخطوة: "
+    },
+    "ben_Beng": {
+      "instruction": "এই প্রশ্নের সঠিক উত্তর কি: {question}\nপছন্দ:\n{options}\nআসুন ধাপে ধাপে চিন্তা করি: "
+    },
+    "ces_Latn": {
+      "instruction": "Jaká je správná odpověď na tuto otázku: {question}\nMožnosti:\n{options}\nZamysleme se krok za krokem: "
+    },
+    "deu_Latn": {
+      "instruction": "Was ist die richtige Antwort auf diese Frage: {question}\nAuswahlmöglichkeiten:\n{options}\nLassen Sie uns Schritt für Schritt überlegen: "
+    },
+    "spa_Latn": {
+      "instruction": "¿Cuál es la respuesta correcta a esta pregunta? {question}\nOpciones:\n{options}\nPensemos paso a paso: "
+    },
+    "fra_Latn": {
+      "instruction": "Quelle est la bonne réponse à cette question : {question}\nChoix :\n{options}\nRéfléchissons étape par étape : "
+    },
+    "hun_Latn": {
+      "instruction": "Mi a helyes válasz erre a kérdésre: {question}\nVálasztási lehetőségek:\n{options}\nGondoljuk végig lépésről lépésre: "
+    },
+    "jpn_Jpan": {
+      "instruction": "この質問の正しい答えは何ですか: {question}\n選択肢:\n{options}\nステップごとに考えてみましょう: "
+    },
+    "kor_Hang": {
+      "instruction": "이 질문에 대한 정답은 무엇입니까? {question}\n선택지:\n{options}\n단계별로 생각해 보겠습니다: "
+    },
+    "rus_Cyrl": {
+      "instruction": "Какой правильный ответ на этот вопрос: {question}\nВарианты:\n{options}\nДавайте подумаем шаг за шагом: "
+    },
+    "srp_Cyrl": {
+      "instruction": "Који је тачан одговор на ово питање: {question}\nИзбори:\n{options}\nХајде да размислимо корак по корак: "
+    },
+    "swh_Latn": {
+      "instruction": "Je, ni jibu gani sahihi kwa swali hili: {question}\nChaguo: \n{options}\nWacha tufikirie hatua kwa hatua: "
+    },
+    "tel_Telu": {
+      "instruction": "ఈ ప్రశ్నకు సరైన సమాధానం ఏమిటి: {question}\nఎంపికలు:\n{options}\nదశలవారీగా ఆలోచిద్దాం: "
+    },
+    "tha_Thai": {
+      "instruction": "คำตอบที่ถูกต้องสำหรับคำถามนี้คืออะไร: {question}\nตัวเลือก:\n{options}\nมาคิดทีละขั้นตอนกัน: "
+    },
+    "vie_Latn": {
+      "instruction": "Câu trả lời đúng cho câu hỏi này là gì: {question}\nCác lựa chọn:\n{options}\nChúng ta hãy suy nghĩ từng bước một: "
+    },
+    "zho_Hans": {
+      "instruction": "这个问题的正确答案是什么:{question}\n选项:\n{options}\n我们来一步步思考一下: "
+    }
   }
 }

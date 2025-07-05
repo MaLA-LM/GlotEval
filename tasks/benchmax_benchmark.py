@@ -5,6 +5,7 @@ from . import register_benchmark
 from benchmark_data_loader.data_loader import (
     load_benchmax_rule_based_data,
     load_benchmax_math_data,
+    load_benchmax_science_data,
     build_chat_generation_prompt,
 )
 from .benchmark_utils import (
@@ -17,7 +18,7 @@ from .benchmark_utils import (
     update_efficiency_results
 )
 
-def process_benchmax_rule_based_benchmark(benchmark_name, model, load_data_func, lang_config=None, **kwargs):
+def process_benchmax_benchmark(benchmark_name, model, load_data_func, lang_config=None, **kwargs):
     # Process common parameters
     params = setup_benchmark_params(**kwargs)
     store_details = params["store_details"]
@@ -65,14 +66,19 @@ def process_benchmax_rule_based_benchmark(benchmark_name, model, load_data_func,
         )
         
         if benchmark_name == "benchmax_rule_based":
-            prompt_field = "prompt"
+            build_prompt_kwargs = lambda x: {"text": x["prompt"]}
             from metrics.benchmax_rule_based_metrics.compute_inst_follow_metrics import compute_inst_follow_acc
             metric_fn = compute_inst_follow_acc
             metric_str = "inst_follow_accs"
         elif benchmark_name == "benchmax_math":
-            prompt_field = "question"
+            build_prompt_kwargs = lambda x: {"text": x["question"]}
             from metrics.benchmax_math_metrics import compute_math_acc
             metric_fn = compute_math_acc
+            metric_str = "accuracy"
+        elif benchmark_name == "benchmax_science":
+            build_prompt_kwargs = lambda x: {"question": x["Question"], "options": x["options"]}
+            from metrics.benchmax_science_metrics import compute_science_acc
+            metric_fn = compute_science_acc
             metric_str = "accuracy"
 
         # multi-lingual approach
@@ -93,7 +99,7 @@ def process_benchmax_rule_based_benchmark(benchmark_name, model, load_data_func,
                 prompts = []
                 for example in dataset:
                     p = build_chat_generation_prompt(
-                        text=example[prompt_field],
+                        prompt_kwargs=build_prompt_kwargs(example),
                         tokenizer=model.tokenizer,
                         prompt_library=prompt_library,
                         prompt_language=actual_prompt_lang,
@@ -142,7 +148,11 @@ def process_benchmax_rule_based_benchmark(benchmark_name, model, load_data_func,
                             writer.writerow(["Tested Language", "PromptLanguage", "PromptSource", "Question", "Answer_number", "Response"])
                             for d, r in zip(dataset, responses):
                                 writer.writerow([lang_code, actual_prompt_lang, prompt_source, d["question"], d["answer_number"], r])
-                    
+                        elif benchmark_name == "benchmax_science":
+                            writer.writerow(["Tested Language", "PromptLanguage", "PromptSource", "Question", "A", "B", "C", "D", "Answer", "Response"])
+                            for d, r in zip(dataset, responses):
+                                writer.writerow([lang_code, actual_prompt_lang, prompt_source, d["Question"], d["option_a"], d["option_b"], d["option_c"], d["option_d"], d["answer"], r])
+
                     print(f"[{benchmark_name}] Saved results for {lang_code}")
 
             except Exception as e:
@@ -185,7 +195,7 @@ def process_benchmax_rule_based_benchmark(benchmark_name, model, load_data_func,
 @register_benchmark("benchmax_rule_based")
 def benchmax_rule_based_handler(model, **kwargs):
     lang_config_path = "benchmark_data_loader/data_langid/benchmax_langs.txt"
-    return process_benchmax_rule_based_benchmark(
+    return process_benchmax_benchmark(
         "benchmax_rule_based",
         model,
         load_benchmax_rule_based_data,
@@ -197,10 +207,22 @@ def benchmax_rule_based_handler(model, **kwargs):
 @register_benchmark("benchmax_math")
 def benchmax_math_handler(model, **kwargs):
     lang_config_path = "benchmark_data_loader/data_langid/benchmax_langs.txt"
-    return process_benchmax_rule_based_benchmark(
+    return process_benchmax_benchmark(
         "benchmax_math",
         model,
         load_benchmax_math_data,
+        lang_config_path,
+        **kwargs
+    )
+
+
+@register_benchmark("benchmax_science")
+def benchmax_science_handler(model, **kwargs):
+    lang_config_path = "benchmark_data_loader/data_langid/benchmax_langs.txt"
+    return process_benchmax_benchmark(
+        "benchmax_science",
+        model,
+        load_benchmax_science_data,
         lang_config_path,
         **kwargs
     )

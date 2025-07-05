@@ -1,4 +1,5 @@
 import os
+import re
 import pandas as pd
 import json
 import random
@@ -614,7 +615,7 @@ def build_token_classification_prompt(
 
 
 def build_chat_generation_prompt(
-    text,
+    prompt_kwargs,
     tokenizer,
     few_shot_examples=None,
     prompt_library=None,
@@ -652,10 +653,7 @@ def build_chat_generation_prompt(
 
     # If still no template, use a default
     if not prompt_template:
-        prompt_template = {
-            "instruction": "{text}",
-            "few_shot": "{example_text}"
-        }
+        raise ValueError(f"No prompt template found for the benchmark {benchmark_name} or task {task_key}.")
 
     instruction_template = prompt_template.get("instruction", "")
     few_shot_template = prompt_template.get("few_shot", "")
@@ -666,7 +664,7 @@ def build_chat_generation_prompt(
             snippet = few_shot_template.format(example_text=ex.get("text", ""))
             few_shot_str += snippet
 
-    final_str = instruction_template.format(text=text)
+    final_str = instruction_template.format(**prompt_kwargs)
 
     final_prompt = ""
     if few_shot_str:
@@ -1587,6 +1585,47 @@ def load_benchmax_math_data(lang_code, split="test", limit_samples=None):
 
         if limit_samples is not None:
             dataset = dataset[:limit_samples]
+
+        return dataset
+
+    except Exception as e:
+        print(f"[ERROR] Failed to load new_benchmark for '{lang_code}' from Hugging Face: {e}")
+        return []
+
+def load_benchmax_science_data(lang_code, split="train", limit_samples=None):
+    print(f"[INFO] Loading new_benchmark for '{lang_code}'")
+
+    def preprocess(text):
+        if text is None:
+            return " "
+        text = text.strip()
+        text = text.replace(" [title]", ". ")
+        text = re.sub("\\[.*?\\]", "", text)
+        text = text.replace("  ", " ")
+        return text
+
+    try:
+        dataset = load_dataset("LLaMAX/BenchMAX_Science", lang_code, split=split).to_list()
+
+        if limit_samples is not None:
+            dataset = dataset[:limit_samples]
+
+        rng = random.Random(0)
+        for example in dataset:
+            permutation = rng.sample(range(4), 4)
+            choices = [
+                preprocess(example["Correct Answer"]),
+                preprocess(example["Incorrect Answer 1"]),
+                preprocess(example["Incorrect Answer 2"]),
+                preprocess(example["Incorrect Answer 3"])
+            ]
+            example["option_a"] = choices[permutation[0]]
+            example["option_b"] = choices[permutation[1]]
+            example["option_c"] = choices[permutation[2]]
+            example["option_d"] = choices[permutation[3]]
+            option_str = f"(A) {example['option_a']}\n(B) {example['option_b']}\n(C) {example['option_c']}\n(D) {example['option_d']}"
+            example["options"] = option_str
+            example["answer"] = chr(ord("A") + permutation.index(0))
 
         return dataset
 

@@ -52,5 +52,5 @@ def score_mgsm(target: str, prediction: str) -> bool:
 def compute_math_acc(dataset: list, responses: list, lang: str):
     answer_prefix = LANG_TO_ANSWER_PREFIX[lang]
     extracted_answers = [parse_answer(r, answer_prefix) for r in responses]
-    correct = sum(ans == str(example["answer_number"]) for ans, example in zip(extracted_answers, dataset))
+    correct = sum(score_mgsm(str(example["answer_number"]), ans) for ans, example in zip(extracted_answers, dataset))
     return {"accuracy": correct / len(dataset) if dataset else 0}
