@@ -4,6 +4,7 @@ from . import register_benchmark
 
 from benchmark_data_loader.data_loader import (
     load_benchmax_rule_based_data,
+    load_benchmax_math_data,
     build_chat_generation_prompt,
 )
 from .benchmark_utils import (
@@ -34,15 +35,13 @@ def process_benchmax_rule_based_benchmark(benchmark_name, model, load_data_func,
     # Setup benchmark output directory
     benchmark_output_dir = setup_benchmark_output(benchmark_name, output_dir)
 
-    from metrics.benchmax_rule_based_metrics.compute_inst_follow_metrics import compute_inst_follow_acc
-
     # Check if there's a language config file
     if not lang_config:
         lang_config_path = f"benchmark_data_loader/data_langid/{benchmark_name}_langs.txt"
         if os.path.exists(lang_config_path):
             lang_config = lang_config_path
 
-    all_inst_follow_score = {}
+    all_scores = {}
     if efficiency_analysis:
         all_efficiency_statistics = {}
 
@@ -62,9 +61,20 @@ def process_benchmax_rule_based_benchmark(benchmark_name, model, load_data_func,
         
         # Get available prompt languages from the prompt library
         benchmark_prompt_langs, task_prompt_langs = get_available_prompt_languages(
-            prompt_library, benchmark_name, "benchmax_rule_based"
+            prompt_library, benchmark_name, "benchmax"
         )
         
+        if benchmark_name == "benchmax_rule_based":
+            prompt_field = "prompt"
+            from metrics.benchmax_rule_based_metrics.compute_inst_follow_metrics import compute_inst_follow_acc
+            metric_fn = compute_inst_follow_acc
+            metric_str = "inst_follow_accs"
+        elif benchmark_name == "benchmax_math":
+            prompt_field = "question"
+            from metrics.benchmax_math_metrics import compute_math_acc
+            metric_fn = compute_math_acc
+            metric_str = "accuracy"
+
         # multi-lingual approach
         for lang_code in lang_codes:
             print(f"[{benchmark_name}] Processing language: {lang_code}")
@@ -83,22 +93,22 @@ def process_benchmax_rule_based_benchmark(benchmark_name, model, load_data_func,
                 prompts = []
                 for example in dataset:
                     p = build_chat_generation_prompt(
-                        text=example["prompt"],
+                        text=example[prompt_field],
                         tokenizer=model.tokenizer,
                         prompt_library=prompt_library,
                         prompt_language=actual_prompt_lang,
                         benchmark_name=benchmark_name if prompt_source == "benchmark" else None,
-                        task_key="benchmax_rule_based",
+                        task_key="benchmax",
                     )
                     prompts.append(p)
 
                 # Generate with efficiency metrics
                 responses, efficiency_metrics = model.generate(prompts)
                 
-                inst_follow_accs = compute_inst_follow_acc(dataset, responses)
+                result_dict = metric_fn(dataset, responses, lang_code)
 
-                all_inst_follow_score[lang_code] = inst_follow_accs.copy()
-                all_inst_follow_score[lang_code].update({
+                all_scores[lang_code] = result_dict.copy()
+                all_scores[lang_code].update({
                     "num_samples": len(dataset),
                     "prompt_language": actual_prompt_lang,
                     "prompt_source": prompt_source
@@ -110,7 +120,7 @@ def process_benchmax_rule_based_benchmark(benchmark_name, model, load_data_func,
                         "prompt_language": actual_prompt_lang,
                         "prompt_source": prompt_source,
                         "num_samples": len(dataset),
-                        **inst_follow_accs,
+                        **result_dict,
                         "generated_tokens": efficiency_metrics["generated_tokens"],
                         "total_time_seconds": efficiency_metrics["total_time"],
                         "prefill_time_seconds": efficiency_metrics["prefill_time"],
@@ -124,9 +134,14 @@ def process_benchmax_rule_based_benchmark(benchmark_name, model, load_data_func,
                     csv_file = os.path.join(benchmark_output_dir, f"{lang_code}.tsv")
                     with open(csv_file, "w", newline="", encoding="utf-8") as cf:
                         writer = csv.writer(cf, delimiter="\t", lineterminator="\n", quoting=csv.QUOTE_MINIMAL)
-                        writer.writerow(["Tested Language", "PromptLanguage", "PromptSource", "Prompt", "Instruction_id_list", "Kwargs", "Response"])
-                        for d, r in zip(dataset, responses):
-                            writer.writerow([lang_code, actual_prompt_lang, prompt_source, d["prompt"], d["instruction_id_list"], d["kwargs"], r])
+                        if benchmark_name == "benchmax_rule_based":
+                            writer.writerow(["Tested Language", "PromptLanguage", "PromptSource", "Prompt", "Instruction_id_list", "Kwargs", "Response"])
+                            for d, r in zip(dataset, responses):
+                                writer.writerow([lang_code, actual_prompt_lang, prompt_source, d["prompt"], d["instruction_id_list"], d["kwargs"], r])
+                        elif benchmark_name == "benchmax_math":
+                            writer.writerow(["Tested Language", "PromptLanguage", "PromptSource", "Question", "Answer_number", "Response"])
+                            for d, r in zip(dataset, responses):
+                                writer.writerow([lang_code, actual_prompt_lang, prompt_source, d["question"], d["answer_number"], r])
                     
                     print(f"[{benchmark_name}] Saved results for {lang_code}")
 
@@ -145,26 +160,26 @@ def process_benchmax_rule_based_benchmark(benchmark_name, model, load_data_func,
     }
     update_benchmark_scores(
         output_dir, benchmark_name, model_name, current_time,
-        all_inst_follow_score, "inst_follow_accs", benchmark_params
+        all_scores, metric_str, benchmark_params
     )
         
     # Update efficiency.json if needed
     if efficiency_analysis:
         update_efficiency_results(
             output_dir, benchmark_name, model_name, current_time,
-            all_efficiency_statistics, "inst_follow_accs", benchmark_params
+            all_efficiency_statistics, metric_str, benchmark_params
         )
 
     # Log summary of results
-    if all_inst_follow_score:
-        print(f"[INFO] Completed benchmark '{benchmark_name}' with {len(all_inst_follow_score)} languages")
+    if all_scores:
+        print(f"[INFO] Completed benchmark '{benchmark_name}' with {len(all_scores)} languages")
         if 'num_test_langs' in locals() and 'num_benchmark_langs' in locals():
             print(f"[INFO] Tested {num_test_langs} / {num_benchmark_langs} languages")
     else:
         print(f"[WARN] No scores were generated for benchmark '{benchmark_name}'")
 
     print(f"[{benchmark_name}] All results saved.")
-    return all_inst_follow_score
+    return all_scores
 
 
 @register_benchmark("benchmax_rule_based")
@@ -174,6 +189,18 @@ def benchmax_rule_based_handler(model, **kwargs):
         "benchmax_rule_based",
         model,
         load_benchmax_rule_based_data,
+        lang_config_path,
+        **kwargs
+    )
+
+
+@register_benchmark("benchmax_math")
+def benchmax_math_handler(model, **kwargs):
+    lang_config_path = "benchmark_data_loader/data_langid/benchmax_langs.txt"
+    return process_benchmax_rule_based_benchmark(
+        "benchmax_math",
+        model,
+        load_benchmax_math_data,
         lang_config_path,
         **kwargs
     )

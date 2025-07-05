@@ -16,5 +16,5 @@ from .open_generation import *
 from .comprehension import *
 from .negative_log_likelihood import *
 from .token_classification import *
-from .benchmax_rule_based import *
+from .benchmax_benchmark import *
 # Add other benchmark imports here

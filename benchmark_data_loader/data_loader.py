@@ -1578,3 +1578,18 @@ def load_benchmax_rule_based_data(lang_code, split="train", limit_samples=None):
     except Exception as e:
         print(f"[ERROR] Failed to load new_benchmark for '{lang_code}' from Hugging Face: {e}")
         return []
+
+
+def load_benchmax_math_data(lang_code, split="test", limit_samples=None):
+    print(f"[INFO] Loading new_benchmark for '{lang_code}'")
+    try:
+        dataset = load_dataset("LLaMAX/BenchMAX_Math", lang_code, split=split).to_list()
+
+        if limit_samples is not None:
+            dataset = dataset[:limit_samples]
+
+        return dataset
+
+    except Exception as e:
+        print(f"[ERROR] Failed to load new_benchmark for '{lang_code}' from Hugging Face: {e}")
+        return []

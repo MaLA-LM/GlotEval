@@ -117,7 +117,7 @@ def agg_inst_level_acc(items):
     inst_level_acc = sum(flat_items) / len(flat_items)
     return inst_level_acc
 
-def compute_inst_follow_acc(dataset, results):
+def compute_inst_follow_acc(dataset, responses, lang):
     prompt_level_strict_acc = 0
     inst_level_strict_list = []
     prompt_level_loose_acc = 0
@@ -132,8 +132,8 @@ def compute_inst_follow_acc(dataset, results):
             lang=dataset[i].get("lang", "en")
         )
 
-        out_strict = test_instruction_following_strict(inp, results[i])
-        out_loose = test_instruction_following_loose(inp, results[i])
+        out_strict = test_instruction_following_strict(inp, responses[i])
+        out_loose = test_instruction_following_loose(inp, responses[i])
         prompt_level_strict_acc += out_strict.follow_all_instructions
         inst_level_strict_list.append(out_strict.follow_instruction_list)
         prompt_level_loose_acc += out_loose.follow_all_instructions
