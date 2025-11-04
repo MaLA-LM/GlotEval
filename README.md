@@ -13,6 +13,7 @@ GlotEval is a unified evaluation toolkit designed to benchmark Large Language Mo
 - [🤝 Contributing](#contributing)
 - [📄 License](#license)
 - [📚 Citation](#citation)
+- [📊 Consistency Study (ChrF)](#-consistency-study-chrf)
 
 ------
 
@@ -127,6 +128,17 @@ python main.py \
 
 - Results saved under: `results/<model>/<timestamp>/`
 - Includes: `scores.json`, detailed JSONLs (if enabled)
+
+
+## 📊 Consistency Study (ChrF)
+
+A brief write-up of our FLORES-200 GlotEval ↔ LM Evaluation Harness alignment and the corresponding ChrF scatter plots live in [`Consistency_Study.md`](Consistency_Study.md). Figures are also embedded below for quick reference.
+
+| Eng → X & X → Eng (ChrF) | |
+| --- | --- |
+| ![EMMA-500 L3-8B bi](consistency_plots/EMMA-500_L3-8B_bi-combined.png) | ![EMMA-500 L3-8B mono](consistency_plots/EMMA-500_L3-8B_mono-combined.png) |
+| ![EMMA-500 L3.1-8B bi](consistency_plots/EMMA-500_L3.1-8B_bi-combined.png) | ![EMMA-500 L3.1-8B mono](consistency_plots/EMMA-500_L3.1-8B_mono-combined.png) |
+| ![Llama-3.1-8B](consistency_plots/Llama-3.1-8B-combined.png) | ![Meta-Llama-3-8B](consistency_plots/Meta-Llama-3-8B-combined.png) |
 
 ------
 
